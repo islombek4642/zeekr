@@ -37,7 +37,7 @@ export function formatCurrencyUSD(amount: number): string {
 }
 
 export function formatCurrencyUZS(amountUSD: number, rate: number): string {
-  const uzs = amountUSD * rate;
-  const formatted = new Intl.NumberFormat('uz-UZ').format(Math.round(uzs));
+  const uzs = Math.round(amountUSD * rate);
+  const formatted = uzs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return `${formatted} so'm`;
 }
