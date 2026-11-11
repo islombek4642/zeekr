@@ -154,3 +154,4 @@ export function QuickBookingSection({ models }: QuickBookingProps) {
     </section>
   );
 }
+

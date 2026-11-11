@@ -16,9 +16,9 @@
 
 ---
 
-## ✅ 2. Bajarilgan Vazifalar (Tasks 1–5 — BARCHASI TESTLARDAN O'TGAN)
+## ✅ 2. Bajarilgan Vazifalar (Tasks 1–6 — BARCHASI TESTLARDAN O'TGAN)
 
-Barcha yozilgan 10 ta unit va integratsiya testlari muvaffaqiyatli ishlamoqda (`npx vitest run` -> 6/6 test files passed, 10/10 tests passed).
+Barcha yozilgan **12 ta unit va integratsiya testlari** muvaffaqiyatli ishlamoqda (`npx vitest run` -> 7/7 test files passed, 12/12 tests passed).
 
 1. **Task 1 (Scaffolding):** Next.js 15 App Router, TypeScript, Tailwind CSS, Lucide React, Vitest to'liq sozlandi.
 2. **Task 2 (Database Layer):** Prisma ORM schema yaratildi (`CarModel`, `CarTrim`, `CarColor`, `InventoryItem`, `Lead`, `Setting`, `User`) va `prisma/seed.ts` (Zeekr 001, 007, 009, X, birlamchi sozlamalar, admin) tayyorlandi.
@@ -31,22 +31,19 @@ Barcha yozilgan 10 ta unit va integratsiya testlari muvaffaqiyatli ishlamoqda (`
    - `TechnologySection.tsx`: 800V platforma, SEA arxitektura, xavfsizlik va termal boshqaruv.
    - `QuickBookingSection.tsx`: Bosh sahifaning o'zidan 1 bosqichda test-drayvga yozilish formasi.
    - `/api/leads`: Arizalarni qabul qiluvchi, bazaga saqlovchi va Telegram botga uzatuvchi API endpoint.
+6. **Task 6 (Model Sahifasi & Konfigurator):**
+   - `src/app/(public)/models/[slug]/page.tsx`: Dinamik model sahifasi.
+   - `ColorVisualizer.tsx`: Eksteryer va interyer ranglarini almashtirish imkoniyati.
+   - `SpecsComparison.tsx`: 0-100 km/s, masofa, batareya va quvvat taqqoslovi.
+   - `TrimSelector.tsx`: WE, ME, YOU komplektatsiyalari jadvali.
+   - `LoanCalculator.tsx`: Boshlang'ich to'lov va kredit muddati slayderlari, so'm va dollarda oylik to'lovni avtomatik hisoblovchi annuitet kalkulyatori.
+   - `src/lib/calculator.ts`: Annuitet formulasi kalkulyatori.
 
 ---
 
-## 🚀 3. Qayerdan Davom Etish Kerak (Tasks 6–14)
+## 🚀 3. Qayerdan Davom Etish Kerak (Tasks 7–14)
 
-Reja bo'yicha keyingi qadam — **Task 6** dan boshlash:
-
-### 👉 TASK 6: Model Sahifasi va Interaktiv Konfigurator (`/models/[slug]`)
-- **Yaratilishi kerak bo'lgan fayllar:**
-  - `src/app/(public)/models/[slug]/page.tsx`
-  - `src/components/models/ColorVisualizer.tsx` (eksteryer/interyer ranglarini almashtirganda fotosurat o'zgarishi)
-  - `src/components/models/SpecsComparison.tsx` (texnik parametrlar)
-  - `src/components/models/TrimSelector.tsx` (WE / ME / YOU komplektatsiyalar jadvali)
-  - `src/components/models/LoanCalculator.tsx` (boshlang'ich to'lov va muddat slayderlari, oylik to'lovni hisoblash)
-  - `src/lib/calculator.ts` (annuitet kredit formulasi)
-- **Test:** `tests/components/calculator.test.ts` (rejadagi Task 6 kodini ko'ring)
+Reja bo'yicha keyingi qadam — **Task 7** dan boshlash:
 
 ### 👉 TASK 7: Ombordagi Mavjud Mashinalar Katalogi (`/inventory`)
 - `src/app/(public)/inventory/page.tsx`, `InventoryFilter.tsx`, `VehicleCard.tsx`, `ReserveModal.tsx`
