@@ -4,41 +4,52 @@ import { getSiteSettings } from '@/lib/settings';
 import { InventoryCatalog } from '@/components/inventory/InventoryCatalog';
 import { ShieldCheck, MapPin } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Mavjud Avtomobillar Saloni — Zeekr Uzbekistan',
   description: 'Toshkent shou-rumida tayyor turgan va yo’lda kelayotgan rasmiy Zeekr avtomobillari. Shaffof narxlar, texnik ko’rsatkichlar va onlayn bron qilish.',
 };
 
 export default async function InventoryPage() {
-  const [items, models, settings] = await Promise.all([
-    prisma.inventoryItem.findMany({
-      where: {
-        status: { in: ['IN_STOCK', 'IN_TRANSIT'] },
-      },
-      include: {
-        trim: {
-          include: {
-            model: true,
+  let items: any[] = [];
+  let models: any[] = [];
+  let settings = await getSiteSettings();
+
+  try {
+    const [fetchedItems, fetchedModels] = await Promise.all([
+      prisma.inventoryItem.findMany({
+        where: {
+          status: { in: ['IN_STOCK', 'IN_TRANSIT'] },
+        },
+        include: {
+          trim: {
+            include: {
+              model: true,
+            },
           },
         },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    }),
-    prisma.carModel.findMany({
-      where: { isActive: true },
-      select: {
-        id: true,
-        name: true,
-        slug: true,
-      },
-      orderBy: {
-        orderIndex: 'asc',
-      },
-    }),
-    getSiteSettings(),
-  ]);
+        orderBy: {
+          createdAt: 'desc',
+        },
+      }),
+      prisma.carModel.findMany({
+        where: { isActive: true },
+        select: {
+          id: true,
+          name: true,
+          slug: true,
+        },
+        orderBy: {
+          orderIndex: 'asc',
+        },
+      }),
+    ]);
+    items = fetchedItems;
+    models = fetchedModels;
+  } catch (err) {
+    console.error('Error fetching inventory items from database:', err);
+  }
 
   const usdRate = settings.usd_to_uzs_rate || 12850;
 

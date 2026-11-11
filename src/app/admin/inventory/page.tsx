@@ -4,9 +4,14 @@ import { InventoryTable } from '@/components/admin/InventoryTable';
 import Link from 'next/link';
 import { Plus, Package } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminInventoryPage() {
-  const [items, settings] = await Promise.all([
-    prisma.inventoryItem.findMany({
+  let items: any[] = [];
+  let settings = await getSiteSettings();
+
+  try {
+    items = await prisma.inventoryItem.findMany({
       include: {
         trim: {
           include: {
@@ -22,9 +27,10 @@ export default async function AdminInventoryPage() {
       orderBy: {
         createdAt: 'desc',
       },
-    }),
-    getSiteSettings(),
-  ]);
+    });
+  } catch (err) {
+    console.error('Error fetching admin inventory:', err);
+  }
 
   return (
     <div className="space-y-6">

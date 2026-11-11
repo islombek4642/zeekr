@@ -13,31 +13,41 @@ import {
   AlertCircle,
 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboardPage() {
-  const [
-    totalLeads,
-    newLeads,
-    inStockCount,
-    inTransitCount,
-    recentLeads,
-    settings,
-  ] = await Promise.all([
-    prisma.lead.count(),
-    prisma.lead.count({ where: { status: 'NEW' } }),
-    prisma.inventoryItem.count({ where: { status: 'IN_STOCK' } }),
-    prisma.inventoryItem.count({ where: { status: 'IN_TRANSIT' } }),
-    prisma.lead.findMany({
-      take: 5,
-      orderBy: { createdAt: 'desc' },
-      include: {
-        model: true,
-        inventoryItem: {
-          include: { trim: true },
+  let totalLeads = 0;
+  let newLeads = 0;
+  let inStockCount = 0;
+  let inTransitCount = 0;
+  let recentLeads: any[] = [];
+  let settings = await getSiteSettings();
+
+  try {
+    const [tLeads, nLeads, isCount, itCount, rLeads] = await Promise.all([
+      prisma.lead.count(),
+      prisma.lead.count({ where: { status: 'NEW' } }),
+      prisma.inventoryItem.count({ where: { status: 'IN_STOCK' } }),
+      prisma.inventoryItem.count({ where: { status: 'IN_TRANSIT' } }),
+      prisma.lead.findMany({
+        take: 5,
+        orderBy: { createdAt: 'desc' },
+        include: {
+          model: true,
+          inventoryItem: {
+            include: { trim: true },
+          },
         },
-      },
-    }),
-    getSiteSettings(),
-  ]);
+      }),
+    ]);
+    totalLeads = tLeads;
+    newLeads = nLeads;
+    inStockCount = isCount;
+    inTransitCount = itCount;
+    recentLeads = rLeads;
+  } catch (err) {
+    console.error('Error fetching admin dashboard stats:', err);
+  }
 
   const stats = [
     {

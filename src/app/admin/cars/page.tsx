@@ -4,19 +4,26 @@ import { Plus, Car, Zap, Check, Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import { formatCurrencyUSD } from '@/lib/utils';
 import { toggleCarModelActiveAction } from '@/app/actions/adminCarActions';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminCarsPage() {
-  const models = await prisma.carModel.findMany({
-    include: {
-      trims: true,
-      colors: true,
-      _count: {
-        select: { leads: true },
+  let models: any[] = [];
+  try {
+    models = await prisma.carModel.findMany({
+      include: {
+        trims: true,
+        colors: true,
+        _count: {
+          select: { leads: true },
+        },
       },
-    },
-    orderBy: {
-      orderIndex: 'asc',
-    },
-  });
+      orderBy: {
+        orderIndex: 'asc',
+      },
+    });
+  } catch (err) {
+    console.error('Error fetching admin cars:', err);
+  }
 
   return (
     <div className="space-y-6">

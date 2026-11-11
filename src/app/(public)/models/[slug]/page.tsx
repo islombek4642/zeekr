@@ -9,6 +9,8 @@ import { QuickBookingSection } from '@/components/home/QuickBookingSection';
 import { ArrowLeft, Calendar, ShieldCheck, Check } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 interface ModelPageProps {
   params: Promise<{
     slug: string;
@@ -19,13 +21,18 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
   const { slug } = await params;
   const settings = await getSiteSettings();
 
-  const model = await prisma.carModel.findUnique({
-    where: { slug },
-    include: {
-      trims: true,
-      colors: true,
-    },
-  });
+  let model: any = null;
+  try {
+    model = await prisma.carModel.findUnique({
+      where: { slug },
+      include: {
+        trims: true,
+        colors: true,
+      },
+    });
+  } catch (err) {
+    console.error('Error fetching model detail:', err);
+  }
 
   if (!model) {
     notFound();
@@ -126,7 +133,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {model.trims.map((trim) => (
+              {model.trims.map((trim: any) => (
                 <div
                   key={trim.id}
                   className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
@@ -151,7 +158,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
                     </div>
 
                     <ul className="space-y-2 text-xs text-slate-600">
-                      {trim.features.map((f, idx) => (
+                      {trim.features.map((f: string, idx: number) => (
                         <li key={idx} className="flex items-start gap-2">
                           <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{f}</span>

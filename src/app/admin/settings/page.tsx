@@ -2,6 +2,8 @@ import { getSiteSettings } from '@/lib/settings';
 import { SettingsForm } from '@/components/admin/SettingsForm';
 import { Settings, ShieldCheck } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminSettingsPage() {
   const settings = await getSiteSettings();
 

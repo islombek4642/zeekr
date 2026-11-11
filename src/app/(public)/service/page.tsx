@@ -3,6 +3,8 @@ import { getSiteSettings } from '@/lib/settings';
 import { ShieldCheck, BatteryCharging, Wrench, Zap, CheckCircle2, Phone, Calendar, Clock } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Rasmiy Servis va Kafolat — Zeekr Uzbekistan',
   description: 'Zeekr elektromobillari uchun rasmiy dilerlik kafolati (8 yil batareya, 5 yil avtomobil) va sertifikatlangan servis xizmatlari.',

@@ -4,6 +4,8 @@ import { formatPhoneNumber } from '@/lib/utils';
 import { InteractiveMap } from '@/components/contacts/InteractiveMap';
 import { MapPin, Phone, Mail, Clock, Send, ShieldCheck, MessageCircle } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Bog’lanish va Showroom Manzili — Zeekr Uzbekistan',
   description: 'Toshkentdagi rasmiy Zeekr avtosaloni manzili, telefon raqamlari, ish vaqti va lokatsiyasi. Konsultatsiya olish va savollarga javob topish.',

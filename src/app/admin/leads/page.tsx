@@ -2,32 +2,39 @@ import { prisma } from '@/lib/prisma';
 import { LeadTable } from '@/components/admin/LeadTable';
 import { Users, Filter } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminLeadsPage() {
-  const leads = await prisma.lead.findMany({
-    include: {
-      model: {
-        select: {
-          name: true,
+  let leads: any[] = [];
+  try {
+    leads = await prisma.lead.findMany({
+      include: {
+        model: {
+          select: {
+            name: true,
+          },
         },
-      },
-      inventoryItem: {
-        include: {
-          trim: {
-            include: {
-              model: {
-                select: {
-                  name: true,
+        inventoryItem: {
+          include: {
+            trim: {
+              include: {
+                model: {
+                  select: {
+                    name: true,
+                  },
                 },
               },
             },
           },
         },
       },
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-  });
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  } catch (err) {
+    console.error('Error fetching leads:', err);
+  }
 
   return (
     <div className="space-y-6">

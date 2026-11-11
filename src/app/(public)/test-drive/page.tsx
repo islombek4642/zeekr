@@ -4,6 +4,8 @@ import { getSiteSettings } from '@/lib/settings';
 import { TestDriveWizard } from '@/components/test-drive/TestDriveWizard';
 import { Sparkles, MapPin, Clock, ShieldCheck } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Test-drayvga yozilish — Zeekr Uzbekistan',
   description: 'Rasmiy Zeekr avtomobillarini Toshkentda bepul sinovdan o’tkazing. 0-100 km/s tezlanish, intellektual haydash tizimlari va yuqori darajadagi xavfsizlik.',
@@ -17,8 +19,11 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
   const params = await searchParams;
   const preselectedModelSlug = params?.model;
 
-  const [models, settings] = await Promise.all([
-    prisma.carModel.findMany({
+  let models: any[] = [];
+  let settings = await getSiteSettings();
+
+  try {
+    models = await prisma.carModel.findMany({
       where: { isActive: true },
       select: {
         id: true,
@@ -30,9 +35,10 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
         rangeKm: true,
       },
       orderBy: { orderIndex: 'asc' },
-    }),
-    getSiteSettings(),
-  ]);
+    });
+  } catch (err) {
+    console.error('Error fetching models for test-drive:', err);
+  }
 
   return (
     <main className="min-h-screen bg-slate-50/50 pt-24 pb-20">

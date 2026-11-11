@@ -3,15 +3,22 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { InventoryFormClient } from '@/components/admin/InventoryFormClient';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminNewInventoryPage() {
-  const models = await prisma.carModel.findMany({
-    where: { isActive: true },
-    include: {
-      trims: true,
-      colors: true,
-    },
-    orderBy: { orderIndex: 'asc' },
-  });
+  let models: any[] = [];
+  try {
+    models = await prisma.carModel.findMany({
+      where: { isActive: true },
+      include: {
+        trims: true,
+        colors: true,
+      },
+      orderBy: { orderIndex: 'asc' },
+    });
+  } catch (err) {
+    console.error('Error fetching models for new inventory:', err);
+  }
 
   return (
     <div className="max-w-3xl space-y-6">
