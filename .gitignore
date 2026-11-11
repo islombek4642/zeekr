@@ -8,5 +8,6 @@ dist/
 .env.*.local
 .superpowers/
 *.log
+*.tsbuildinfo
 .DS_Store
 

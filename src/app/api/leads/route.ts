@@ -25,7 +25,7 @@ export async function POST(req: Request) {
         preferredDate: preferredDate ? new Date(preferredDate) : null,
         preferredTime: preferredTime || null,
         status: 'NEW',
-        notes: notes || null,
+        managerNotes: notes || null,
         source: source || 'website_api',
       },
       include: {
