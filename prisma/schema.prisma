@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum LeadType {
+  TEST_DRIVE
+  CONSULTATION
+  CAR_RESERVE
+  SERVICE
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  SCHEDULED
+  DEAL_WON
+  CANCELLED
+}
+
+enum VehicleStatus {
+  IN_STOCK
+  IN_TRANSIT
+  RESERVED
+  SOLD
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN") // ADMIN, MANAGER
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model CarModel {
+  id               String          @id @default(cuid())
+  slug             String          @unique // masalan: "zeekr-001", "zeekr-007"
+  name             String          // "Zeekr 001"
+  tagline          String          // "Shooting Brake Elektr Flagmani"
+  basePriceUSD     Float           // 45000
+  acceleration0100 Float           // 3.8
+  rangeKm          Int             // 741
+  batteryKwh       Float           // 100
+  powerHp          Int             // 544
+  topSpeedKmH      Int             // 200
+  chargingTimeMin  Int             // 15
+  mainImage        String
+  galleryImages    String[]        @default([])
+  description      String
+  isActive         Boolean         @default(true)
+  orderIndex       Int             @default(0)
+  trims            CarTrim[]
+  colors           CarColor[]
+  leads            Lead[]
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+}
+
+model CarTrim {
+  id             String          @id @default(cuid())
+  modelId        String
+  model          CarModel        @relation(fields: [modelId], references: [id], onDelete: Cascade)
+  name           String          // "WE Version 100kWh", "YOU 4WD"
+  priceUSD       Float
+  driveType      String          // "RWD" yoki "AWD"
+  rangeKm        Int
+  acceleration   Float
+  features       String[]        @default([])
+  inventoryItems InventoryItem[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model CarColor {
+  id         String   @id @default(cuid())
+  modelId    String
+  model      CarModel @relation(fields: [modelId], references: [id], onDelete: Cascade)
+  name       String   // "Polar White", "Phantom Black"
+  hexCode    String   // "#FFFFFF"
+  imageUrl   String   // shu rangdagi mashina surati
+  isInterior Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model InventoryItem {
+  id            String        @id @default(cuid())
+  trimId        String
+  trim          CarTrim       @relation(fields: [trimId], references: [id], onDelete: Cascade)
+  vinOrCode     String?       @unique
+  exteriorColor String
+  interiorColor String
+  year          Int           @default(2025)
+  status        VehicleStatus @default(IN_STOCK)
+  priceUSD      Float
+  priceUZS      Float?
+  images        String[]      @default([])
+  notes         String?
+  leads         Lead[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Lead {
+  id              String         @id @default(cuid())
+  type            LeadType       @default(TEST_DRIVE)
+  fullName        String
+  phone           String
+  modelId         String?
+  model           CarModel?      @relation(fields: [modelId], references: [id], onDelete: SetNull)
+  inventoryItemId String?
+  inventoryItem   InventoryItem? @relation(fields: [inventoryItemId], references: [id], onDelete: SetNull)
+  preferredDate   DateTime?
+  preferredTime   String?        // "14:00 - 16:00"
+  status          LeadStatus     @default(NEW)
+  managerNotes    String?
+  source          String?        // "website_header", "model_page", "inventory"
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
