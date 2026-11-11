@@ -65,7 +65,7 @@ export function ReserveModal({
         body: JSON.stringify({
           fullName,
           phone,
-          type: 'RESERVATION',
+          type: 'CAR_RESERVE',
           inventoryItemId: item.id,
           modelId: item.trim.model.id,
           source: 'inventory_reserve_modal',

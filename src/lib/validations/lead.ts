@@ -15,7 +15,7 @@ export const leadFormSchema = z.object({
   preferredTime: z.string().optional().nullable(),
   notes: z.string().optional().nullable(),
   source: z.string().optional().nullable(),
-  type: z.enum(['TEST_DRIVE', 'CONSULTATION', 'RESERVATION']).optional(),
+  type: z.enum(['TEST_DRIVE', 'CONSULTATION', 'CAR_RESERVE', 'SERVICE']).optional(),
 });
 
 export type LeadFormData = z.infer<typeof leadFormSchema>;
