@@ -84,3 +84,4 @@ export function SpecsComparison({ specs }: { specs: CarModelSpecs }) {
     </div>
   );
 }
+

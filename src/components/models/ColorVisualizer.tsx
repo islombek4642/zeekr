@@ -133,3 +133,4 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
     </div>
   );
 }
+

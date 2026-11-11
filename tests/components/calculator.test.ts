@@ -31,3 +31,4 @@ describe('Auto Loan / Leasing Calculator', () => {
     expect(zeroInterest.monthlyUSD).toBe(1000);
   });
 });
+

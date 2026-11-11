@@ -134,3 +134,4 @@ export function LoanCalculator({ carPriceUSD, rate, apr }: LoanCalculatorProps) 
     </div>
   );
 }
+

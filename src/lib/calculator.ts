@@ -65,3 +65,4 @@ export function calculateMonthlyLoanPayment(params: LoanCalculationParams): Loan
     totalInterestUSD,
   };
 }
+

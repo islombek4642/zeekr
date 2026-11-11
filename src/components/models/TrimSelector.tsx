@@ -95,3 +95,4 @@ export function TrimSelector({ trims, selectedTrim, onSelectTrim, rate }: TrimSe
     </div>
   );
 }
+
