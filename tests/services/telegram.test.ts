@@ -30,3 +30,4 @@ describe('Telegram Notification Service', () => {
     expect(message).toContain('ZEEKR007-UZ-001');
   });
 });
+

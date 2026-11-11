@@ -13,3 +13,4 @@ describe('Database Models & Relations', () => {
     expect(prisma.user).toBeDefined();
   });
 });
+

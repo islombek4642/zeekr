@@ -65,3 +65,4 @@ export function getContactDisplayInfo(settings: SiteSettings) {
     hours: settings.working_hours,
   };
 }
+

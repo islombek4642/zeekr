@@ -20,3 +20,4 @@ describe('Site Settings Service', () => {
     expect(parsed.primary_phone).toBe(DEFAULT_SETTINGS.primary_phone);
   });
 });
+

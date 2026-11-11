@@ -15,3 +15,4 @@ export interface SiteSettings {
 }
 
 export type SettingKey = keyof SiteSettings;
+

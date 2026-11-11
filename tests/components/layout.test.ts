@@ -11,3 +11,4 @@ describe('Layout Formatting Utilities', () => {
     expect(formatPhoneNumber('12345')).toBe('12345');
   });
 });
+
