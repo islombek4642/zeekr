@@ -56,13 +56,13 @@ export async function updateSiteSettings(updates: Partial<SiteSettings>): Promis
   }
 }
 
-export function getContactDisplayInfo(settings: SiteSettings) {
+export function getContactDisplayInfo(settings: Partial<SiteSettings> = {}) {
   return {
-    address: settings.showroom_address,
-    phone: settings.primary_phone,
-    secondaryPhone: settings.secondary_phone,
-    email: settings.contact_email,
-    hours: settings.working_hours,
+    address: settings.showroom_address || '',
+    phone: settings.primary_phone || '',
+    secondaryPhone: settings.secondary_phone || '',
+    email: settings.contact_email || '',
+    hours: settings.working_hours || '',
   };
 }
 
