@@ -19,3 +19,4 @@ describe('Production Readiness & Vercel Configuration', () => {
     expect(envExample).toContain('JWT_SECRET');
   });
 });
+

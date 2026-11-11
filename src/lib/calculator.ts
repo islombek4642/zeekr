@@ -17,6 +17,24 @@ export interface LoanCalculationResult {
 export function calculateMonthlyLoanPayment(params: LoanCalculationParams): LoanCalculationResult {
   const { carPriceUSD, downPaymentPercent, termMonths, annualInterestRatePercent } = params;
 
+  if (
+    !carPriceUSD ||
+    isNaN(carPriceUSD) ||
+    carPriceUSD <= 0 ||
+    !termMonths ||
+    isNaN(termMonths) ||
+    termMonths <= 0
+  ) {
+    return {
+      carPriceUSD: Number.isFinite(carPriceUSD) ? carPriceUSD : 0,
+      downPaymentUSD: 0,
+      loanAmountUSD: 0,
+      monthlyUSD: 0,
+      totalRepaymentUSD: 0,
+      totalInterestUSD: 0,
+    };
+  }
+
   const downPaymentUSD = Math.round((carPriceUSD * downPaymentPercent) / 100);
   const loanAmountUSD = carPriceUSD - downPaymentUSD;
 

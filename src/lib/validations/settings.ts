@@ -17,3 +17,4 @@ export const settingsFormSchema = z.object({
 });
 
 export type SettingsFormData = z.infer<typeof settingsFormSchema>;
+

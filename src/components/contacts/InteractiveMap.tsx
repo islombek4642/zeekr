@@ -75,3 +75,4 @@ export function InteractiveMap({ mapUrl, address }: InteractiveMapProps) {
     </div>
   );
 }
+

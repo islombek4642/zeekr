@@ -29,3 +29,4 @@ describe('Car Model Admin Validation', () => {
     expect(result.success).toBe(false);
   });
 });
+

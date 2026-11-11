@@ -28,12 +28,15 @@ O'zbekistondagi Zeekr premium elektromobillari dilerlik markazi uchun yaratilgan
 ## 🚀 Ishga Tushirish (Local Setup)
 
 ### 1. Bog'liqliklarni o'rnatish
+
 ```bash
 npm install
 ```
 
 ### 2. Muhit o'zgaruvchilari (`.env`)
+
 `.env.example` faylidan nusxa olib `.env` yarating:
+
 ```env
 DATABASE_URL="postgresql://user:password@host:5432/zeekr_db?pgbouncer=true"
 DIRECT_URL="postgresql://user:password@host:5432/zeekr_db"
@@ -43,6 +46,7 @@ TELEGRAM_CHAT_ID="-1001234567890"
 ```
 
 ### 3. Ma'lumotlar bazasi va Seeder
+
 ```bash
 # Prisma klientini generatsiya qilish
 npm run prisma:generate
@@ -55,9 +59,11 @@ npx prisma db seed
 ```
 
 ### 4. Dasturni ishga tushirish
+
 ```bash
 npm run dev
 ```
+
 Sayt `http://localhost:3000` manzilida ochiladi.
 
 ---
@@ -69,6 +75,7 @@ Sayt `http://localhost:3000` manzilida ochiladi.
 - **Birlamchi Parol:** `ZeekrAdmin2026!`
 
 Admin panel orqali quyidagilar boshqariladi:
+
 1. **Arizalar & Leads CRM (`/admin/leads`):** Test-drayv va bron qilish arizalari, statuslar voronkasi (`Yangi` ➔ `Bog'lanildi` ➔ `Belgilandi` ➔ `Shartnoma qilindi` ➔ `Bekor qilindi`), menejer izohlari.
 2. **Modellar Katalogi (`/admin/cars`):** Zeekr 001, 007, 009, X modellarini faollashtirish, yashirish yoki yangi model qo'shish.
 3. **Ombordagi Mashinalar (`/admin/inventory`):** Salonda bor yoki yo'ldagi avtomobillarni VIN kodi, rangi, yili va narxi bilan kiritish.
@@ -79,6 +86,7 @@ Admin panel orqali quyidagilar boshqariladi:
 ## 🧪 Testlarni Ishga Tushirish
 
 Loyihadagi barcha testlar Vitest yordamida avtomatlashtirilgan:
+
 ```bash
 # Barcha testlarni bir martalik tekshiruvdan o'tkazish
 npm test

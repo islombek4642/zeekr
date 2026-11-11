@@ -52,3 +52,4 @@ export async function logoutAdminAction() {
   cookieStore.delete('admin_token');
   redirect('/admin/login');
 }
+

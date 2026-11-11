@@ -3,9 +3,18 @@
 import { updateSiteSettings } from '@/lib/settings';
 import { settingsFormSchema, SettingsFormData } from '@/lib/validations/settings';
 import { revalidatePath } from 'next/cache';
+import { getAdminSession } from '@/lib/auth';
 
 export async function updateSettingsAction(input: SettingsFormData) {
   try {
+    const session = await getAdminSession();
+    if (!session) {
+      return {
+        success: false,
+        error: 'Ruxsat berilmagan: administrator sessiyasi topilmadi',
+      };
+    }
+
     const parsed = settingsFormSchema.safeParse(input);
     if (!parsed.success) {
       return {
@@ -32,3 +41,4 @@ export async function updateSettingsAction(input: SettingsFormData) {
     };
   }
 }
+

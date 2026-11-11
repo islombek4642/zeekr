@@ -279,3 +279,4 @@ export function InventoryFormClient({ models }: InventoryFormClientProps) {
     </form>
   );
 }
+

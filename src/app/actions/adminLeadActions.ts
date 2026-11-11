@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { isValidStatusTransition } from '@/lib/lead-workflow';
+import { getAdminSession } from '@/lib/auth';
 
 export async function updateLeadStatusAction(
   leadId: string,
@@ -10,6 +11,11 @@ export async function updateLeadStatusAction(
   managerNote?: string
 ) {
   try {
+    const session = await getAdminSession();
+    if (!session) {
+      return { success: false, error: 'Ruxsat berilmagan: administrator sessiyasi topilmadi' };
+    }
+
     const existing = await prisma.lead.findUnique({
       where: { id: leadId },
     });
@@ -48,3 +54,4 @@ export async function updateLeadStatusAction(
     return { success: false, error: err.message || 'Statusni yangilashda xatolik' };
   }
 }
+

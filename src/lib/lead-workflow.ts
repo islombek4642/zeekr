@@ -14,3 +14,4 @@ export function isValidStatusTransition(current: string, next: string): boolean 
   if (!allowed) return false;
   return allowed.includes(next as LeadStatusType);
 }
+

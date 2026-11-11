@@ -10,6 +10,14 @@ export interface LeadMessagePayload {
   source?: string | null;
 }
 
+export function escapeHtml(str: string): string {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 export function formatLeadTelegramMessage(payload: LeadMessagePayload): string {
   const typeMap: Record<string, string> = {
     TEST_DRIVE: '🚗 Yangi Test-drayv arizasi',
@@ -21,28 +29,28 @@ export function formatLeadTelegramMessage(payload: LeadMessagePayload): string {
   const header = typeMap[payload.type] || '📩 Yangi Ariza';
   const lines: string[] = [
     `<b>${header}</b>\n`,
-    `👤 <b>Mijoz:</b> ${payload.fullName}`,
-    `📞 <b>Telefon:</b> ${payload.phone}`,
+    `👤 <b>Mijoz:</b> ${escapeHtml(payload.fullName)}`,
+    `📞 <b>Telefon:</b> ${escapeHtml(payload.phone)}`,
   ];
 
   if (payload.modelName) {
-    lines.push(`🚙 <b>Model:</b> ${payload.modelName}`);
+    lines.push(`🚙 <b>Model:</b> ${escapeHtml(payload.modelName)}`);
   }
 
   if (payload.vinOrCode) {
-    lines.push(`🔢 <b>VIN / Kod:</b> ${payload.vinOrCode}`);
+    lines.push(`🔢 <b>VIN / Kod:</b> ${escapeHtml(payload.vinOrCode)}`);
   }
 
   if (payload.preferredDate) {
-    lines.push(`📅 <b>Sana:</b> ${payload.preferredDate}`);
+    lines.push(`📅 <b>Sana:</b> ${escapeHtml(payload.preferredDate)}`);
   }
 
   if (payload.preferredTime) {
-    lines.push(`⏰ <b>Vaqt:</b> ${payload.preferredTime}`);
+    lines.push(`⏰ <b>Vaqt:</b> ${escapeHtml(payload.preferredTime)}`);
   }
 
   if (payload.notes) {
-    lines.push(`📝 <b>Izoh:</b> ${payload.notes}`);
+    lines.push(`📝 <b>Izoh:</b> ${escapeHtml(payload.notes)}`);
   }
 
   lines.push(`\n🌐 <i>Sayt: Zeekr Uzbekistan</i>`);
@@ -58,13 +66,14 @@ export async function sendTelegramLeadNotification(
   const chat = chatId || process.env.TELEGRAM_CHAT_ID;
 
   if (!token || !chat || token.includes('demo') || token === '') {
-    console.log('[Telegram Notification Simulated]:', formatLeadTelegramMessage(payload));
-    return true;
+    // If not configured, safely return false without throwing
+    return false;
   }
 
   try {
     const text = formatLeadTelegramMessage(payload);
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -75,11 +84,9 @@ export async function sendTelegramLeadNotification(
       }),
     });
 
-    const data = await res.json();
-    return data.ok === true;
-  } catch (error) {
-    console.error('Failed to send Telegram lead notification:', error);
+    return res.ok;
+  } catch (err) {
+    console.error('Failed to dispatch telegram lead notification:', err);
     return false;
   }
 }
-

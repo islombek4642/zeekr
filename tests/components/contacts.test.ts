@@ -20,3 +20,4 @@ describe('Dynamic Contacts Helper', () => {
     expect(display.phone).toBe('');
   });
 });
+

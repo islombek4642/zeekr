@@ -29,6 +29,9 @@ export function formatPhoneNumber(phone: string): string {
 }
 
 export function formatCurrencyUSD(amount: number): string {
+  if (amount === undefined || amount === null || isNaN(amount)) {
+    return '$0';
+  }
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -37,6 +40,16 @@ export function formatCurrencyUSD(amount: number): string {
 }
 
 export function formatCurrencyUZS(amountUSD: number, rate: number): string {
+  if (
+    amountUSD === undefined ||
+    amountUSD === null ||
+    isNaN(amountUSD) ||
+    rate === undefined ||
+    rate === null ||
+    isNaN(rate)
+  ) {
+    return "0 so'm";
+  }
   const uzs = Math.round(amountUSD * rate);
   const formatted = uzs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return `${formatted} so'm`;

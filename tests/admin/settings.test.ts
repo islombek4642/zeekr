@@ -32,3 +32,4 @@ describe('Admin Settings Form Validation', () => {
     expect(result.success).toBe(true);
   });
 });
+

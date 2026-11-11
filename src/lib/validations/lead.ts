@@ -1,13 +1,25 @@
 import { z } from 'zod';
 
+export function normalizePhoneNumber(phone: string): string {
+  if (!phone) return '';
+  const digits = phone.replace(/\D/g, '');
+  if (digits.length === 9) {
+    return `+998${digits}`;
+  }
+  if (digits.length === 12 && digits.startsWith('998')) {
+    return `+${digits}`;
+  }
+  return phone.trim();
+}
+
 export const leadFormSchema = z.object({
   fullName: z.string().min(2, "Ism kamida 2 ta belgidan iborat bo'lishi kerak"),
   phone: z
     .string()
     .min(9, "Telefon raqami kamida 9 ta raqam bo'lishi kerak")
-    .transform((val) => val.replace(/[\s\-\(\)]/g, ''))
-    .refine((val) => /^(\+?998)?[0-9]{9}$/.test(val), {
-      message: "Noto'g'ri telefon raqami formati (+998XXXXXXXXX)",
+    .transform((val) => normalizePhoneNumber(val))
+    .refine((val) => /^\+998[0-9]{9}$/.test(val), {
+      message: "Noto'g'ri O'zbekiston telefon raqami formati (+998XXXXXXXXX)",
     }),
   modelId: z.string().optional().nullable(),
   inventoryItemId: z.string().optional().nullable(),

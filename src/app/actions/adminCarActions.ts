@@ -3,9 +3,13 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { carModelFormSchema, inventoryItemFormSchema, CarModelFormData, InventoryItemFormData } from '@/lib/validations/car';
+import { getAdminSession } from '@/lib/auth';
 
 export async function toggleCarModelActiveAction(modelId: string, isActive: boolean) {
   try {
+    const session = await getAdminSession();
+    if (!session) return { success: false, error: 'Ruxsat berilmagan' };
+
     await prisma.carModel.update({
       where: { id: modelId },
       data: { isActive },
@@ -21,6 +25,9 @@ export async function toggleCarModelActiveAction(modelId: string, isActive: bool
 
 export async function createCarModelAction(input: CarModelFormData) {
   try {
+    const session = await getAdminSession();
+    if (!session) return { success: false, error: 'Ruxsat berilmagan' };
+
     const parsed = carModelFormSchema.safeParse(input);
     if (!parsed.success) {
       return { success: false, error: parsed.error.issues.map((i) => i.message).join(', ') };
@@ -75,6 +82,9 @@ export async function createCarModelAction(input: CarModelFormData) {
 
 export async function createInventoryItemAction(input: InventoryItemFormData) {
   try {
+    const session = await getAdminSession();
+    if (!session) return { success: false, error: 'Ruxsat berilmagan' };
+
     const parsed = inventoryItemFormSchema.safeParse(input);
     if (!parsed.success) {
       return { success: false, error: parsed.error.issues.map((i) => i.message).join(', ') };
@@ -107,6 +117,9 @@ export async function createInventoryItemAction(input: InventoryItemFormData) {
 
 export async function updateInventoryStatusAction(itemId: string, status: string) {
   try {
+    const session = await getAdminSession();
+    if (!session) return { success: false, error: 'Ruxsat berilmagan' };
+
     await prisma.inventoryItem.update({
       where: { id: itemId },
       data: { status: status as any },
@@ -122,6 +135,9 @@ export async function updateInventoryStatusAction(itemId: string, status: string
 
 export async function deleteInventoryItemAction(itemId: string) {
   try {
+    const session = await getAdminSession();
+    if (!session) return { success: false, error: 'Ruxsat berilmagan' };
+
     await prisma.inventoryItem.delete({
       where: { id: itemId },
     });
@@ -133,3 +149,4 @@ export async function deleteInventoryItemAction(itemId: string) {
     return { success: false, error: err.message };
   }
 }
+

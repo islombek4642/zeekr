@@ -169,3 +169,4 @@ export function InventoryTable({ initialItems, usdRate }: InventoryTableProps) {
     </div>
   );
 }
+

@@ -32,3 +32,4 @@ export const inventoryItemFormSchema = z.object({
 
 export type CarModelFormData = z.infer<typeof carModelFormSchema>;
 export type InventoryItemFormData = z.infer<typeof inventoryItemFormSchema>;
+

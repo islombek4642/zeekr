@@ -47,3 +47,4 @@ export function LeadStatusBadge({ status }: { status: string }) {
     </span>
   );
 }
+

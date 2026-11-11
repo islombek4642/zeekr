@@ -31,3 +31,4 @@ describe('Inventory Filter Utility', () => {
     expect(filtered.length).toBe(3);
   });
 });
+

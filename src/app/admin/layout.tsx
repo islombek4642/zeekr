@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers';
+import { getAdminSession } from '@/lib/auth';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
 
 export default async function AdminLayout({
@@ -6,10 +6,9 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const token = cookieStore.get('admin_token')?.value;
+  const session = await getAdminSession();
 
-  if (!token) {
+  if (!session) {
     return <div className="min-h-screen bg-slate-950">{children}</div>;
   }
 
@@ -23,7 +22,7 @@ export default async function AdminLayout({
           </div>
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-semibold text-slate-700">Bosh Menejer</span>
+            <span className="text-xs font-semibold text-slate-700">{session.email}</span>
           </div>
         </header>
         <main className="flex-1 p-6 sm:p-8 overflow-y-auto">
@@ -33,3 +32,4 @@ export default async function AdminLayout({
     </div>
   );
 }
+

@@ -378,3 +378,4 @@ export function LeadTable({ initialLeads }: LeadTableProps) {
     </div>
   );
 }
+

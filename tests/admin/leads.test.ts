@@ -11,3 +11,4 @@ describe('Lead Status Workflow', () => {
     expect(isValidStatusTransition('CANCELLED', 'NEW')).toBe(false);
   });
 });
+
