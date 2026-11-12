@@ -15,6 +15,8 @@ import {
   Save,
   CheckCircle2,
   AlertCircle,
+  Database,
+  RefreshCw,
 } from 'lucide-react';
 
 interface SettingsFormProps {
@@ -27,11 +29,43 @@ export function SettingsForm({ initialSettings }: SettingsFormProps) {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  const [isSeeding, setIsSeeding] = useState(false);
+  const [seedSuccessMsg, setSeedSuccessMsg] = useState('');
+  const [seedErrorMsg, setSeedErrorMsg] = useState('');
+
   const handleChange = (key: keyof SiteSettings, value: any) => {
     setFormData((prev) => ({
       ...prev,
       [key]: value,
     }));
+  };
+
+  const handleSeedDatabase = async () => {
+    if (!confirm("Ma'lumotlar bazasini JSON fayllar bilan to'ldirishni (Prisma Seed) tasdiqlaysizmi?")) {
+      return;
+    }
+    setSeedSuccessMsg('');
+    setSeedErrorMsg('');
+    setIsSeeding(true);
+
+    try {
+      const res = await fetch('/api/admin/seed', {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setSeedErrorMsg(data.error || "Bazani to'ldirishda xatolik yuz berdi");
+      } else {
+        const details = data.result
+          ? ` (${data.result.modelsCount} ta model, ${data.result.trimsCount} ta trim, ${data.result.colorsCount} ta rang, ${data.result.inventoryCount} ta mashina)`
+          : '';
+        setSeedSuccessMsg(`Baza muvaffaqiyatli to'ldirildi!${details}`);
+      }
+    } catch (err: any) {
+      setSeedErrorMsg(err.message || 'Tarmoq xatosi yuz berdi');
+    } finally {
+      setIsSeeding(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -329,6 +363,51 @@ export function SettingsForm({ initialSettings }: SettingsFormProps) {
         </div>
       </div>
 
+      {/* 5. DATABASE SYNCHRONIZATION & SEED */}
+      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
+        <div className="border-b border-slate-100 pb-4">
+          <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Database className="w-4 h-4 text-emerald-600" />
+            Ma&apos;lumotlar Bazasi &amp; JSON Sinxronizatsiyasi
+          </h2>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Loyiha ildizidagi <code className="bg-slate-100 px-1 py-0.5 rounded text-slate-800">data/*.json</code> fayllardan barcha modellar, komplektatsiyalar, ranglar, inventar va sozlamalarni Prisma Postgres bazasiga to&apos;ldirish.
+          </p>
+        </div>
+
+        {seedSuccessMsg && (
+          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+            <span>{seedSuccessMsg}</span>
+          </div>
+        )}
+
+        {seedErrorMsg && (
+          <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-xs font-semibold text-red-600 flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span>{seedErrorMsg}</span>
+          </div>
+        )}
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+          <div>
+            <div className="text-xs font-bold text-slate-900">1-Klikli Prisma Seed</div>
+            <div className="text-[11px] text-slate-500">
+              Vercel Postgres yoki mahalliy bazada ma&apos;lumotlar bo&apos;sh bo&apos;lganda yoki yangilaganda bir tugma orqali to&apos;ldiradi.
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={handleSeedDatabase}
+            disabled={isSeeding}
+            className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 text-white font-semibold text-xs rounded-xl transition-all shadow-sm flex items-center gap-2 whitespace-nowrap"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${isSeeding ? 'animate-spin' : ''}`} />
+            <span>{isSeeding ? "To'ldirilmoqda..." : "Bazani to'ldirish (Prisma Seed)"}</span>
+          </button>
+        </div>
+      </div>
+
       {/* SAVE BUTTON */}
       <div className="flex justify-end pt-2">
         <button
@@ -344,4 +423,3 @@ export function SettingsForm({ initialSettings }: SettingsFormProps) {
     </form>
   );
 }
-
