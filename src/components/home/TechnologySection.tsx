@@ -1,28 +1,15 @@
-import { Zap, ShieldCheck, Cpu, Flame } from 'lucide-react';
+import { Zap, ShieldCheck, Cpu, Flame, Sparkles } from 'lucide-react';
+import { getTechnologies } from '@/lib/data-provider';
+
+const ICON_MAP: Record<string, any> = {
+  Zap,
+  Cpu,
+  ShieldCheck,
+  Flame,
+};
 
 export function TechnologySection() {
-  const techCards = [
-    {
-      icon: Zap,
-      title: '800V Yuqori Tezlikdagi Arxitektura',
-      desc: '15 daqiqada 500 km gacha quvvatlanish imkoniyati. Zaryadlash stansiyasida uzoq kutish davri ortda qoldi.',
-    },
-    {
-      icon: Cpu,
-      title: 'Geely SEA (Sustainable Experience Architecture)',
-      desc: 'Volvo va Geely muhandislari tomonidan ishlab chiqilgan modulli intellektual elektr platformasi.',
-    },
-    {
-      icon: ShieldCheck,
-      title: '5 Yulduzli Xavfsizlik Kafolati',
-      desc: 'Euro NCAP xavfsizlik sinovlaridan eng yuqori ball. Kuchaytirilgan titan-alyuminiy batareya himoyasi.',
-    },
-    {
-      icon: Flame,
-      title: 'Termal Boshqaruv & Qishki Rejim',
-      desc: 'O‘zbekistonning yozgi issiq va qishki sovuq iqlimiga to‘liq moslashtirilgan batareya haroratini boshqarish tizimi.',
-    },
-  ];
+  const techCards = getTechnologies();
 
   return (
     <section className="py-24 bg-slate-950 text-white">
@@ -42,7 +29,7 @@ export function TechnologySection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {techCards.map((card, i) => {
-            const Icon = card.icon;
+            const Icon = ICON_MAP[card.icon] || Sparkles;
             return (
               <div
                 key={i}
@@ -68,4 +55,3 @@ export function TechnologySection() {
     </section>
   );
 }
-

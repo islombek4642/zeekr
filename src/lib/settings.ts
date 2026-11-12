@@ -1,21 +1,17 @@
 import { prisma } from './prisma';
 import { SiteSettings } from '@/types/settings';
+import { getDefaultSettings } from './data-provider';
 
-export const DEFAULT_SETTINGS: SiteSettings = {
-  showroom_address: "Toshkent shahri, Sergeli tumani, Yangi Sergeli ko'chasi, 45-uy",
-  primary_phone: '+998712000000',
-  secondary_phone: '+998901234567',
-  contact_email: 'info@zeekr-auto.uz',
-  working_hours: 'Har kuni 09:00 dan 20:00 gacha',
-  map_iframe_url: 'https://yandex.uz/map-widget/v1/?ll=69.2163%2C41.2255&z=15',
-  telegram_channel: 'https://t.me/zeekr_uzbekistan',
-  instagram_url: 'https://instagram.com/zeekr.uzbekistan',
-  youtube_url: 'https://youtube.com/@zeekruzbekistan',
-  usd_to_uzs_rate: 12850,
-  default_loan_apr: 22,
-  telegram_bot_token: process.env.TELEGRAM_BOT_TOKEN || '',
-  telegram_chat_id: process.env.TELEGRAM_CHAT_ID || '',
-};
+export function getFallbackSettings(): SiteSettings {
+  const defaults = getDefaultSettings();
+  return {
+    ...defaults,
+    telegram_bot_token: process.env.TELEGRAM_BOT_TOKEN || defaults.telegram_bot_token || '',
+    telegram_chat_id: process.env.TELEGRAM_CHAT_ID || defaults.telegram_chat_id || '',
+  };
+}
+
+export const DEFAULT_SETTINGS: SiteSettings = getFallbackSettings();
 
 export function parseSiteSettings(rawSettings: { key: string; value: string }[]): SiteSettings {
   const result: any = { ...DEFAULT_SETTINGS };
@@ -65,4 +61,3 @@ export function getContactDisplayInfo(settings: Partial<SiteSettings> = {}) {
     hours: settings.working_hours || '',
   };
 }
-
