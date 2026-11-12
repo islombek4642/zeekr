@@ -103,3 +103,4 @@ export async function getInStockVehicles(take = 6) {
       };
     });
 }
+

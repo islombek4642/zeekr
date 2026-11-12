@@ -42,3 +42,4 @@ describe('Categorized JSON Database Validation', () => {
     expect(Number(settings.default_loan_apr)).toBeGreaterThan(0);
   });
 });
+

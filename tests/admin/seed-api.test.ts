@@ -36,3 +36,4 @@ describe('Admin Seed API Endpoint', () => {
     expect(res.status).not.toBe(401);
   });
 });
+
