@@ -1,0 +1,127 @@
+[
+  {
+    "modelSlug": "zeekr-001",
+    "name": "WE Version 100kWh (RWD)",
+    "priceUSD": 44500,
+    "driveType": "RWD",
+    "rangeKm": 741,
+    "acceleration": 5.9,
+    "features": [
+      "100 kVt/s batareya",
+      "Orqa g'ildirakli privod",
+      "Matrix LED chiroqlar",
+      "Yamaha audio tizimi (11 dinamik)"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-001",
+    "name": "ME Version 100kWh (AWD)",
+    "priceUSD": 49500,
+    "driveType": "AWD",
+    "rangeKm": 656,
+    "acceleration": 3.8,
+    "features": [
+      "Ikki motorli to'liq privod",
+      "544 ot kuchi",
+      "3.8 soniyada 100 km/s",
+      "Massaj va ventilyatsiyali o'rindiqlar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-001",
+    "name": "YOU Version 100kWh (AWD Air Suspension)",
+    "priceUSD": 54900,
+    "driveType": "AWD",
+    "rangeKm": 656,
+    "acceleration": 3.8,
+    "features": [
+      "Pnevmatik podveska (balandlikni sozlash)",
+      "Avtomatik eshik ochilish tizimi",
+      "Nappa teri saloni",
+      "Brembo tormoz tizimi"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-007",
+    "name": "Long Range RWD 100kWh",
+    "priceUSD": 36500,
+    "driveType": "RWD",
+    "rangeKm": 870,
+    "acceleration": 5.4,
+    "features": [
+      "870 km CLTC masofa",
+      "Stargate LED ekran",
+      "Qualcomm 8295 chip",
+      "AR-HUD 35.5 dyuym"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-007",
+    "name": "AWD Performance 100kWh",
+    "priceUSD": 42900,
+    "driveType": "AWD",
+    "rangeKm": 770,
+    "acceleration": 2.84,
+    "features": [
+      "0-100 km/s: 2.84 soniya",
+      "CCD elektromagnit podveska",
+      "646 ot kuchi",
+      "21 dyuymli sport disklar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "WE Version 116kWh",
+    "priceUSD": 72000,
+    "driveType": "AWD",
+    "rangeKm": 702,
+    "acceleration": 4.5,
+    "features": [
+      "Sofaro birinchi klass o'rindiqlari",
+      "15.6 dyuymli shift monitori",
+      "Yamaha surround audio (20 dinamik)"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "ME Version 140kWh (CATL Qilin)",
+    "priceUSD": 84000,
+    "driveType": "AWD",
+    "rangeKm": 822,
+    "acceleration": 4.5,
+    "features": [
+      "140 kVt/s jahon rekordi batareyasi",
+      "822 km masofa",
+      "Pnevmatik podveska",
+      "VIP 4-o'rinli yoki 6-o'rinli salon"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "ME Version 5-Seater RWD",
+    "priceUSD": 29500,
+    "driveType": "RWD",
+    "rangeKm": 560,
+    "acceleration": 5.8,
+    "features": [
+      "66 kVt/s batareya",
+      "560 km CLTC",
+      "Ramkasiz oynalar",
+      "5G multimedia"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "YOU Version 4-Seater AWD",
+    "priceUSD": 34500,
+    "driveType": "AWD",
+    "rangeKm": 512,
+    "acceleration": 3.7,
+    "features": [
+      "Zero Gravity o'rindiqlari",
+      "Muzlatgich / isitgich kamerasi",
+      "Suriluvchi 14.6 dyuym ekran",
+      "428 ot kuchi"
+    ]
+  }
+]

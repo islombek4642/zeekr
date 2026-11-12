@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "Zap",
+    "title": "800V Yuqori Tezlikdagi Arxitektura",
+    "desc": "15 daqiqada 500 km gacha quvvatlanish imkoniyati. Zaryadlash stansiyasida uzoq kutish davri ortda qoldi."
+  },
+  {
+    "icon": "Cpu",
+    "title": "Geely SEA (Sustainable Experience Architecture)",
+    "desc": "Volvo va Geely muhandislari tomonidan ishlab chiqilgan modulli intellektual elektr platformasi."
+  },
+  {
+    "icon": "ShieldCheck",
+    "title": "5 Yulduzli Xavfsizlik Kafolati",
+    "desc": "Euro NCAP xavfsizlik sinovlaridan eng yuqori ball. Kuchaytirilgan titan-alyuminiy batareya himoyasi."
+  },
+  {
+    "icon": "Flame",
+    "title": "Termal Boshqaruv & Qishki Rejim",
+    "desc": "O‘zbekistonning yozgi issiq va qishki sovuq iqlimiga to‘liq moslashtirilgan batareya haroratini boshqarish tizimi."
+  }
+]

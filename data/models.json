@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "zeekr-001",
+    "name": "Zeekr 001",
+    "tagline": "Shooting Brake elektr flagmani",
+    "basePriceUSD": 44500,
+    "acceleration0100": 3.8,
+    "rangeKm": 741,
+    "batteryKwh": 100,
+    "powerHp": 544,
+    "topSpeedKmH": 200,
+    "chargingTimeMin": 15,
+    "mainImage": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "description": "Zeekr 001 — zamonaviy aerodinamik Shooting Brake kuzovi, 800V yuqori tezlikdagi zaryadlash va pnevmatik osma bilan jihozlangan premium sportbek.",
+    "orderIndex": 1,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-007",
+    "name": "Zeekr 007",
+    "tagline": "Kelajak avlodi hashamatli sedani",
+    "basePriceUSD": 36500,
+    "acceleration0100": 2.84,
+    "rangeKm": 870,
+    "batteryKwh": 100,
+    "powerHp": 646,
+    "topSpeedKmH": 210,
+    "chargingTimeMin": 15,
+    "mainImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "description": "Zeekr 007 — 90 dyuymli Zeekr Stargate interaktiv chiroqlar paneli, 800V Golden Battery texnologiyasi va 15 daqiqada 500 km quvvat oluvchi super sedan.",
+    "orderIndex": 2,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-009",
+    "name": "Zeekr 009",
+    "tagline": "Birinchi klass elektr lyuks miniveni",
+    "basePriceUSD": 72000,
+    "acceleration0100": 4.5,
+    "rangeKm": 822,
+    "batteryKwh": 140,
+    "powerHp": 544,
+    "topSpeedKmH": 190,
+    "chargingTimeMin": 28,
+    "mainImage": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "description": "Zeekr 009 — xususiy samolyot qulayligidagi ikkinchi qator Sofaro kreslolari, CATL Qilin batareyasi va dunyodagi eng xavfsiz MPV korpusi.",
+    "orderIndex": 3,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-x",
+    "name": "Zeekr X",
+    "tagline": "Shahar uchun ixcham premium krossover",
+    "basePriceUSD": 29500,
+    "acceleration0100": 3.7,
+    "rangeKm": 560,
+    "batteryKwh": 66,
+    "powerHp": 428,
+    "topSpeedKmH": 185,
+    "chargingTimeMin": 20,
+    "mainImage": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "description": "Zeekr X — ramkasiz eshiklar, harakatlanuvchi markaziy ekran va mini-muzlatgichga ega urban premium krossover.",
+    "orderIndex": 4,
+    "isActive": true
+  }
+]

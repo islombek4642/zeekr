@@ -1,0 +1,62 @@
+[
+  {
+    "vinOrCode": "ZEEKR001-UZ-2026-001",
+    "modelSlug": "zeekr-001",
+    "trimName": "YOU Version 100kWh (AWD Air Suspension)",
+    "exteriorColor": "Phantom Black",
+    "interiorColor": "Krem & Kulrang Nappa",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 54900,
+    "priceUZS": 705465000,
+    "images": [
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "notes": "Toshkent salonida tayyor turibdi, bojxona to'langan."
+  },
+  {
+    "vinOrCode": "ZEEKR007-UZ-2026-002",
+    "modelSlug": "zeekr-007",
+    "trimName": "AWD Performance 100kWh",
+    "exteriorColor": "Dawn Silver",
+    "interiorColor": "Obsidian Black",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 42900,
+    "priceUZS": 551265000,
+    "images": [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "notes": "Yangi kelgan, ko'rgazma zalida taqdimotga tayyor."
+  },
+  {
+    "vinOrCode": "ZEEKR009-UZ-2026-003",
+    "modelSlug": "zeekr-009",
+    "trimName": "ME Version 140kWh (CATL Qilin)",
+    "exteriorColor": "Crystal White",
+    "interiorColor": "Sofaro Nappa Lux",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 84000,
+    "priceUZS": 1079400000,
+    "images": [
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "notes": "VIP komplektatsiya, 140 kVt/s akkumulyator."
+  },
+  {
+    "vinOrCode": "ZEEKRX-UZ-2026-004",
+    "modelSlug": "zeekr-x",
+    "trimName": "YOU Version 4-Seater AWD",
+    "exteriorColor": "Berlin Gray",
+    "interiorColor": "Urban White",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 34500,
+    "priceUZS": 443325000,
+    "images": [
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "notes": "Muzlatgich va suriluvchi ekranli 4-o'rinli versiya."
+  }
+]
