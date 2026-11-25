@@ -347,14 +347,16 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
   // F4: Public Catalog/Detail/Test-Drive JSON Fallback & ?reserve= Modal (6 tests)
   // =========================================================================
   describe('F4: JSON Fallback & /inventory?reserve= Modal', () => {
-    it('T1-F4-01: With DB down, getCarModels() returns 4 active models sorted by orderIndex', async () => {
+    it('T1-F4-01: With DB down, getCarModels() returns 6 active models sorted by orderIndex', async () => {
       simulateDbDown(true);
       const models = await getCarModels();
       expect(models.map((m: any) => m.slug)).toEqual([
         'zeekr-001',
         'zeekr-007',
-        'zeekr-009',
+        'zeekr-7x',
         'zeekr-x',
+        'zeekr-009',
+        'zeekr-9x',
       ]);
     });
 
@@ -419,8 +421,8 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
   // =========================================================================
   describe('F5: Admin Form Relative Asset Paths', () => {
     const validModelPayload = {
-      name: 'Zeekr 7X',
-      slug: 'zeekr-7x',
+      name: 'Zeekr 8X',
+      slug: 'zeekr-8x',
       tagline: 'Premium SUV',
       basePriceUSD: 44000,
       rangeKm: 705,
@@ -730,8 +732,8 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
     it('T1-F8-05: Footer dynamically renders newly added active model from database', async () => {
       await prismaMemoryClient.carModel.create({
         data: {
-          slug: 'zeekr-7x',
-          name: 'Zeekr 7X',
+          slug: 'zeekr-8x',
+          name: 'Zeekr 8X',
           tagline: 'Premium SUV',
           basePriceUSD: 44000,
           acceleration0100: 3.8,
@@ -743,13 +745,13 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
           mainImage: '/images/cars/zeekr-001/main.jpg',
           description: 'Yangi SUV modeli',
           isActive: true,
-          orderIndex: 5,
+          orderIndex: 7,
         },
       });
       const element = await Footer();
       const html = renderComponentHtml(element);
-      expect(html).toContain('/models/zeekr-7x');
-      expect(html).toContain('Zeekr 7X');
+      expect(html).toContain('/models/zeekr-8x');
+      expect(html).toContain('Zeekr 8X');
     });
 
     it('T1-F8-06: Footer renders dynamic contact settings from database', async () => {

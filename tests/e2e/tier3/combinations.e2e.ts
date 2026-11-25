@@ -340,8 +340,8 @@ describe('Tier 3 — Pairwise Cross-Feature Combinations (Parts A × B × C)', (
     setAuthCookie(signValidAdminJwt());
     const actions = await importOptionalModule<Record<string, any>>('src/app/actions/adminCarActions.ts');
     await actions!.createCarModelAction({
-      name: 'Zeekr 7X',
-      slug: 'zeekr-7x',
+      name: 'Zeekr 8X',
+      slug: 'zeekr-8x',
       tagline: 'Dynamic Footer SUV',
       basePriceUSD: 44000,
       rangeKm: 705,
@@ -357,8 +357,8 @@ describe('Tier 3 — Pairwise Cross-Feature Combinations (Parts A × B × C)', (
     });
 
     const footerHtml = renderComponentHtml(await Footer());
-    expect(footerHtml).toContain('/models/zeekr-7x');
-    expect(footerHtml).toContain('Zeekr 7X');
+    expect(footerHtml).toContain('/models/zeekr-8x');
+    expect(footerHtml).toContain('Zeekr 8X');
   });
 
   it('T3-09 (F10 × F7): Model detail booking enforces phone validation, rate-limiting & binds modelId', async () => {

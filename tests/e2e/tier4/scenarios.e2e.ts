@@ -211,13 +211,13 @@ describe('Tier 4 — Realistic End-to-End Application Scenarios (uz & ru)', () =
     expect(updatedLead?.managerNotes).toContain('Boks #2 belgilandi');
   });
 
-  it('T4-S4: Admin local upload -> create Zeekr 7X model + trim + color -> visible on /, Footer & /models/zeekr-7x', async () => {
+  it('T4-S4: Admin local upload -> create Zeekr 8X model + trim + color -> visible on /, Footer & /models/zeekr-8x', async () => {
     const token = signValidAdminJwt();
     setAuthCookie(token);
 
     const pngBytes = Uint8Array.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d]);
     const fd = new FormData();
-    fd.append('file', new File([pngBytes], 'zeekr-7x-hero.png', { type: 'image/png' }));
+    fd.append('file', new File([pngBytes], 'zeekr-8x-hero.png', { type: 'image/png' }));
 
     const uploadRes = await dispatchApiRequest('/api/admin/upload', 'src/app/api/admin/upload/route.ts', {
       method: 'POST',
@@ -235,8 +235,8 @@ describe('Tier 4 — Realistic End-to-End Application Scenarios (uz & ru)', () =
     expect(typeof createColor).toBe('function');
 
     const modelRes = await actions!.createCarModelAction({
-      name: 'Zeekr 7X',
-      slug: 'zeekr-7x',
+      name: 'Zeekr 8X',
+      slug: 'zeekr-8x',
       tagline: 'Oila va sarguzashtlar SUVi',
       basePriceUSD: 44000,
       rangeKm: 705,
@@ -270,14 +270,14 @@ describe('Tier 4 — Realistic End-to-End Application Scenarios (uz & ru)', () =
     });
 
     const home = await renderServerPage('src/app/(public)/page.tsx');
-    expect(home.html).toContain('Zeekr 7X');
+    expect(home.html).toContain('Zeekr 8X');
     expect(home.html).toContain(uploadedUrl);
 
     const footerHtml = renderComponentHtml(await Footer());
-    expect(footerHtml).toContain('/models/zeekr-7x');
+    expect(footerHtml).toContain('/models/zeekr-8x');
 
     const detail = await renderServerPage('src/app/(public)/models/[slug]/page.tsx', {
-      params: Promise.resolve({ slug: 'zeekr-7x' }),
+      params: Promise.resolve({ slug: 'zeekr-8x' }),
     });
     expect(detail.status).toBe(200);
     expect(detail.html).toContain('Long Range AWD');
@@ -485,6 +485,6 @@ describe('Tier 4 — Realistic End-to-End Application Scenarios (uz & ru)', () =
     const delRes = await deleteModel!('zeekr-009');
     expect(delRes.success).toBe(true);
     const remaining = await getCarModels();
-    expect(remaining.length).toBe(3);
+    expect(remaining.length).toBe(5);
   });
 });
