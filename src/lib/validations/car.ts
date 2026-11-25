@@ -75,6 +75,27 @@ export const carModelFormSchema = z.object({
   isActive: z.boolean().optional().default(true),
 });
 
+export const carTrimFormSchema = z.object({
+  modelId: z.string().trim().min(1, "Model tanlanishi shart"),
+  name: z.string().trim().min(1, "Komplektatsiya nomi kiritilishi shart"),
+  priceUSD: z.number().positive("Narx musbat son bo'lishi kerak"),
+  driveType: z.string().trim().min(1, "Privod turi kiritilishi shart"),
+  rangeKm: z.number().positive("Masofa musbat son bo'lishi kerak"),
+  acceleration: z.number().positive("Tezlanish musbat son bo'lishi kerak"),
+  features: z.array(z.string()).default([]),
+});
+
+export const carColorFormSchema = z.object({
+  modelId: z.string().trim().min(1, "Model tanlanishi shart"),
+  name: z.string().trim().min(1, "Rang nomi kiritilishi shart"),
+  hexCode: z
+    .string()
+    .trim()
+    .regex(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/, "To'g'ri HEX rang kodi bo'lishi kerak"),
+  imageUrl: imagePathOrUrlSchema,
+  isInterior: z.boolean().default(false),
+});
+
 export const inventoryItemFormSchema = z.object({
   trimId: z.string().trim().min(1, "Komplektatsiya tanlanishi shart"),
   vinOrCode: z.string().trim().optional().nullable(),
@@ -89,4 +110,6 @@ export const inventoryItemFormSchema = z.object({
 });
 
 export type CarModelFormData = z.infer<typeof carModelFormSchema>;
+export type CarTrimFormData = z.infer<typeof carTrimFormSchema>;
+export type CarColorFormData = z.infer<typeof carColorFormSchema>;
 export type InventoryItemFormData = z.infer<typeof inventoryItemFormSchema>;

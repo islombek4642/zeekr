@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { getSiteSettings } from '@/lib/settings';
-import { ShieldCheck, BatteryCharging, Wrench, Zap, CheckCircle2, Phone, Calendar, Clock } from 'lucide-react';
+import { getCarModels } from '@/lib/data-provider';
+import { ShieldCheck, BatteryCharging, Wrench, Zap, CheckCircle2, Phone, Clock } from 'lucide-react';
 import Link from 'next/link';
+import { ServiceBookingForm } from '@/components/service/ServiceBookingForm';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 
 export default async function ServicePage() {
   const settings = await getSiteSettings();
+  const models = await getCarModels();
 
   const warranties = [
     {
@@ -61,10 +64,10 @@ export default async function ServicePage() {
 
   return (
     <main className="min-h-screen bg-white pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* HEADER */}
-        <div className="mb-14 text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-3 border border-emerald-200">
             <ShieldCheck className="w-4 h-4" />
             <span>Rasmiy Dilerlik Servis Markazi</span>
@@ -78,7 +81,7 @@ export default async function ServicePage() {
         </div>
 
         {/* WARRANTY CARDS */}
-        <div className="mb-16">
+        <div>
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-slate-900">
               Ishlab Chiqaruvchi Rasmiy Kafolatlari
@@ -132,7 +135,7 @@ export default async function ServicePage() {
         </div>
 
         {/* CHARGING GUIDE */}
-        <div className="bg-slate-50 rounded-3xl border border-slate-200/80 p-8 sm:p-12 mb-16">
+        <div className="bg-slate-50 rounded-3xl border border-slate-200/80 p-8 sm:p-12">
           <div className="max-w-2xl mb-8">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
               <Zap className="w-4 h-4 text-slate-700" /> Zaryadlash Ekotizimi
@@ -164,6 +167,9 @@ export default async function ServicePage() {
             ))}
           </div>
         </div>
+
+        {/* INTERACTIVE SERVICE BOOKING FORM */}
+        <ServiceBookingForm models={models.map((m: any) => ({ id: m.id, name: m.name }))} />
 
         {/* CTA BANNER */}
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
