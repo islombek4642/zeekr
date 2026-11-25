@@ -2,6 +2,8 @@ import { prisma } from './prisma';
 import { SiteSettings } from '@/types/settings';
 import { getDefaultSettings } from './data-provider';
 
+export type { SiteSettings };
+
 export function getFallbackSettings(): SiteSettings {
   const defaults = getDefaultSettings();
   return {

@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import { getSiteSettings } from '@/lib/settings';
-import { formatPhoneNumber } from '@/lib/utils';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { InteractiveMap } from '@/components/contacts/InteractiveMap';
-import { MapPin, Phone, Mail, Clock, Send, ShieldCheck, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, ShieldCheck } from 'lucide-react';
+import { formatPhoneNumber } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,7 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactsPage() {
-  const settings = await getSiteSettings();
+  const [settings, locale] = await Promise.all([
+    getSiteSettings(),
+    getCurrentLocale(),
+  ]);
+  const t = getTranslations(locale);
 
   return (
     <main className="min-h-screen bg-white pt-24 pb-20">
@@ -22,13 +27,13 @@ export default async function ContactsPage() {
         <div className="mb-12 text-left border-b border-slate-100 pb-8">
           <div className="inline-flex items-center gap-2 text-emerald-600 text-xs font-semibold uppercase tracking-wider mb-2">
             <ShieldCheck className="w-4 h-4" />
-            <span>Rasmiy Dilerlik Markazi</span>
+            <span>{t.contacts.badge}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Aloqa & Manzil
+            {t.contacts.title}
           </h1>
           <p className="text-sm text-slate-500 mt-2 max-w-2xl leading-relaxed">
-            Zamonaviy Zeekr shou-rumiga tashrif buyuring, premium servis xizmatlarimizdan foydalaning yoki mutaxassislarimiz bilan bog&apos;laning.
+            {t.contacts.subtitle}
           </p>
         </div>
 
@@ -43,7 +48,7 @@ export default async function ContactsPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                  Showroom Manzili
+                  {t.home.addressLabel}
                 </span>
                 <p className="font-semibold text-slate-900 text-sm mt-1 leading-snug">
                   {settings.showroom_address || "Toshkent shahri"}
@@ -63,36 +68,51 @@ export default async function ContactsPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                  Aloqa Telefonlari
+                  {t.home.phoneLabel}
                 </span>
-                <div className="mt-1 space-y-1">
-                  <div>
-                    <a
-                      href={`tel:${settings.primary_phone}`}
-                      className="font-bold text-slate-900 text-sm hover:text-emerald-600 transition-colors block"
-                    >
+                {settings.primary_phone ? (
+                  <p className="font-semibold text-slate-900 text-sm mt-1">
+                    <a href={`tel:${settings.primary_phone}`} className="hover:text-sky-600 transition-colors">
                       {formatPhoneNumber(settings.primary_phone)}
                     </a>
-                  </div>
-                  {settings.secondary_phone && (
-                    <div>
-                      <a
-                        href={`tel:${settings.secondary_phone}`}
-                        className="text-xs text-slate-600 hover:text-slate-900 transition-colors block"
-                      >
-                        {formatPhoneNumber(settings.secondary_phone)}
-                      </a>
-                    </div>
-                  )}
-                </div>
+                  </p>
+                ) : (
+                  <p className="font-semibold text-slate-900 text-sm mt-1">+998 71 200 00 00</p>
+                )}
               </div>
             </div>
-            <div className="pt-4 mt-4 border-t border-slate-200/60 text-xs text-emerald-600 font-medium">
-              Call-markaz faol
+            <div className="pt-4 mt-4 border-t border-slate-200/60 text-xs text-slate-500">
+              Yagona aloqa markazi
             </div>
           </div>
 
-          {/* WORKING HOURS */}
+          {/* EMAIL */}
+          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 shadow-sm">
+                <Mail className="w-5 h-5 text-slate-700" />
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                  {t.home.emailLabel}
+                </span>
+                {settings.contact_email ? (
+                  <p className="font-semibold text-slate-900 text-sm mt-1">
+                    <a href={`mailto:${settings.contact_email}`} className="hover:text-sky-600 transition-colors truncate block">
+                      {settings.contact_email}
+                    </a>
+                  </p>
+                ) : (
+                  <p className="font-semibold text-slate-900 text-sm mt-1">info@zeekr-auto.uz</p>
+                )}
+              </div>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-200/60 text-xs text-slate-500">
+              Rasmiy pochta
+            </div>
+          </div>
+
+          {/* HOURS */}
           <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 shadow-sm">
@@ -100,9 +120,9 @@ export default async function ContactsPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                  Ish Vaqti
+                  {t.home.hoursLabel}
                 </span>
-                <p className="font-semibold text-slate-900 text-sm mt-1 leading-snug">
+                <p className="font-semibold text-slate-900 text-sm mt-1">
                   {settings.working_hours || "09:00 — 20:00"}
                 </p>
               </div>
@@ -112,70 +132,39 @@ export default async function ContactsPage() {
             </div>
           </div>
 
-          {/* EMAIL & SOCIAL */}
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-900 shadow-sm">
-                <Mail className="w-5 h-5 text-slate-700" />
-              </div>
-              <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                  Elektron Pochta & Tarmoqlar
-                </span>
-                <a
-                  href={`mailto:${settings.contact_email}`}
-                  className="font-semibold text-slate-900 text-sm hover:underline block mt-1 truncate"
-                >
-                  {settings.contact_email || "info@zeekr-auto.uz"}
-                </a>
-              </div>
-            </div>
-            <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-3">
+        </div>
+
+        {/* MAP & SOCIALS */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-8">
+            <InteractiveMap
+              mapUrl={settings.map_iframe_url}
+              address={settings.showroom_address || "Toshkent shahri"}
+            />
+          </div>
+
+          <div className="lg:col-span-4 bg-slate-900 text-white rounded-3xl p-8 space-y-6">
+            <h3 className="text-xl font-bold">
+              Ijtimoiy Tarmoqlar
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Bizning rasmiy sahifalarimizga obuna bo&apos;ling va eng so&apos;nggi Zeekr yangiliklari, aksiyalar va yetkazib berish jarayonlaridan birinchilardan bo&apos;lib xabardor bo&apos;ling.
+            </p>
+
+            <div className="space-y-3 pt-2">
               {settings.telegram_channel && (
                 <a
                   href={settings.telegram_channel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-slate-900 transition-colors shadow-xs"
-                  aria-label="Telegram"
+                  className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors text-xs font-semibold"
                 >
-                  <Send className="w-3.5 h-3.5" />
-                </a>
-              )}
-              {settings.instagram_url && (
-                <a
-                  href={settings.instagram_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-slate-900 transition-colors shadow-xs"
-                  aria-label="Instagram"
-                >
-                  <svg className="w-3.5 h-3.5 fill-none stroke-currentColor stroke-2" viewBox="0 0 24 24">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                  </svg>
+                  <Send className="w-4 h-4 text-sky-400" />
+                  <span>Telegram Kanal</span>
                 </a>
               )}
             </div>
           </div>
-
-        </div>
-
-        {/* MAP SECTION */}
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-slate-900">
-              Interaktiv Lokatsiya Xaritasi
-            </h2>
-            <span className="text-xs text-slate-400">
-              Yandex Maps / Google Maps
-            </span>
-          </div>
-          <InteractiveMap
-            mapUrl={settings.map_iframe_url}
-            address={settings.showroom_address}
-          />
         </div>
 
       </div>

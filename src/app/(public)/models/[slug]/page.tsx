@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCarModelBySlug } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { ColorVisualizer } from '@/components/models/ColorVisualizer';
 import { SpecsComparison } from '@/components/models/SpecsComparison';
 import { ModelConfigurator } from '@/components/models/ModelConfigurator';
@@ -19,13 +20,17 @@ interface ModelPageProps {
 
 export default async function ModelDetailPage({ params }: ModelPageProps) {
   const { slug } = await params;
-  const settings = await getSiteSettings();
+  const [settings, locale] = await Promise.all([
+    getSiteSettings(),
+    getCurrentLocale(),
+  ]);
   const model = await getCarModelBySlug(slug);
 
   if (!model || model.isActive === false) {
     notFound();
   }
 
+  const t = getTranslations(locale);
   const defaultPrice = model.basePriceUSD;
   const validGalleryImages = (model.galleryImages || []).filter(
     (img: string) => typeof img === 'string' && img.trim().length > 0
@@ -42,10 +47,10 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
             className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-950 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Barcha modellarga qaytish
+            {t.models.backToModels}
           </Link>
           <span className="text-xs uppercase font-bold text-sky-600 tracking-wider">
-            Zeekr Rasmiy Dilerlik Vitrinasi
+            {t.models.pageTitle}
           </span>
         </div>
 
@@ -70,7 +75,9 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
 
             <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div>
-                <span className="text-xs text-slate-400 font-medium block">Boshlang&apos;ich narx:</span>
+                <span className="text-xs text-slate-400 font-medium block">
+                  {t.common.priceFrom}:
+                </span>
                 <span className="text-3xl font-black text-slate-950">
                   {formatCurrencyUSD(defaultPrice)}
                 </span>
@@ -85,7 +92,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-950 text-white font-bold text-xs hover:bg-slate-800 transition-colors shadow-sm"
                 >
                   <Calendar className="w-4 h-4" />
-                  Test-drayvga yozilish
+                  {t.common.testDrive}
                 </a>
               </div>
             </div>
@@ -124,10 +131,10 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           <div className="space-y-6">
             <div>
               <span className="text-xs uppercase font-bold tracking-wider text-sky-600 block">
-                Fotogalereya
+                {t.models.galleryTitle}
               </span>
               <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
-                {model.name} Tafsilotlari va Galereyasi
+                {model.name} {t.models.gallerySubtitle}
               </h3>
             </div>
 

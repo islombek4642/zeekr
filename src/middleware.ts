@@ -19,9 +19,8 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    const secret = new TextEncoder().encode(getJwtSecret());
-
     try {
+      const secret = new TextEncoder().encode(getJwtSecret());
       const { payload } = await jwtVerify(token, secret, { algorithms: ['HS256'] });
       if (payload.role !== 'ADMIN') {
         const response = NextResponse.redirect(loginUrl);

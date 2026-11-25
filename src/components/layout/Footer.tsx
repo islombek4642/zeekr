@@ -1,14 +1,17 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { getSiteSettings } from '@/lib/settings';
 import { getCarModels } from '@/lib/data-provider';
 import { formatPhoneNumber } from '@/lib/utils';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 
 export async function Footer() {
-  const [settings, models] = await Promise.all([
+  const [settings, models, locale] = await Promise.all([
     getSiteSettings(),
     getCarModels(),
+    getCurrentLocale(),
   ]);
+  const t = getTranslations(locale);
 
   return (
     <footer className="w-full bg-slate-950 text-slate-400 text-sm border-t border-slate-900 mt-auto">
@@ -21,7 +24,7 @@ export async function Footer() {
               ZEEKR
             </Link>
             <p className="text-xs leading-relaxed text-slate-400 max-w-xs">
-              Zeekr elektromobillarining O&apos;zbekistondagi rasmiy dilerlik platformasi. Hashamat, xavfsizlik va yuqori elektr innovatsiyalari.
+              {t.footer.brandDesc}
             </p>
             <div className="flex items-center gap-3 pt-2">
               {settings.telegram_channel && (
@@ -69,7 +72,9 @@ export async function Footer() {
 
           {/* COL 2: MODELLAR */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Modellar</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              {t.footer.modelsTitle}
+            </h4>
             <ul className="space-y-2 text-xs">
               {models.map((model) => (
                 <li key={model.slug}>
@@ -84,81 +89,74 @@ export async function Footer() {
 
           {/* COL 3: MIJOZLARGA */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Mijozlarga</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              {t.footer.clientsTitle}
+            </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/inventory" className="hover:text-white transition-colors">
-                  Salonda mavjud avtomobillar
+                  {t.footer.inStockCars}
                 </Link>
               </li>
               <li>
                 <Link href="/test-drive" className="hover:text-white transition-colors">
-                  Test-drayvga yozilish
+                  {t.footer.bookDrive}
                 </Link>
               </li>
               <li>
                 <Link href="/service" className="hover:text-white transition-colors">
-                  Rasmiy kafolat & Servis
-                </Link>
-              </li>
-              <li>
-                <Link href="/contacts" className="hover:text-white transition-colors">
-                  Dilerlik manzili va xarita
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin/login" className="text-slate-600 hover:text-slate-400 transition-colors">
-                  Admin Panelga kirish
+                  {t.footer.serviceWarranty}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* COL 4: ALOQA VA SHOWROOM */}
+          {/* COL 4: ALOQA */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Dilerlik Aloqasi</h4>
-            <ul className="space-y-2.5 text-xs">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
-                <span className="leading-snug text-slate-300">{settings.showroom_address}</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-sky-500 shrink-0" />
-                <a href={`tel:${settings.primary_phone}`} className="hover:text-white font-medium text-slate-200">
-                  {formatPhoneNumber(settings.primary_phone)}
-                </a>
-              </li>
-              {settings.secondary_phone && (
-                <li className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-slate-600 shrink-0" />
-                  <a href={`tel:${settings.secondary_phone}`} className="hover:text-white text-slate-400">
-                    {formatPhoneNumber(settings.secondary_phone)}
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              {t.footer.contactsTitle}
+            </h4>
+            <div className="space-y-2.5 text-xs text-slate-400">
+              <p className="leading-relaxed">
+                {settings.showroom_address || "Toshkent shahri"}
+              </p>
+              {settings.primary_phone && (
+                <p>
+                  <a href={`tel:${settings.primary_phone}`} className="hover:text-white transition-colors font-medium">
+                    {formatPhoneNumber(settings.primary_phone)}
                   </a>
-                </li>
+                </p>
               )}
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-sky-500 shrink-0" />
-                <a href={`mailto:${settings.contact_email}`} className="hover:text-white text-slate-300">
-                  {settings.contact_email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5 pt-1">
-                <Clock className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                <span className="text-slate-400">{settings.working_hours}</span>
-              </li>
-            </ul>
+              {settings.contact_email && (
+                <p>
+                  <a href={`mailto:${settings.contact_email}`} className="hover:text-white transition-colors">
+                    {settings.contact_email}
+                  </a>
+                </p>
+              )}
+              <p className="text-[11px] text-slate-500 pt-1">
+                {settings.working_hours}
+              </p>
+            </div>
           </div>
 
         </div>
 
-        <div className="mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Zeekr Uzbekistan. Barcha huquqlar himoyalangan.</p>
-          <p className="text-[11px] text-slate-600">
-            Dizayn va arxitektura: Nordic Minimalist Standard
+        {/* BOTTOM COPYRIGHT */}
+        <div className="mt-12 pt-8 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>
+            &copy; {new Date().getFullYear()} Zeekr Uzbekistan. {t.common.allRightsReserved}.
           </p>
+          <div className="flex items-center gap-6">
+            <Link href="/contacts" className="hover:text-slate-400 transition-colors">
+              {t.nav.contacts}
+            </Link>
+            <Link href="/service" className="hover:text-slate-400 transition-colors">
+              {t.nav.service}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-

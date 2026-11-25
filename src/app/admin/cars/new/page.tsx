@@ -247,16 +247,34 @@ export default function AdminNewCarPage() {
 
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-            Asosiy Rasm Yo&apos;li yoki URL *
+            Asosiy Rasm Yo&apos;li yoki Fayl Yuklash *
           </label>
-          <input
-            type="text"
-            required
-            value={mainImage}
-            onChange={(e) => setMainImage(e.target.value)}
-            placeholder="/images/cars/zeekr-001/main.jpg"
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900"
-          />
+          <div className="flex flex-col sm:flex-row gap-2">
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const fd = new FormData();
+                fd.append('file', file);
+                try {
+                  const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
+                  const data = await res.json();
+                  if (data.url) setMainImage(data.url);
+                } catch {}
+              }}
+              className="text-xs text-slate-500 file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200"
+            />
+            <input
+              type="text"
+              required
+              value={mainImage}
+              onChange={(e) => setMainImage(e.target.value)}
+              placeholder="/images/cars/zeekr-001/main.jpg"
+              className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900"
+            />
+          </div>
         </div>
 
         <div>

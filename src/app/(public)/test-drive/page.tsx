@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import { getCarModels } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { TestDriveWizard } from '@/components/test-drive/TestDriveWizard';
-import { Sparkles, MapPin, Clock, ShieldCheck } from 'lucide-react';
+import { Sparkles, Clock, ShieldCheck } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,10 +20,12 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
   const params = await searchParams;
   const preselectedModelSlug = params?.model;
 
-  const [models, settings] = await Promise.all([
+  const [models, settings, locale] = await Promise.all([
     getCarModels(),
     getSiteSettings(),
+    getCurrentLocale(),
   ]);
+  const t = getTranslations(locale);
 
   return (
     <main className="min-h-screen bg-slate-50/50 pt-24 pb-20">
@@ -32,13 +35,13 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
         <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Bepul sinov haydovi</span>
+            <span>{t.testDrive.badge}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Zeekr&apos;ni Yo&apos;lda His Qiling
+            {t.testDrive.title}
           </h1>
           <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-            Ilg&apos;or 800V platforma, 3.8 soniyalik tezlanish va Skandinaviya hashamatini professional maslahatchimiz hamrohligida Toshkent ko&apos;chalarida sinab ko&apos;ring.
+            {t.testDrive.subtitle}
           </p>
         </div>
 
@@ -58,13 +61,13 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
           </div>
           <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col items-center">
             <ShieldCheck className="w-5 h-5 text-emerald-600 mb-2" />
-            <div className="font-bold text-slate-900 text-sm">To&apos;liq sug&apos;urtalangan</div>
-            <div className="text-slate-500 mt-0.5">Barcha sinov avtomobillari rasmiy KASKO bilan himoyalangan</div>
+            <div className="font-bold text-slate-900 text-sm">Rasmiy Sug&apos;urta</div>
+            <div className="text-slate-500 mt-0.5">Har bir sinov avtomobili to&apos;liq sug&apos;urtalangan</div>
           </div>
           <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col items-center">
-            <MapPin className="w-5 h-5 text-slate-800 mb-2" />
-            <div className="font-bold text-slate-900 text-sm">Dilerlik markazida</div>
-            <div className="text-slate-500 mt-0.5">Qulay kutish zali va espresso kofe xizmati</div>
+            <Sparkles className="w-5 h-5 text-indigo-600 mb-2" />
+            <div className="font-bold text-slate-900 text-sm">Ekspert Maslahati</div>
+            <div className="text-slate-500 mt-0.5">Barcha savollarga batafsil javob va taqdimot</div>
           </div>
         </div>
 

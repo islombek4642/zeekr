@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getInventoryCatalogData } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { InventoryCatalog } from '@/components/inventory/InventoryCatalog';
 import { ShieldCheck, MapPin } from 'lucide-react';
 
@@ -17,11 +18,13 @@ interface InventoryPageProps {
 
 export default async function InventoryPage({ searchParams }: InventoryPageProps) {
   const resolvedParams = await searchParams;
-  const [settings, { items, models }] = await Promise.all([
+  const [settings, { items, models }, locale] = await Promise.all([
     getSiteSettings(),
     getInventoryCatalogData(),
+    getCurrentLocale(),
   ]);
 
+  const t = getTranslations(locale);
   const usdRate = settings.usd_to_uzs_rate || 12850;
 
   return (
@@ -32,14 +35,14 @@ export default async function InventoryPage({ searchParams }: InventoryPageProps
         <div className="mb-10 text-left border-b border-slate-100 pb-8">
           <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold uppercase tracking-wider mb-2">
             <ShieldCheck className="w-4 h-4" />
-            <span>Rasmiy Dilerlik Ombori & Vitrina</span>
+            <span>{t.inventory.badge}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Mavjud Avtomobillar
+            {t.inventory.title}
           </h1>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-3">
             <p className="text-sm text-slate-500 max-w-2xl leading-relaxed">
-              Toshkent ko&apos;rgazma zalida tayyor turgan yoki qisqa muddatda yetib keladigan rasmiy kafolatli Zeekr elektromobillari.
+              {t.inventory.subtitle}
             </p>
             <div className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200 shrink-0">
               <MapPin className="w-3.5 h-3.5 text-slate-400" />

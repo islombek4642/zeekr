@@ -2,7 +2,7 @@
   {
     "modelSlug": "zeekr-001",
     "name": "WE Version 100kWh (RWD)",
-    "priceUSD": 44500,
+    "priceUSD": 45000,
     "driveType": "RWD",
     "rangeKm": 750,
     "acceleration": 5.9,

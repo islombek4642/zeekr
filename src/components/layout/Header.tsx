@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import { Phone, Calendar } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { getSiteSettings } from '@/lib/settings';
 import { formatPhoneNumber } from '@/lib/utils';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 
 export async function Header() {
-  const settings = await getSiteSettings();
+  const [settings, locale] = await Promise.all([
+    getSiteSettings(),
+    getCurrentLocale(),
+  ]);
+  const t = getTranslations(locale);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all">
@@ -22,46 +28,53 @@ export async function Header() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700">
           <Link href="/#models" className="hover:text-slate-950 transition-colors">
-            Modellar
+            {t.nav.models}
           </Link>
           <Link href="/inventory" className="hover:text-slate-950 transition-colors">
-            Mavjud avtomobillar
+            {t.nav.inventory}
           </Link>
           <Link href="/test-drive" className="hover:text-slate-950 transition-colors">
-            Test-drayv
+            {t.nav.testDrive}
           </Link>
           <Link href="/service" className="hover:text-slate-950 transition-colors">
-            Servis va Kafolat
+            {t.nav.service}
           </Link>
           <Link href="/contacts" className="hover:text-slate-950 transition-colors">
-            Kontaktlar
+            {t.nav.contacts}
           </Link>
         </nav>
 
-        {/* ACTIONS */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href={`tel:${settings.primary_phone}`}
-            className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-950 py-1.5 px-3 rounded-md hover:bg-slate-50 transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-sky-600" />
-            {formatPhoneNumber(settings.primary_phone)}
-          </a>
+        {/* ACTIONS & LANGUAGE SWITCHER */}
+        <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher currentLocale={locale} />
+
+          {settings.primary_phone && (
+            <a
+              href={`tel:${settings.primary_phone}`}
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-950 py-1.5 px-3 rounded-md hover:bg-slate-50 transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-sky-600" />
+              {formatPhoneNumber(settings.primary_phone)}
+            </a>
+          )}
+
           <Link
             href="/test-drive"
             className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-md bg-slate-950 text-white hover:bg-slate-800 transition-all shadow-sm"
           >
             <Calendar className="w-3.5 h-3.5" />
-            Test-drayv
+            {t.common.testDrive}
           </Link>
         </div>
 
-        {/* MOBILE MENU TOGGLE */}
-        <MobileMenu primaryPhone={settings.primary_phone} />
+        {/* MOBILE MENU TOGGLE & LANG */}
+        <div className="flex md:hidden items-center gap-2">
+          <LanguageSwitcher currentLocale={locale} />
+          <MobileMenu primaryPhone={settings.primary_phone} />
+        </div>
       </div>
     </header>
   );
 }
-

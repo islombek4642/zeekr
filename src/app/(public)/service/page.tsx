@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getSiteSettings } from '@/lib/settings';
 import { getCarModels } from '@/lib/data-provider';
+import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { ShieldCheck, BatteryCharging, Wrench, Zap, CheckCircle2, Phone, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { ServiceBookingForm } from '@/components/service/ServiceBookingForm';
@@ -13,10 +14,43 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicePage() {
-  const settings = await getSiteSettings();
-  const models = await getCarModels();
+  const [settings, models, locale] = await Promise.all([
+    getSiteSettings(),
+    getCarModels(),
+    getCurrentLocale(),
+  ]);
+  const t = getTranslations(locale);
 
-  const warranties = [
+  const warranties = locale === 'ru' ? [
+    {
+      title: 'Гарантия на тяговую батарею',
+      period: '8 лет или 160,000 км',
+      description: 'Полная официальная защита высоковольтных аккумуляторных блоков LFP и NMC от деградации.',
+      icon: BatteryCharging,
+      highlight: true,
+    },
+    {
+      title: 'Электродвигатель и редуктор',
+      period: '8 лет или 160,000 км',
+      description: 'Инверторы на карбиде кремния (SiC), система синхронных передних и задних электромоторов.',
+      icon: Zap,
+      highlight: false,
+    },
+    {
+      title: 'Общая гарантия на автомобиль',
+      period: '5 лет или 100,000 км',
+      description: 'Элементы подвески, пневмокомпрессор, мультимедиа, электронные блоки управления и климат-контроль.',
+      icon: ShieldCheck,
+      highlight: false,
+    },
+    {
+      title: 'Защита кузова от коррозии',
+      period: '10 лет',
+      description: 'Каркас из алюминиево-магниевого сплава и официальная антикоррозийная оцинковка.',
+      icon: Wrench,
+      highlight: false,
+    },
+  ] : [
     {
       title: 'Traction Batareya Kafolati',
       period: '8 yil yoki 160,000 km',
@@ -47,7 +81,20 @@ export default async function ServicePage() {
     },
   ];
 
-  const chargingTypes = [
+  const chargingTypes = locale === 'ru' ? [
+    {
+      name: 'Быстрая зарядка DC (GB/T DC)',
+      speed: '360 - 800 кВт',
+      duration: 'от 10% до 80% за 15 минут',
+      description: 'Совместимость с суперчарджерами 800V в дилерском центре и сетях зарядных станций Узбекистана.',
+    },
+    {
+      name: 'Домашняя зарядка AC (GB/T AC)',
+      speed: '7 кВт / 11 кВт / 22 кВт',
+      duration: 'Полная зарядка за 6-8 часов',
+      description: 'Интеллектуальная настенная станция Zeekr Wallbox для дома или паркинга.',
+    },
+  ] : [
     {
       name: 'DC Tezkor Zaryadlash (GB/T DC)',
       speed: '360 - 800 kVt',
@@ -70,13 +117,13 @@ export default async function ServicePage() {
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-3 border border-emerald-200">
             <ShieldCheck className="w-4 h-4" />
-            <span>Rasmiy Dilerlik Servis Markazi</span>
+            <span>{t.service.badge}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Kafolat va Premium Texnik Xizmat
+            {t.service.title}
           </h1>
           <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-            Zeekr avtomobillariga faqat ishlab chiqaruvchi tomonidan o&apos;qitilgan sertifikatlangan muhandislar, original ehtiyot qismlar va litsenziyalangan diagnostika uskunalari bilan xizmat ko&apos;rsatiladi.
+            {t.service.subtitle}
           </p>
         </div>
 
@@ -84,10 +131,12 @@ export default async function ServicePage() {
         <div>
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-slate-900">
-              Ishlab Chiqaruvchi Rasmiy Kafolatlari
+              {locale === 'ru' ? 'Официальная гарантия производителя' : 'Ishlab Chiqaruvchi Rasmiy Kafolatlari'}
             </h2>
             <p className="text-xs text-slate-500 mt-1">
-              Har bir Zeekr elektromobili dilerlik shartnomasi asosida himoyalangan.
+              {locale === 'ru'
+                ? 'Каждый электромобиль Zeekr защищен дилерским договором.'
+                : 'Har bir Zeekr elektromobili dilerlik shartnomasi asosida himoyalangan.'}
             </p>
           </div>
 
@@ -126,7 +175,7 @@ export default async function ServicePage() {
 
                   <div className="pt-6 mt-6 border-t border-slate-200/20 flex items-center gap-1.5 text-xs font-semibold">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                    <span>Rasmiy sertifikat</span>
+                    <span>{locale === 'ru' ? 'Официальный сертификат' : 'Rasmiy sertifikat'}</span>
                   </div>
                 </div>
               );
@@ -138,13 +187,15 @@ export default async function ServicePage() {
         <div className="bg-slate-50 rounded-3xl border border-slate-200/80 p-8 sm:p-12">
           <div className="max-w-2xl mb-8">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-              <Zap className="w-4 h-4 text-slate-700" /> Zaryadlash Ekotizimi
+              <Zap className="w-4 h-4 text-slate-700" /> {locale === 'ru' ? 'Экосистема зарядки' : 'Zaryadlash Ekotizimi'}
             </div>
             <h2 className="text-2xl font-bold text-slate-900">
-              O&apos;zbekistonda Zeekr&apos;ni Zaryadlash Qulayligi
+              {locale === 'ru' ? 'Удобство зарядки Zeekr в Узбекистане' : "O'zbekistonda Zeekr'ni Zaryadlash Qulayligi"}
             </h2>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              800V SEA arxitekturasi tufayli Zeekr zaryadlash stansiyasida eng kam vaqt kutishingizni ta&apos;minlaydi.
+              {locale === 'ru'
+                ? 'Благодаря архитектуре 800V SEA зарядка занимает минимум вашего времени.'
+                : "800V SEA arxitekturasi tufayli Zeekr zaryadlash stansiyasida eng kam vaqt kutishingizni ta'minlaydi."}
             </p>
           </div>
 
@@ -175,10 +226,12 @@ export default async function ServicePage() {
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-xl text-center md:text-left">
             <h3 className="text-2xl font-black tracking-tight">
-              Servis xizmatiga yozilmoqchimisiz?
+              {locale === 'ru' ? 'Желаете записаться на сервис?' : 'Servis xizmatiga yozilmoqchimisiz?'}
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Muntazam texnik ko&apos;rik, dasturiy ta&apos;minot (OTA) yangilanishi yoki qo&apos;shimcha aksessuarlar o&apos;rnatish bo&apos;yicha mutaxassislarimiz bilan bog&apos;laning.
+              {locale === 'ru'
+                ? 'Регулярное ТО, обновление ПО (OTA) или установка оригинальных аксессуаров.'
+                : "Muntazam texnik ko'rik, dasturiy ta'minot (OTA) yangilanishi yoki qo'shimcha aksessuarlar o'rnatish bo'yicha mutaxassislarimiz bilan bog'laning."}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
@@ -187,13 +240,13 @@ export default async function ServicePage() {
               className="px-6 py-3.5 bg-white text-slate-900 rounded-xl text-xs font-semibold tracking-wider uppercase hover:bg-slate-100 transition-colors flex items-center gap-2 shadow-sm"
             >
               <Phone className="w-4 h-4 text-slate-900" />
-              <span>Qo&apos;ng&apos;iroq qilish</span>
+              <span>{t.nav.callUs}</span>
             </a>
             <Link
               href="/contacts"
               className="px-6 py-3.5 bg-slate-800 text-white border border-slate-700 rounded-xl text-xs font-semibold tracking-wider uppercase hover:bg-slate-700 transition-colors"
             >
-              Showroom manzili
+              {t.nav.contacts}
             </Link>
           </div>
         </div>
