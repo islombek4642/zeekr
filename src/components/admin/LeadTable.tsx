@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { LeadStatusBadge } from './LeadStatusBadge';
 import { updateLeadStatusAction } from '@/app/actions/adminLeadActions';
 import { formatPhoneNumber } from '@/lib/utils';
+import { getLeadTypeLabel } from '@/lib/lead-workflow';
 import {
   Phone,
   Send,
@@ -245,13 +246,7 @@ export function LeadTable({ initialLeads }: LeadTableProps) {
                       {/* LEAD TYPE */}
                       <td className="px-5 py-4">
                         <span className="font-semibold text-slate-800 bg-slate-100 px-2.5 py-1 rounded-md text-[11px] inline-block">
-                          {lead.type === 'TEST_DRIVE'
-                            ? 'Test-drayv'
-                            : lead.type === 'CAR_RESERVE'
-                            ? 'Bron qilish'
-                            : lead.type === 'SERVICE'
-                            ? 'Servis'
-                            : 'Konsultatsiya'}
+                          {getLeadTypeLabel(lead.type)}
                         </span>
                       </td>
 

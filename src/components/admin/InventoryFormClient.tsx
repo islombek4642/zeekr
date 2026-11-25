@@ -81,7 +81,7 @@ export function InventoryFormClient({ models }: InventoryFormClientProps) {
         status,
         priceUSD: Number(priceUSD),
         notes: notes.trim() || null,
-        images: imageUrl ? [imageUrl] : [],
+        images: imageUrl.trim() ? [imageUrl.trim()] : [],
       });
 
       if (!res.success) {
@@ -236,13 +236,13 @@ export function InventoryFormClient({ models }: InventoryFormClientProps) {
 
       <div>
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-          Avtomobil fotosurati URL
+          Avtomobil fotosurati yo&apos;li yoki URL
         </label>
         <input
-          type="url"
+          type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          placeholder="https://..."
+          placeholder="/images/cars/zeekr-001/main.jpg yoki https://..."
           className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900"
         />
       </div>

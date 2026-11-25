@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, ShieldCheck, Car, Phone, User, MessageSquare } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
+import { CarImage } from '@/components/ui/CarImage';
 
 export interface VehicleReservationItem {
   id: string;
@@ -11,6 +12,7 @@ export interface VehicleReservationItem {
   exteriorColor: string;
   interiorColor: string;
   priceUSD: number;
+  images?: string[];
   trim: {
     id: string;
     name: string;
@@ -47,6 +49,10 @@ export function ReserveModal({
   const [errorMessage, setErrorMessage] = useState('');
 
   if (!isOpen || !item) return null;
+
+  const previewImage =
+    (item.images && item.images.length > 0 && item.images[0]) ||
+    item.trim.model.mainImage;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -143,12 +149,12 @@ export function ReserveModal({
 
             {/* VEHICLE SUMMARY CARD */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 mb-6 flex gap-4 items-center">
-              <div className="w-20 h-14 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={item.trim.model.mainImage}
+              <div className="relative w-20 h-14 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 shrink-0">
+                <CarImage
+                  src={previewImage}
                   alt={item.trim.model.name}
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
               <div className="min-w-0 flex-1 text-xs space-y-0.5">

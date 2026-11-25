@@ -4,7 +4,7 @@
     "name": "WE Version 100kWh (RWD)",
     "priceUSD": 44500,
     "driveType": "RWD",
-    "rangeKm": 741,
+    "rangeKm": 750,
     "acceleration": 5.9,
     "features": [
       "100 kVt/s batareya",
@@ -18,7 +18,7 @@
     "name": "ME Version 100kWh (AWD)",
     "priceUSD": 49500,
     "driveType": "AWD",
-    "rangeKm": 656,
+    "rangeKm": 705,
     "acceleration": 3.8,
     "features": [
       "Ikki motorli to'liq privod",
@@ -125,4 +125,3 @@
     ]
   }
 ]
-

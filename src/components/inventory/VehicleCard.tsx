@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ShieldCheck, Zap, Gauge, Compass } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
 import { VehicleReservationItem } from './ReserveModal';
+import { CarImage } from '@/components/ui/CarImage';
 
 interface VehicleCardProps {
   item: VehicleReservationItem & {
@@ -21,18 +22,18 @@ export function VehicleCard({
   onReserve,
 }: VehicleCardProps) {
   const isInStock = item.status === 'IN_STOCK';
-  const displayImage = (item.images && item.images.length > 0) ? item.images[0] : item.trim.model.mainImage;
+  const displayImage = (item.images && item.images.length > 0 && item.images[0]) || item.trim.model.mainImage;
 
   return (
-    <div className="group bg-white rounded-3xl border border-slate-200/80 overflow-hidden hover:border-slate-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+    <div className="group bg-white rounded-3xl border border-slate-200/80 overflow-hidden hover:border-slate-400 hover:shadow-xl transition-all duration-300 flex flex-col h-full justify-between">
       <div>
         {/* IMAGE & STATUS HEADER */}
-        <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden shrink-0">
+          <CarImage
             src={displayImage}
             alt={`${item.trim.model.name} ${item.trim.name}`}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
           />
           <div className="absolute top-4 left-4 flex flex-col gap-1.5">
             <span
@@ -106,7 +107,7 @@ export function VehicleCard({
       </div>
 
       {/* FOOTER & ACTIONS */}
-      <div className="p-6 pt-0 border-t border-slate-100 mt-2">
+      <div className="p-6 pt-0 border-t border-slate-100 mt-auto">
         <div className="flex items-baseline justify-between pt-4 mb-4">
           <div>
             <div className="text-xl font-black text-slate-900">

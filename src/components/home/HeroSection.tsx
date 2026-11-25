@@ -78,7 +78,7 @@ export function HeroSection() {
             <div className="relative w-full max-w-md lg:max-w-none aspect-[16/10] rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl bg-slate-900 group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80"
+                src="/images/cars/zeekr-001/main.jpg"
                 alt="Zeekr 001 Flagman Elektr Avtomobili"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />

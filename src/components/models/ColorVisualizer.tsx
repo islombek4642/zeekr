@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { CarImage } from '@/components/ui/CarImage';
 
 interface CarColor {
   id: string;
@@ -83,13 +84,13 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
       </div>
 
       {/* CAR PREVIEW CANVAS */}
-      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-inner flex items-center justify-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-inner flex items-center justify-center shrink-0">
+        <CarImage
           key={activeImage}
           src={activeImage}
           alt={`${modelName} - ${activeColorName}`}
-          className="w-full h-full object-cover object-center animate-in fade-in duration-500"
+          className="absolute inset-0 w-full h-full object-cover object-center animate-in fade-in duration-500"
+          loading="eager"
         />
 
         <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur text-xs font-medium text-white">

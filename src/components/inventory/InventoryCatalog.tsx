@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InventoryFilter } from './InventoryFilter';
 import { VehicleCard } from './VehicleCard';
 import { ReserveModal, VehicleReservationItem } from './ReserveModal';
-import { filterInventoryItems } from '@/lib/inventory-filter';
-import { Car, Search } from 'lucide-react';
+import { filterInventoryItems, findReserveVehicle } from '@/lib/inventory-filter';
+import { Car } from 'lucide-react';
 
 interface ModelOption {
   id: string;
@@ -20,17 +20,32 @@ interface InventoryCatalogProps {
   })[];
   models: ModelOption[];
   usdRate: number;
+  initialReserveId?: string;
+  initialModelSlug?: string;
 }
 
 export function InventoryCatalog({
   initialItems,
   models,
   usdRate,
+  initialReserveId,
+  initialModelSlug,
 }: InventoryCatalogProps) {
-  const [selectedModel, setSelectedModel] = useState<string>('all');
+  const matchingInitialVehicle = findReserveVehicle(initialItems, initialReserveId);
+
+  const [selectedModel, setSelectedModel] = useState<string>(initialModelSlug || 'all');
   const [selectedStatus, setSelectedStatus] = useState<string>('all');
-  const [selectedVehicle, setSelectedVehicle] = useState<VehicleReservationItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVehicle, setSelectedVehicle] = useState<VehicleReservationItem | null>(matchingInitialVehicle);
+  const [isModalOpen, setIsModalOpen] = useState(Boolean(matchingInitialVehicle));
+
+  useEffect(() => {
+    if (!initialReserveId) return;
+    const match = findReserveVehicle(initialItems, initialReserveId);
+    if (match) {
+      setSelectedVehicle(match);
+      setIsModalOpen(true);
+    }
+  }, [initialReserveId, initialItems]);
 
   const filteredItems = filterInventoryItems(initialItems, {
     modelSlug: selectedModel,

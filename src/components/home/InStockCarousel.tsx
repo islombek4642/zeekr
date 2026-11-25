@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
+import { CarImage } from '@/components/ui/CarImage';
 
 interface InStockCarouselProps {
   items: Array<{
@@ -50,63 +51,72 @@ export function InStockCarousel({ items, rate }: InStockCarouselProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
-            >
-              <div className="relative aspect-[16/10] bg-slate-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={item.images[0] || 'https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80'}
-                  alt={item.trim.model.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  Salonda bor
-                </div>
-              </div>
+          {items.map((item) => {
+            const displayImage =
+              (item.images && item.images.length > 0 && item.images[0]) ||
+              (item.trim?.model?.slug
+                ? `/images/cars/${item.trim.model.slug}/main.jpg`
+                : '/images/cars/zeekr-001/main.jpg');
 
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">
-                    {item.trim.model.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 font-medium">
-                    {item.trim.name} • {item.year}
-                  </p>
-                  <div className="flex items-center gap-3 mt-3 text-xs text-slate-600">
-                    <span className="inline-flex items-center gap-1">
-                      Rang: <b>{item.exteriorColor}</b>
-                    </span>
-                    <span>•</span>
-                    <span className="inline-flex items-center gap-1">
-                      Salon: <b>{item.interiorColor}</b>
-                    </span>
+            return (
+              <div
+                key={item.id}
+                className="group rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col h-full justify-between"
+              >
+                {/* Rigid Image Container */}
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 shrink-0">
+                  <CarImage
+                    src={displayImage}
+                    alt={item.trim.model.name}
+                    className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    Salonda bor
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <div className="text-base font-black text-slate-900">
-                      {formatCurrencyUSD(item.priceUSD)}
-                    </div>
-                    <div className="text-[10px] text-slate-400">
-                      {formatCurrencyUZS(item.priceUSD, rate)}
+                    <h3 className="font-bold text-slate-900 text-lg">
+                      {item.trim.model.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 font-medium">
+                      {item.trim.name} • {item.year}
+                    </p>
+                    <div className="flex items-center gap-3 mt-3 text-xs text-slate-600">
+                      <span className="inline-flex items-center gap-1">
+                        Rang: <b>{item.exteriorColor}</b>
+                      </span>
+                      <span>•</span>
+                      <span className="inline-flex items-center gap-1">
+                        Salon: <b>{item.interiorColor}</b>
+                      </span>
                     </div>
                   </div>
 
-                  <Link
-                    href={`/inventory?reserve=${item.id}`}
-                    className="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
-                  >
-                    Bron qilish
-                  </Link>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between mt-auto">
+                    <div>
+                      <div className="text-base font-black text-slate-900">
+                        {formatCurrencyUSD(item.priceUSD)}
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        {formatCurrencyUZS(item.priceUSD, rate)}
+                      </div>
+                    </div>
+
+                    <Link
+                      href={`/inventory?reserve=${item.id}`}
+                      className="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
+                    >
+                      Bron qilish
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

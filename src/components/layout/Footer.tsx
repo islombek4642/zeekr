@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { getSiteSettings } from '@/lib/settings';
+import { getCarModels } from '@/lib/data-provider';
 import { formatPhoneNumber } from '@/lib/utils';
 
 export async function Footer() {
-  const settings = await getSiteSettings();
+  const [settings, models] = await Promise.all([
+    getSiteSettings(),
+    getCarModels(),
+  ]);
 
   return (
     <footer className="w-full bg-slate-950 text-slate-400 text-sm border-t border-slate-900 mt-auto">
@@ -67,26 +71,14 @@ export async function Footer() {
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Modellar</h4>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/models/zeekr-001" className="hover:text-white transition-colors">
-                  Zeekr 001 — Shooting Brake
-                </Link>
-              </li>
-              <li>
-                <Link href="/models/zeekr-007" className="hover:text-white transition-colors">
-                  Zeekr 007 — Luxury Sedan
-                </Link>
-              </li>
-              <li>
-                <Link href="/models/zeekr-009" className="hover:text-white transition-colors">
-                  Zeekr 009 — Executive MPV
-                </Link>
-              </li>
-              <li>
-                <Link href="/models/zeekr-x" className="hover:text-white transition-colors">
-                  Zeekr X — Urban SUV
-                </Link>
-              </li>
+              {models.map((model) => (
+                <li key={model.slug}>
+                  <Link href={`/models/${model.slug}`} className="hover:text-white transition-colors">
+                    {model.name}
+                    {model.tagline ? ` — ${model.tagline}` : ''}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

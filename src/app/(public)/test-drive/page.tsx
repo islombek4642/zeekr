@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { prisma } from '@/lib/prisma';
+import { getCarModels } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
 import { TestDriveWizard } from '@/components/test-drive/TestDriveWizard';
 import { Sparkles, MapPin, Clock, ShieldCheck } from 'lucide-react';
@@ -19,26 +19,10 @@ export default async function TestDrivePage({ searchParams }: TestDrivePageProps
   const params = await searchParams;
   const preselectedModelSlug = params?.model;
 
-  let models: any[] = [];
-  let settings = await getSiteSettings();
-
-  try {
-    models = await prisma.carModel.findMany({
-      where: { isActive: true },
-      select: {
-        id: true,
-        name: true,
-        slug: true,
-        tagline: true,
-        mainImage: true,
-        acceleration0100: true,
-        rangeKm: true,
-      },
-      orderBy: { orderIndex: 'asc' },
-    });
-  } catch (err) {
-    console.error('Error fetching models for test-drive:', err);
-  }
+  const [models, settings] = await Promise.all([
+    getCarModels(),
+    getSiteSettings(),
+  ]);
 
   return (
     <main className="min-h-screen bg-slate-50/50 pt-24 pb-20">

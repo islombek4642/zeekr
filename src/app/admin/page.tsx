@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
 import { formatPhoneNumber, formatCurrencyUZS } from '@/lib/utils';
+import { getLeadTypeLabel } from '@/lib/lead-workflow';
 import Link from 'next/link';
 import {
   Users,
@@ -190,7 +191,7 @@ export default async function AdminDashboardPage() {
                       </td>
                       <td className="px-5 py-3.5">
                         <span className="font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded text-[11px]">
-                          {lead.type === 'TEST_DRIVE' ? 'Test-drayv' : lead.type === 'CAR_RESERVE' ? 'Bron qilish' : 'Konsultatsiya'}
+                          {getLeadTypeLabel(lead.type)}
                         </span>
                       </td>
                       <td className="px-5 py-3.5 font-medium text-slate-800">

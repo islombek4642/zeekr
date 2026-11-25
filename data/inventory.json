@@ -10,7 +10,8 @@
     "priceUSD": 54900,
     "priceUZS": 705465000,
     "images": [
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80"
+      "/images/cars/zeekr-001/main.jpg",
+      "/images/cars/zeekr-001/interior.jpg"
     ],
     "notes": "Toshkent salonida tayyor turibdi, bojxona to'langan."
   },
@@ -19,13 +20,14 @@
     "modelSlug": "zeekr-007",
     "trimName": "AWD Performance 100kWh",
     "exteriorColor": "Dawn Silver",
-    "interiorColor": "Obsidian Black",
+    "interiorColor": "Oq & Qora Alcantara",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 42900,
     "priceUZS": 551265000,
     "images": [
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+      "/images/cars/zeekr-007/main.jpg",
+      "/images/cars/zeekr-007/interior.jpg"
     ],
     "notes": "Yangi kelgan, ko'rgazma zalida taqdimotga tayyor."
   },
@@ -40,7 +42,8 @@
     "priceUSD": 84000,
     "priceUZS": 1079400000,
     "images": [
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80"
+      "/images/cars/zeekr-009/main.jpg",
+      "/images/cars/zeekr-009/interior.jpg"
     ],
     "notes": "VIP komplektatsiya, 140 kVt/s akkumulyator."
   },
@@ -49,15 +52,15 @@
     "modelSlug": "zeekr-x",
     "trimName": "YOU Version 4-Seater AWD",
     "exteriorColor": "Berlin Gray",
-    "interiorColor": "Urban White",
+    "interiorColor": "Urban Blue & White",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 34500,
     "priceUZS": 443325000,
     "images": [
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
+      "/images/cars/zeekr-x/main.jpg",
+      "/images/cars/zeekr-x/interior.jpg"
     ],
     "notes": "Muzlatgich va suriluvchi ekranli 4-o'rinli versiya."
   }
 ]
-

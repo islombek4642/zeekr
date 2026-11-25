@@ -1,8 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
-
-const JWT_SECRET = process.env.JWT_SECRET || 'zeekr-super-secret-admin-key-2026';
+import { getJwtSecret } from './jwt-secret';
 
 export interface AdminTokenPayload {
   userId: string;
@@ -20,29 +19,39 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
 }
 
 export async function signToken(payload: AdminTokenPayload): Promise<string> {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+  const secret = getJwtSecret();
+  return jwt.sign(payload, secret, { algorithm: 'HS256', expiresIn: '7d' });
 }
 
 export async function verifyToken(token: string): Promise<AdminTokenPayload | null> {
+  const secret = getJwtSecret();
   try {
-    return jwt.verify(token, JWT_SECRET) as AdminTokenPayload;
-  } catch (err) {
+    return jwt.verify(token, secret, { algorithms: ['HS256'] }) as AdminTokenPayload;
+  } catch {
     return null;
   }
 }
 
 export async function getAdminSession(tokenOverride?: string): Promise<AdminTokenPayload | null> {
+  let payload: AdminTokenPayload | null = null;
   if (tokenOverride) {
-    return verifyToken(tokenOverride);
+    payload = await verifyToken(tokenOverride);
+  } else {
+    try {
+      const cookieStore = await cookies();
+      const token = cookieStore.get('admin_token')?.value;
+      if (!token) return null;
+      payload = await verifyToken(token);
+    } catch {
+      return null;
+    }
   }
-  try {
-    const cookieStore = await cookies();
-    const token = cookieStore.get('admin_token')?.value;
-    if (!token) return null;
-    return verifyToken(token);
-  } catch {
+
+  if (!payload || payload.role !== 'ADMIN') {
     return null;
   }
+
+  return payload;
 }
 
 export async function requireAdminSession(): Promise<AdminTokenPayload> {
@@ -52,4 +61,3 @@ export async function requireAdminSession(): Promise<AdminTokenPayload> {
   }
   return session;
 }
-

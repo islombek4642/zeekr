@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Gauge, BatteryCharging, Zap } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
+import { CarImage } from '@/components/ui/CarImage';
 
 interface ModelShowcaseProps {
   models: Array<{
@@ -40,15 +41,15 @@ export function ModelShowcase({ models, rate }: ModelShowcaseProps) {
           {models.map((model) => (
             <div
               key={model.id}
-              className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col group"
+              className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col h-full justify-between group"
             >
-              {/* IMAGE */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              {/* Rigid Image Container */}
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 shrink-0">
+                <CarImage
                   src={model.mainImage}
                   alt={model.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-slate-950/70 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider">
                   EV
@@ -98,7 +99,7 @@ export function ModelShowcase({ models, rate }: ModelShowcaseProps) {
                 </div>
 
                 {/* PRICE & BUTTON */}
-                <div className="space-y-3 pt-1">
+                <div className="space-y-3 pt-1 mt-auto">
                   <div>
                     <div className="text-[11px] text-slate-500 font-medium">Boshlang&apos;ich narx:</div>
                     <div className="text-lg font-black text-slate-900">

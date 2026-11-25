@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
+import { getCarModelBySlug } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
 import { ColorVisualizer } from '@/components/models/ColorVisualizer';
 import { SpecsComparison } from '@/components/models/SpecsComparison';
@@ -20,19 +20,7 @@ interface ModelPageProps {
 export default async function ModelDetailPage({ params }: ModelPageProps) {
   const { slug } = await params;
   const settings = await getSiteSettings();
-
-  let model: any = null;
-  try {
-    model = await prisma.carModel.findUnique({
-      where: { slug },
-      include: {
-        trims: true,
-        colors: true,
-      },
-    });
-  } catch (err) {
-    console.error('Error fetching model detail:', err);
-  }
+  const model = await getCarModelBySlug(slug);
 
   if (!model) {
     notFound();

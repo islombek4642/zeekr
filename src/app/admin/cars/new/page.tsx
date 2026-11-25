@@ -18,7 +18,7 @@ export default function AdminNewCarPage() {
   const [powerHp, setPowerHp] = useState(544);
   const [topSpeedKmH, setTopSpeedKmH] = useState(200);
   const [chargingTimeMin, setChargingTimeMin] = useState(15);
-  const [mainImage, setMainImage] = useState('https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80');
+  const [mainImage, setMainImage] = useState('/images/cars/zeekr-001/main.jpg');
   const [description, setDescription] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +37,7 @@ export default function AdminNewCarPage() {
     setIsLoading(true);
 
     try {
+      const trimmedImage = mainImage.trim();
       const res = await createCarModelAction({
         name,
         slug,
@@ -48,9 +49,9 @@ export default function AdminNewCarPage() {
         powerHp: Number(powerHp),
         topSpeedKmH: Number(topSpeedKmH),
         chargingTimeMin: Number(chargingTimeMin),
-        mainImage,
+        mainImage: trimmedImage,
         description,
-        galleryImages: [mainImage],
+        galleryImages: trimmedImage ? [trimmedImage] : [],
         isActive: true,
       });
 
@@ -246,13 +247,14 @@ export default function AdminNewCarPage() {
 
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5">
-            Asosiy Rasm URL *
+            Asosiy Rasm Yo&apos;li yoki URL *
           </label>
           <input
-            type="url"
+            type="text"
             required
             value={mainImage}
             onChange={(e) => setMainImage(e.target.value)}
+            placeholder="/images/cars/zeekr-001/main.jpg"
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-mono text-slate-900"
           />
         </div>

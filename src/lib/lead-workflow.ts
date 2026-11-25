@@ -15,3 +15,13 @@ export function isValidStatusTransition(current: string, next: string): boolean 
   return allowed.includes(next as LeadStatusType);
 }
 
+export const LEAD_TYPE_LABELS: Record<string, string> = {
+  TEST_DRIVE: 'Test-drayv',
+  CAR_RESERVE: 'Bron qilish',
+  SERVICE: 'Servis',
+  CONSULTATION: 'Konsultatsiya',
+};
+
+export function getLeadTypeLabel(type: string): string {
+  return LEAD_TYPE_LABELS[type] ?? 'Konsultatsiya';
+}

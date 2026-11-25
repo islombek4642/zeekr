@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { prisma } from '@/lib/prisma';
+import { getInventoryCatalogData } from '@/lib/data-provider';
 import { getSiteSettings } from '@/lib/settings';
 import { InventoryCatalog } from '@/components/inventory/InventoryCatalog';
 import { ShieldCheck, MapPin } from 'lucide-react';
@@ -11,72 +11,18 @@ export const metadata: Metadata = {
   description: 'Toshkent shou-rumida tayyor turgan va yo’lda kelayotgan rasmiy Zeekr avtomobillari. Shaffof narxlar, texnik ko’rsatkichlar va onlayn bron qilish.',
 };
 
-export default async function InventoryPage() {
-  let items: any[] = [];
-  let models: any[] = [];
-  let settings = await getSiteSettings();
+interface InventoryPageProps {
+  searchParams: Promise<{ reserve?: string; model?: string }>;
+}
 
-  try {
-    const [fetchedItems, fetchedModels] = await Promise.all([
-      prisma.inventoryItem.findMany({
-        where: {
-          status: { in: ['IN_STOCK', 'IN_TRANSIT'] },
-        },
-        include: {
-          trim: {
-            include: {
-              model: true,
-            },
-          },
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-      }),
-      prisma.carModel.findMany({
-        where: { isActive: true },
-        select: {
-          id: true,
-          name: true,
-          slug: true,
-        },
-        orderBy: {
-          orderIndex: 'asc',
-        },
-      }),
-    ]);
-    items = fetchedItems;
-    models = fetchedModels;
-  } catch (err) {
-    console.error('Error fetching inventory items from database:', err);
-  }
+export default async function InventoryPage({ searchParams }: InventoryPageProps) {
+  const resolvedParams = await searchParams;
+  const [settings, { items, models }] = await Promise.all([
+    getSiteSettings(),
+    getInventoryCatalogData(),
+  ]);
 
   const usdRate = settings.usd_to_uzs_rate || 12850;
-
-  // Format data for client component
-  const formattedItems = items.map((item) => ({
-    id: item.id,
-    vinOrCode: item.vinOrCode,
-    year: item.year,
-    exteriorColor: item.exteriorColor,
-    interiorColor: item.interiorColor,
-    status: item.status,
-    priceUSD: item.priceUSD,
-    images: item.images,
-    trim: {
-      id: item.trim.id,
-      name: item.trim.name,
-      driveType: item.trim.driveType,
-      rangeKm: item.trim.rangeKm,
-      acceleration: item.trim.acceleration,
-      model: {
-        id: item.trim.model.id,
-        name: item.trim.model.name,
-        slug: item.trim.model.slug,
-        mainImage: item.trim.model.mainImage,
-      },
-    },
-  }));
 
   return (
     <main className="min-h-screen bg-white pt-24 pb-20">
@@ -104,9 +50,11 @@ export default async function InventoryPage() {
 
         {/* INTERACTIVE CATALOG */}
         <InventoryCatalog
-          initialItems={formattedItems}
+          initialItems={items}
           models={models}
           usdRate={usdRate}
+          initialReserveId={resolvedParams?.reserve}
+          initialModelSlug={resolvedParams?.model}
         />
 
       </div>

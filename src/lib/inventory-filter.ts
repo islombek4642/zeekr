@@ -42,3 +42,11 @@ export function filterInventoryItems<T extends {
     return true;
   });
 }
+
+export function findReserveVehicle<T extends { id: string; vinOrCode: string | null }>(
+  items: T[],
+  reserveId?: string
+): T | null {
+  if (!reserveId) return null;
+  return items.find((item) => item.id === reserveId || item.vinOrCode === reserveId) || null;
+}
