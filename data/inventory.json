@@ -32,20 +32,20 @@
     "notes": "Yangi kelgan, ko'rgazma zalida taqdimotga tayyor."
   },
   {
-    "vinOrCode": "ZEEKR009-UZ-2026-003",
-    "modelSlug": "zeekr-009",
-    "trimName": "ME Version 140kWh (CATL Qilin)",
-    "exteriorColor": "Crystal White",
-    "interiorColor": "Sofaro Nappa Lux",
+    "vinOrCode": "ZEEKR7X-UZ-2026-005",
+    "modelSlug": "zeekr-7x",
+    "trimName": "Performance AWD 100kWh",
+    "exteriorColor": "Forest Green",
+    "interiorColor": "Amber Brown Nappa",
     "year": 2026,
     "status": "IN_STOCK",
-    "priceUSD": 84000,
-    "priceUZS": 1079400000,
+    "priceUSD": 47900,
+    "priceUZS": 615515000,
     "images": [
-      "/images/cars/zeekr-009/main.jpg",
-      "/images/cars/zeekr-009/interior.jpg"
+      "/images/cars/zeekr-7x/main.jpg",
+      "/images/cars/zeekr-7x/interior.jpg"
     ],
-    "notes": "VIP komplektatsiya, 140 kVt/s akkumulyator."
+    "notes": "Yangi model, 780 km masofa, Toshkent omborida mavjud."
   },
   {
     "vinOrCode": "ZEEKRX-UZ-2026-004",
@@ -62,5 +62,37 @@
       "/images/cars/zeekr-x/interior.jpg"
     ],
     "notes": "Muzlatgich va suriluvchi ekranli 4-o'rinli versiya."
+  },
+  {
+    "vinOrCode": "ZEEKR009-UZ-2026-003",
+    "modelSlug": "zeekr-009",
+    "trimName": "ME Version 140kWh (CATL Qilin)",
+    "exteriorColor": "Crystal White",
+    "interiorColor": "Sofaro Nappa Lux",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 84000,
+    "priceUZS": 1079400000,
+    "images": [
+      "/images/cars/zeekr-009/main.jpg",
+      "/images/cars/zeekr-009/interior.jpg"
+    ],
+    "notes": "VIP komplektatsiya, 140 kVt/s akkumulyator."
+  },
+  {
+    "vinOrCode": "ZEEKR9X-UZ-2026-006",
+    "modelSlug": "zeekr-9x",
+    "trimName": "Ultra Flagship AWD 140kWh",
+    "exteriorColor": "Royal Obsidian",
+    "interiorColor": "Bespoke Cognac Leather",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 89000,
+    "priceUZS": 1143650000,
+    "images": [
+      "/images/cars/zeekr-9x/main.jpg",
+      "/images/cars/zeekr-9x/interior.jpg"
+    ],
+    "notes": "Eksklyuziv flagman SUV, barcha opsiyalar to'liq kiritilgan."
   }
 ]

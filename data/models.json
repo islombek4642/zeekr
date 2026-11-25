@@ -40,22 +40,22 @@
     "isActive": true
   },
   {
-    "slug": "zeekr-009",
-    "name": "Zeekr 009",
-    "tagline": "Birinchi klass elektr lyuks miniveni",
-    "basePriceUSD": 72000,
-    "acceleration0100": 4.5,
-    "rangeKm": 822,
-    "batteryKwh": 140,
-    "powerHp": 544,
-    "topSpeedKmH": 190,
-    "chargingTimeMin": 28,
-    "mainImage": "/images/cars/zeekr-009/main.jpg",
+    "slug": "zeekr-7x",
+    "name": "Zeekr 7X",
+    "tagline": "Oila va sayohat uchun hashamatli elektr SUV",
+    "basePriceUSD": 39500,
+    "acceleration0100": 3.8,
+    "rangeKm": 780,
+    "batteryKwh": 100,
+    "powerHp": 646,
+    "topSpeedKmH": 210,
+    "chargingTimeMin": 15,
+    "mainImage": "/images/cars/zeekr-7x/main.jpg",
     "galleryImages": [
-      "/images/cars/zeekr-009/main.jpg",
-      "/images/cars/zeekr-009/interior.jpg"
+      "/images/cars/zeekr-7x/main.jpg",
+      "/images/cars/zeekr-7x/interior.jpg"
     ],
-    "description": "Zeekr 009 — xususiy samolyot qulayligidagi ikkinchi qator Sofaro kreslolari, CATL Qilin batareyasi va dunyodagi eng xavfsiz MPV korpusi.",
+    "description": "Zeekr 7X — keng va qulay interyer, ilg'or 800V arxitektura va yuqori xavfsizlik standartlariga ega oilaviy hashamatli SUV.",
     "orderIndex": 3,
     "isActive": true
   },
@@ -77,6 +77,46 @@
     ],
     "description": "Zeekr X — ramkasiz eshiklar, harakatlanuvchi markaziy ekran va mini-muzlatgichga ega urban premium krossover.",
     "orderIndex": 4,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-009",
+    "name": "Zeekr 009",
+    "tagline": "Birinchi klass elektr lyuks miniveni",
+    "basePriceUSD": 72000,
+    "acceleration0100": 4.5,
+    "rangeKm": 822,
+    "batteryKwh": 140,
+    "powerHp": 544,
+    "topSpeedKmH": 190,
+    "chargingTimeMin": 28,
+    "mainImage": "/images/cars/zeekr-009/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-009/main.jpg",
+      "/images/cars/zeekr-009/interior.jpg"
+    ],
+    "description": "Zeekr 009 — xususiy samolyot qulayligidagi ikkinchi qator Sofaro kreslolari, CATL Qilin batareyasi va dunyodagi eng xavfsiz MPV korpusi.",
+    "orderIndex": 5,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-9x",
+    "name": "Zeekr 9X",
+    "tagline": "Global super-hashamatli flagman SUV",
+    "basePriceUSD": 89000,
+    "acceleration0100": 3.1,
+    "rangeKm": 800,
+    "batteryKwh": 140,
+    "powerHp": 780,
+    "topSpeedKmH": 220,
+    "chargingTimeMin": 18,
+    "mainImage": "/images/cars/zeekr-9x/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-9x/main.jpg",
+      "/images/cars/zeekr-9x/interior.jpg"
+    ],
+    "description": "Zeekr 9X — Zeekr muhandisligining cho'qqisi, tengsiz quvvat, pnevmatik osma va super-lyuks interyerga ega flagman yo'ltanlamas.",
+    "orderIndex": 6,
     "isActive": true
   }
 ]

@@ -70,6 +70,34 @@
     ]
   },
   {
+    "modelSlug": "zeekr-7x",
+    "name": "Smart RWD 75kWh",
+    "priceUSD": 39500,
+    "driveType": "RWD",
+    "rangeKm": 605,
+    "acceleration": 5.7,
+    "features": [
+      "75 kVt/s Golden Battery",
+      "800V o'ta tezkor zaryadlash",
+      "Qualcomm 8295 aqlli kokpit",
+      "Oila uchun keng 5-o'rinli salon"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Performance AWD 100kWh",
+    "priceUSD": 47900,
+    "driveType": "AWD",
+    "rangeKm": 780,
+    "acceleration": 3.8,
+    "features": [
+      "100 kVt/s batareya",
+      "Ikki motorli 646 ot kuchi",
+      "CCD elektromagnit osma",
+      "Nappa teri va massaj o'rindiqlari"
+    ]
+  },
+  {
     "modelSlug": "zeekr-009",
     "name": "WE Version 116kWh",
     "priceUSD": 72000,
@@ -122,6 +150,20 @@
       "Muzlatgich / isitgich kamerasi",
       "Suriluvchi 14.6 dyuym ekran",
       "428 ot kuchi"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Ultra Flagship AWD 140kWh",
+    "priceUSD": 89000,
+    "driveType": "AWD",
+    "rangeKm": 800,
+    "acceleration": 3.1,
+    "features": [
+      "140 kVt/s Qilin batareyasi",
+      "780 ot kuchi va 3.1s tezlanish",
+      "Ikki kamerali pnevmatik podveska",
+      "Prezident darajasidagi hashamatli salon"
     ]
   }
 ]

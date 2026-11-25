@@ -42,9 +42,11 @@ describe('Data Provider', () => {
   it('should return car models list (from DB or JSON fallback)', async () => {
     const models = await getCarModels();
     expect(Array.isArray(models)).toBe(true);
-    expect(models.length).toBe(4);
+    expect(models.length).toBe(6);
     expect(models.some((m) => m.slug === 'zeekr-001')).toBe(true);
     expect(models.some((m) => m.slug === 'zeekr-007')).toBe(true);
+    expect(models.some((m) => m.slug === 'zeekr-7x')).toBe(true);
+    expect(models.some((m) => m.slug === 'zeekr-9x')).toBe(true);
   });
 
   it('should return in-stock inventory items', async () => {
@@ -98,9 +100,9 @@ describe('Data Provider', () => {
     expect(missingInDbResult).toBeNull();
   });
 
-  it('should return inventory catalog data with items and 4 active models via JSON fallback', async () => {
+  it('should return inventory catalog data with items and 6 active models via JSON fallback', async () => {
     const catalog = await getInventoryCatalogData();
-    expect(catalog.models.length).toBe(4);
+    expect(catalog.models.length).toBe(6);
     expect(catalog.items.length).toBeGreaterThanOrEqual(1);
     expect(catalog.items[0].id).toBe(catalog.items[0].vinOrCode);
     expect(catalog.items[0].trim.model.slug).toBeDefined();
