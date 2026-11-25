@@ -4,7 +4,22 @@ import { ArrowRight, Zap, ShieldCheck, Gauge } from 'lucide-react';
 export function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 text-white py-20 lg:py-32">
-      {/* Background ambient lighting */}
+      {/* Background cinematic video loop and ambient lighting */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/cars/zeekr-001/main.jpg"
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/cars/zeekr-001-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-950/60 to-slate-950" />
+      </div>
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2,132,199,0.15),transparent_50%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -95,4 +110,3 @@ export function HeroSection() {
     </section>
   );
 }
-

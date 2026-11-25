@@ -36,6 +36,14 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
     (img: string) => typeof img === 'string' && img.trim().length > 0
   );
 
+  const modelVideos: Record<string, string> = {
+    'zeekr-001': '/videos/cars/zeekr-001-hero.mp4',
+    'zeekr-007': '/videos/cars/zeekr-007-hero.mp4',
+    'zeekr-7x': '/videos/cars/zeekr-7x-hero.mp4',
+    'zeekr-9x': '/videos/cars/zeekr-9x-hero.mp4',
+  };
+  const modelVideo = modelVideos[slug];
+
   return (
     <div className="bg-white min-h-screen py-10 space-y-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -98,13 +106,34 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={model.mainImage}
-              alt={model.name}
-              className="w-full h-full object-cover object-center"
-            />
+          <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
+            {modelVideo ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster={model.mainImage}
+                className="w-full h-full object-cover object-center"
+              >
+                <source src={modelVideo} type="video/mp4" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={model.mainImage}
+                  alt={model.name}
+                  className="w-full h-full object-cover object-center"
+                />
+              </video>
+            ) : (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={model.mainImage}
+                alt={model.name}
+                className="w-full h-full object-cover object-center"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 
