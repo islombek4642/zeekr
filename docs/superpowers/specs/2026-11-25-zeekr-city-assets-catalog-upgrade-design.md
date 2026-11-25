@@ -165,10 +165,12 @@ public/
 
 ---
 
-## 7. What's Left to Decide (User Decisions)
-1. **Video Hero Placement:** Where do you prefer video loops to be displayed?
-   - *Option A:* Homepage Hero only (flagship video showcase with clean dark overlay).
-   - *Option B:* Homepage Hero + Individual Model detail pages (`/models/[slug]`).
-2. **Color Visualizer Scope:**
-   - *Option A:* Exterior Body Paint switching (swapping between 6-7 official exterior colors like Olive Green, Tech Grey, Alpine White, Mineral Blue).
-   - *Option B:* Dual Exterior + Interior Theme switching (exterior body paint and interior upholstery swatches).
+## 7. User Decisions & Approved Scope
+
+1. **Video Hero Placement: (Approved: Option A)**
+   - High-definition video loop with clean dark gradient overlay on the **Homepage Hero**.
+   - Cinematic video header and preview player on **Individual Model detail pages** (`/models/[slug]`) for Zeekr 001, Zeekr 007, Zeekr 7X, and Zeekr 9X with responsive poster fallbacks.
+2. **Color Visualizer Scope: (Approved: Option B — Dual Exterior + Interior)**
+   - **Exterior Body Paint:** Switch between official authentic paint colors with real vehicle photography and precise hex swatches.
+   - **Interior Theme:** Switch between authentic interior upholstery color themes (e.g., Dark & Green, Black & Grey, Blue & White, Alcantara/Nappa) with real interior photography for each model.
+
