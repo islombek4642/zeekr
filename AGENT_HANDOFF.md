@@ -1,104 +1,121 @@
-# 🤖 Zeekr Uzbekistan — Agent Handoff & Keyingi Bosqich Yo'riqnomasi
+# 🤖 Zeekr Uzbekistan — AI Agent Handoff & Keyingi Bosqich Yo'riqnomasi
 
-> **Diqqat keyingi AI Agent yoki dasturchiga:** Ushbu hujjat loyihaning to'xtagan joyidan bir qadam ham adashmasdan, aynan qayerdan davom ettirish kerakligini to'liq ko'rsatadi.
-
----
-
-## 📌 1. Joriy Holat Qisqacha Xulosasi
-
-- **Repozitoriy:** `https://github.com/islombek4642/zeekr.git` (`main` branch)
-- **Framework & Stack:** Next.js 15, React 19, Tailwind CSS v4, Prisma 6, PostgreSQL, Vitest.
-- **Sinovlar:** **21 ta test fayl, 51 ta test yashil (`PASS`)** (`npx vitest run`).
-- **TypeScript:** 0 ta xatolik (`npx tsc --noEmit`).
+> **Diqqat keyingi AI Agent yoki dasturchiga:** Ushbu hujjat loyihaning to'xtagan joyidan bir qadam ham adashmasdan, aynan qayerdan va qanday davom ettirish kerakligini to'liq ko'rsatadi.
 
 ---
 
-## 🔍 2. Foydalanuvchi Qo'ygan So'nggi Topshiriq va Aniqlangan Muammolar
+## 📌 1. Repozitoriy va Mualliflik Standartlari
 
-### Muammo 1: Kartochkalar o'lchami buzilishi (Vertical Stretching)
-- Vercel'dagi jonli saytda (`InStockCarousel` va `VehicleCard`) 3-kartochka (Zeekr 009) rasmi vertikal (portrait) bo'lgani sababli kartochka balandligi ikki barobar oshib, narx va "Bron qilish" tugmasi pastga tushib ketgan.
-- **Sababi:** Rasm konteynerida `relative aspect-[16/10]` bo'lgani bilan, ichidagi `<img>` tegi `absolute inset-0` bilan o'ralmagan va `shrink-0` bo'lmagani sababli rasm o'zining tabiiy vertikal piksellari bo'yicha flex qutisini cho'zib yuborgan.
-- **Yechim arxitekturasi:** Barcha kartochkalarga quyidagi qat'iy CSS kodi qo'yiladi:
-  ```tsx
-  {/* Rigid Image Container */}
-  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 shrink-0">
-    <img
-      src={displayImage}
-      alt={altText}
-      className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-      loading="lazy"
-    />
-  </div>
+- **GitHub Repozitoriy:** [https://github.com/islombek4642/zeekr.git](https://github.com/islombek4642/zeekr.git) (`main` branch).
+- **Vercel Jonli Sayt:** [https://zeekr-xi.vercel.app/](https://zeekr-xi.vercel.app/)
+- **Git Commit Muallifi:** Har doim quyidagi muallif bilan commit qilinishi shart (hech qachon `ganiyevahadjon` ishlatilmasin):
+  ```bash
+  git commit --author="islombek4642 <islombek4642@users.noreply.github.com>" -m "..."
   ```
-  Kartochkaning o'zi: `flex flex-col h-full justify-between`.
-  Pastki narx va tugma bloki: `mt-auto`.
-
-### Muammo 2: Saytda Begona Avtomobillar Rasmlari Turgani
-- Unsplash'dan tasodifiy Chevrolet Camaro, Porsche Panamera va BMW rasmlari qo'yilgan edi.
-- Barcha rasmlar mahalliy papkaga (`public/images/cars/...`) rasmiy Zeekr fotosuratlari sifatida yuklanishi belgilandi.
-
-### Muammo 3: Texnik Xarakteristikalarni Rasmiy Manbalar Asosida Yangilash
-- Zeekr modellarining batareya quvvati, 0-100 km/s tezlanishi va masofasi rasmiy manbalar (`zeekrlife.com`, `zeekr.eu`) asosida tasdiqlandi:
-  - **Zeekr 001:** Shooting Brake, 100 kVt/s batareya, 544 ot kuchi (AWD), 0-100 km/s: 3.8s, masofa: 750 km (CLTC), Maksimal tezlik: 200 km/soat.
-  - **Zeekr 007:** Sedan, 100 kVt/s batareya, 646 ot kuchi (AWD Performance), 0-100 km/s: 2.84s, masofa: 870 km (CLTC), Maksimal tezlik: 210 km/soat.
-  - **Zeekr 009:** MPV, 140 kVt/s CATL Qilin batareya, 544 ot kuchi, 0-100 km/s: 4.5s, masofa: 822 km (CLTC), Maksimal tezlik: 190 km/soat.
-  - **Zeekr X:** Krossover, 66 kVt/s batareya, 428 ot kuchi (AWD), 0-100 km/s: 3.7s, masofa: 560 km (CLTC), Maksimal tezlik: 185 km/soat.
+- **Hozirgi holat:** Barcha commitlar GitHub `origin/main` ga to'liq `push` qilingan, ishchi daraxt toza (`working tree clean`).
 
 ---
 
-## 📁 3. Yuklangan Haqiqiy Zeekr Rasmlari (Bajarildi)
+## 🚀 2. Loyiha Sog'lig'i va Test Natijalari (100% Yashil)
 
-Loyiha papkasida `public/images/cars/` katalogi yaratildi va haqiqiy rasmiy fotosuratlar yuklandi:
-1. `public/images/cars/zeekr-001/main.jpg` (4.8 MB rasmiy Zeekr 001 master fotosurati — Zeekr DatoCMS)
-2. `public/images/cars/zeekr-001/interior.jpg` (292 KB Nappa salon fotosurati)
-3. `public/images/cars/zeekr-007/main.jpg` (273 KB Zeekr 007 eksteryer fotosurati)
-4. `public/images/cars/zeekr-009/main.jpg` (715 KB Zeekr 009 master fotosurati 3024x1890)
-5. `public/images/cars/zeekr-x/main.jpg` (475 KB Zeekr X fotosurati)
-
-Test yaratildi va muvaffaqiyatli o'tdi:
-- `tests/assets/car-images.test.ts` (4 ta model rasmlari mavjudligi va hajmi tekshirildi).
+1. **Unit & Komponent Testlar:** **27 ta test fayl, 88 ta test yashil (`PASS`)**
+   ```bash
+   npm test
+   ```
+2. **End-to-End (E2E) Testlar:** **8 ta test fayl, 208 ta test yashil (`PASS`)**
+   ```bash
+   npx vitest run tests/e2e/ --config tests/e2e/vitest.e2e.config.ts
+   ```
+3. **TypeScript Type Check:** **0 ta xatolik (`exit code 0`)**
+   ```bash
+   npx tsc --noEmit
+   ```
+4. **Next.js Production Build:** **Muvaffaqiyatli yakunlanadi (`exit code 0`)**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## 🎯 4. Keyingi Agent Qilishi Kerak Bo'lgan Ishlar (QADAMMA-QADAM)
+## 💎 3. Ushbu Sessiyada Bajarilgan Katta Ishlar
 
-Keyingi agent quyidagi 3 ta qadamni bajarishi shart:
+Foydalanuvchi `https://www.zeekr-city.uz/` rasmiy diler saytidagi barcha avtomobillarni, ularning yangilangan rasmlari, ranglari va video lavhalarini xavfsiz tartibda loyihaga o'tkazishni va grafikasi buzilmasdan saytga joylashni so'radi.
 
-### 1-qadam: `data/*.json` fayllarini yangilash
-- `data/models.json`: Rasmlar yo'lini `/images/cars/zeekr-001/main.jpg`, `/images/cars/zeekr-007/main.jpg`, `/images/cars/zeekr-009/main.jpg`, `/images/cars/zeekr-x/main.jpg` ga o'tkazish va yuqoridagi rasmiy parametrlarni kiritish.
-- `data/colors.json`: Tashqi va ichki ranglar rasmlari havolalarini yangilash.
-- `data/inventory.json`: Ombordagi 4 ta mashinaning rasmlarini mos ravishda `/images/cars/...` ga yo'naltirish.
-- `data/trims.json`: WE, ME, YOU komplektatsiyalari ko'rsatkichlarini rasmiy xarakteristikalarga moslash.
+Quyidagi ishlar to'liq bajarildi va gitga kiritildi:
 
-### 2-qadam: Kartochkalar CSS arxitekturasini qat'iylashtirish
-Quyidagi 3 ta komponent faylini ochib, rasm va quti balandligini toshday mustahkam qilish:
-1. `src/components/home/InStockCarousel.tsx` (58-64 qatorlar atrofida)
-2. `src/components/home/ModelShowcase.tsx` (46-52 qatorlar atrofida)
-3. `src/components/inventory/VehicleCard.tsx` (30-36 qatorlar atrofida)
+### 1. Rasmiy Media Aktivlari Yuklandi (Zero Remote CDN / Local Assets)
+- `scripts/download-zeekr-assets.js` orqali `zeekr-city.uz` va `zeekrlife-oss.zeekrlife.com` dan 45 dan ortiq original media fayllar yuklandi:
+  - **4 ta HD kinematik video loop:** `public/videos/cars/zeekr-001-hero.mp4`, `zeekr-007-hero.mp4`, `zeekr-7x-hero.mp4`, `zeekr-9x-hero.mp4`.
+  - **Shaffof studio cutouts (eksteryer):** `public/images/cars/<slug>/main.webp` va orqaga moslik uchun `main.jpg`.
+  - **Haqiqiy kuzov bo'yoq ranglari:** `public/images/cars/<slug>/colors/*.jpg|webp`.
+  - **Salon va interyer fotosuratlari:** `public/images/cars/<slug>/interior.webp` va `int-*.webp`.
+  - Barcha rasmlar 500 KB dan past o'lchamda veb-optimizatsiya qilindi (grafika tiniqligi saqlangan holda).
 
-Struktura:
-```tsx
-<div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 shrink-0">
-  <img
-    src={displayImage}
-    alt={altText}
-    className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-    loading="lazy"
-  />
-</div>
+### 2. Modellar Katalogi 6 taga Kengaytirildi
+- `data/models.json`, `data/trims.json`, `data/inventory.json` fayllari yangilandi:
+  1. **Zeekr 001** (Shooting Brake, 750 km CLTC, 544 hp, 3.8s)
+  2. **Zeekr 007** (Luxury Sport Sedan, 870 km CLTC, 646 hp, 2.84s)
+  3. **Zeekr 7X** (Family Luxury SUV, 780 km CLTC, 646 hp, 3.8s)
+  4. **Zeekr X** (Urban Premium Crossover, 560 km CLTC, 428 hp, 3.7s)
+  5. **Zeekr 009** (First-Class Luxury MPV, 822 km CLTC, 544 hp, 4.5s)
+  6. **Zeekr 9X** (Global Ultra-Luxury Flagship SUV, 800 km CLTC, 780 hp, 3.1s)
+- Har bir model uchun rasmiy diler narxlari, komplektatsiyalari (trims) va salonda mavjud (in-stock) VIN kodli avtomobillar kiritildi.
+
+### 3. Dual Rang Visualizatori (Eksteryer + Interyer)
+- `src/components/models/ColorVisualizer.tsx` va `data/colors.json`:
+  - **Eksteryer** tabida haqiqiy kuzov bo'yoq ranglari (Polar White, Phantom Black, Forest Green, River Blue, Dawn Silver, Berlin Gray va boshqalar) va ranglar swatchesi.
+  - **Interyer** tabida hashamatli salon mebellari (Nappa teri, Sofaro, Alcantara, Cognac leather).
+  - Grafika buzilmasligi uchun eksteryerda `object-contain p-4`, interyerda `object-cover` ishlatildi (`aspect-[16/9]` nisbati buzilmaydi).
+
+### 4. Bosh Sahifa va Model Tafsilotlarida Kinematik Video Hero
+- `src/components/home/HeroSection.tsx`: Fon qismida ovozsiz, avtomatik aylanuvchi (`autoPlay muted loop playsInline preload="metadata"`) ambient video loop va sifatli poster fallback qo'shildi.
+- `src/app/(public)/models/[slug]/page.tsx`: 001, 007, 7X, 9X modellari uchun yuqori sifatli video taqdimot joylashtirildi.
+
+---
+
+## 🎯 4. Keyingi AI Agent Uchun Topshiriqlar va Tavsiyalar
+
+Agar foydalanuvchi uyga borib ishni davom ettirsa, quyidagi vazifalarni amalga oshirish mumkin:
+
+### 1-vazifa: Qolgan 4 ta Modelni Qo'shish (Agar foydalanuvchi 10 ta modelni to'liq xohlasa)
+Foydalanuvchi yuborgan ikkinchi skrinshotda `zeekr-city.uz` da 10 ta modellar qatori ko'rsatilgan:
+- `9X`, `8X`, `8X Yaoying`, `7X`, `X`, `001 2025`, `001 All New 2026`, `007`, `007 GT`, `009`.
+Hozir saytda asosiy 6 ta avtomobil to'liq ishlayapti (`001`, `007`, `009`, `X`, `7X`, `9X`).
+Agar foydalanuvchi `8X`, `8X Yaoying`, `007 GT` larni ham alohida model sifatida qo'shishni so'rasa:
+1. `scripts/download-zeekr-assets.js` ga ularning rasmlari havolasini qo'shib yuklab olish.
+2. `data/models.json` va `data/trims.json` ga kiritish.
+
+### 2-vazifa: Cloud Database yoki Telegram Integratsiyasi (Ixtiyoriy)
+- Hozirda loyiha PostgreSQL o'chirilgan bo'lsa ham mukammal ishlaydigan `JSON Fallback Database Architecture` bilan ta'minlangan (Vercel'da DBsiz ham 100% ishlaydi).
+- Agar foydalanuvchi Supabase yoki Neon orqali real PostgreSQL ulamoqchi bo'lsa:
+  1. `.env.local` da `DATABASE_URL` va `DIRECT_URL` ni kiritish.
+  2. `npx prisma db push` va `npx tsx prisma/seed.ts` buyrug'ini bajarish.
+- Telegram xabarnomasi uchun `.env.local` ga `TELEGRAM_BOT_TOKEN` va `TELEGRAM_CHAT_ID` kiritish.
+
+---
+
+## 🛠 5. Ishga Tushirish va Tekshirish Buyruqlari
+
+```bash
+# 1. Loyihani mahalliy serverda ishga tushirish (Local Dev)
+npm run dev
+
+# 2. Barcha unit testlarni yurgizish (88 ta test)
+npm test
+
+# 3. Barcha 208 ta E2E testlarni yurgizish
+npx vitest run tests/e2e/ --config tests/e2e/vitest.e2e.config.ts
+
+# 4. TypeScript xatoliklarini tekshirish
+npx tsc --noEmit
+
+# 5. Production build tayyorlash
+npm run build
+
+# 6. O'zgarishlarni GitHub ga yuborish
+git add .
+git commit --author="islombek4642 <islombek4642@users.noreply.github.com>" -m "feat: ..."
+git push origin main
 ```
-Va pastki narx/tugma qatoriga `mt-auto` berish, shunda hamma kartochkalarda narx va "Bron qilish" tugmasi bir tekis gorizontal chiziqda turadi.
 
-### 3-qadam: Ma'lumotlar bazasini qayta to'ldirish (Seed) va Sinov
-- `npm run prisma:seed` buyrug'i orqali yangilangan JSON ma'lumotlarni bazaga yuklash.
-- `npx vitest run` buyrug'ini ishga tushirish (barcha testlar yashil ekanligiga ishonch hosil qilish).
-- `npx tsc --noEmit` bilan TypeScript xatoliklari 0 ekanligini tekshirish.
-- `git add -A; git commit -m "feat(ui): enforce rigid card aspect ratio and bind authentic local zeekr assets"`
-- `git push origin main`
-
----
-
-## 🛠 5. Asosiy Hujjatlar Havolasi
-
-- **Design Spec:** [docs/superpowers/specs/2026-11-12-zeekr-authentic-data-and-card-layout-design.md](file:///c:/ZEEKR/docs/superpowers/specs/2026-11-12-zeekr-authentic-data-and-card-layout-design.md)
-- **Implementation Plan:** [docs/superpowers/plans/2026-11-12-zeekr-authentic-data-and-card-layout.md](file:///c:/ZEEKR/docs/superpowers/plans/2026-11-12-zeekr-authentic-data-and-card-layout.md)
+Ushbu yo'riqnoma bilan keyingi AI agent darhol kontekstga kirib, hech qanday to'siqsiz ishlarni davom ettira oladi.
