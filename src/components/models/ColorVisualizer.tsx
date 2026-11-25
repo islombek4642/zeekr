@@ -84,12 +84,14 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
       </div>
 
       {/* CAR PREVIEW CANVAS */}
-      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-inner flex items-center justify-center shrink-0">
+      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-slate-900/5 border border-slate-200 shadow-inner flex items-center justify-center shrink-0">
         <CarImage
           key={activeImage}
           src={activeImage}
           alt={`${modelName} - ${activeColorName}`}
-          className="absolute inset-0 w-full h-full object-cover object-center animate-in fade-in duration-500"
+          className={`absolute inset-0 w-full h-full ${
+            activeTab === 'exterior' ? 'object-contain p-4' : 'object-cover'
+          } object-center animate-in fade-in duration-500`}
           loading="eager"
         />
 
@@ -134,4 +136,3 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
     </div>
   );
 }
-
