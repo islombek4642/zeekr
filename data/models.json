@@ -1,108 +1,8 @@
 [
   {
-    "slug": "zeekr-001",
-    "name": "Zeekr 001",
-    "tagline": "Shooting Brake elektr flagmani",
-    "basePriceUSD": 45000,
-    "acceleration0100": 3.8,
-    "rangeKm": 750,
-    "batteryKwh": 100,
-    "powerHp": 544,
-    "topSpeedKmH": 200,
-    "chargingTimeMin": 15,
-    "mainImage": "/images/cars/zeekr-001/main.jpg",
-    "galleryImages": [
-      "/images/cars/zeekr-001/main.jpg",
-      "/images/cars/zeekr-001/interior.jpg"
-    ],
-    "description": "Zeekr 001 — zamonaviy aerodinamik Shooting Brake kuzovi, 800V yuqori tezlikdagi zaryadlash va pnevmatik osma bilan jihozlangan premium sportbek.",
-    "orderIndex": 1,
-    "isActive": true
-  },
-  {
-    "slug": "zeekr-007",
-    "name": "Zeekr 007",
-    "tagline": "Kelajak avlodi hashamatli sedani",
-    "basePriceUSD": 36500,
-    "acceleration0100": 2.84,
-    "rangeKm": 870,
-    "batteryKwh": 100,
-    "powerHp": 646,
-    "topSpeedKmH": 210,
-    "chargingTimeMin": 15,
-    "mainImage": "/images/cars/zeekr-007/main.jpg",
-    "galleryImages": [
-      "/images/cars/zeekr-007/main.jpg",
-      "/images/cars/zeekr-007/interior.jpg"
-    ],
-    "description": "Zeekr 007 — 90 dyuymli Zeekr Stargate interaktiv chiroqlar paneli, 800V Golden Battery texnologiyasi va 15 daqiqada 500 km quvvat oluvchi super sedan.",
-    "orderIndex": 2,
-    "isActive": true
-  },
-  {
-    "slug": "zeekr-7x",
-    "name": "Zeekr 7X",
-    "tagline": "Oila va sayohat uchun hashamatli elektr SUV",
-    "basePriceUSD": 39500,
-    "acceleration0100": 3.8,
-    "rangeKm": 780,
-    "batteryKwh": 100,
-    "powerHp": 646,
-    "topSpeedKmH": 210,
-    "chargingTimeMin": 15,
-    "mainImage": "/images/cars/zeekr-7x/main.jpg",
-    "galleryImages": [
-      "/images/cars/zeekr-7x/main.jpg",
-      "/images/cars/zeekr-7x/interior.jpg"
-    ],
-    "description": "Zeekr 7X — keng va qulay interyer, ilg'or 800V arxitektura va yuqori xavfsizlik standartlariga ega oilaviy hashamatli SUV.",
-    "orderIndex": 3,
-    "isActive": true
-  },
-  {
-    "slug": "zeekr-x",
-    "name": "Zeekr X",
-    "tagline": "Shahar uchun ixcham premium krossover",
-    "basePriceUSD": 29500,
-    "acceleration0100": 3.7,
-    "rangeKm": 560,
-    "batteryKwh": 66,
-    "powerHp": 428,
-    "topSpeedKmH": 185,
-    "chargingTimeMin": 20,
-    "mainImage": "/images/cars/zeekr-x/main.jpg",
-    "galleryImages": [
-      "/images/cars/zeekr-x/main.jpg",
-      "/images/cars/zeekr-x/interior.jpg"
-    ],
-    "description": "Zeekr X — ramkasiz eshiklar, harakatlanuvchi markaziy ekran va mini-muzlatgichga ega urban premium krossover.",
-    "orderIndex": 4,
-    "isActive": true
-  },
-  {
-    "slug": "zeekr-009",
-    "name": "Zeekr 009",
-    "tagline": "Birinchi klass elektr lyuks miniveni",
-    "basePriceUSD": 72000,
-    "acceleration0100": 4.5,
-    "rangeKm": 822,
-    "batteryKwh": 140,
-    "powerHp": 544,
-    "topSpeedKmH": 190,
-    "chargingTimeMin": 28,
-    "mainImage": "/images/cars/zeekr-009/main.jpg",
-    "galleryImages": [
-      "/images/cars/zeekr-009/main.jpg",
-      "/images/cars/zeekr-009/interior.jpg"
-    ],
-    "description": "Zeekr 009 — xususiy samolyot qulayligidagi ikkinchi qator Sofaro kreslolari, CATL Qilin batareyasi va dunyodagi eng xavfsiz MPV korpusi.",
-    "orderIndex": 5,
-    "isActive": true
-  },
-  {
     "slug": "zeekr-9x",
     "name": "Zeekr 9X",
-    "tagline": "Global super-hashamatli flagman SUV",
+    "tagline": "Глобальный сверхроскошный SUV",
     "basePriceUSD": 89000,
     "acceleration0100": 3.1,
     "rangeKm": 800,
@@ -116,7 +16,187 @@
       "/images/cars/zeekr-9x/interior.jpg"
     ],
     "description": "Zeekr 9X — Zeekr muhandisligining cho'qqisi, tengsiz quvvat, pnevmatik osma va super-lyuks interyerga ega flagman yo'ltanlamas.",
+    "orderIndex": 1,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-8x",
+    "name": "Zeekr 8X",
+    "tagline": "Флагманский гибридный кроссовер",
+    "basePriceUSD": 58000,
+    "acceleration0100": 3.8,
+    "rangeKm": 1000,
+    "batteryKwh": 55,
+    "powerHp": 650,
+    "topSpeedKmH": 215,
+    "chargingTimeMin": 20,
+    "mainImage": "/images/cars/zeekr-8x/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-8x/main.jpg",
+      "/images/cars/zeekr-8x/interior.jpg"
+    ],
+    "description": "Zeekr 8X — uzoq masofali gibrid texnologiyasi, hashamatli 6 o'rinli salon va ilg'or haydash yordamchilariga ega flagman krossover.",
+    "orderIndex": 2,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-8x-yaoying",
+    "name": "Zeekr 8X Yaoying",
+    "tagline": "Топовая версия 8X",
+    "basePriceUSD": 68000,
+    "acceleration0100": 3.5,
+    "rangeKm": 1000,
+    "batteryKwh": 55,
+    "powerHp": 720,
+    "topSpeedKmH": 225,
+    "chargingTimeMin": 20,
+    "mainImage": "/images/cars/zeekr-8x-yaoying/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-8x-yaoying/main.jpg",
+      "/images/cars/zeekr-8x-yaoying/interior.jpg"
+    ],
+    "description": "Zeekr 8X Yaoying — 8X ning eng yuqori eksklyuziv modifikatsiyasi, qoraytirilgan dizayn paketi va maxsus nappa terisi bilan.",
+    "orderIndex": 3,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-7x",
+    "name": "Zeekr 7X",
+    "tagline": "Роскошный SUV для всей семьи",
+    "basePriceUSD": 39500,
+    "acceleration0100": 3.8,
+    "rangeKm": 780,
+    "batteryKwh": 100,
+    "powerHp": 646,
+    "topSpeedKmH": 210,
+    "chargingTimeMin": 15,
+    "mainImage": "/images/cars/zeekr-7x/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-7x/main.jpg",
+      "/images/cars/zeekr-7x/interior.jpg"
+    ],
+    "description": "Zeekr 7X — keng va qulay interyer, ilg'or 800V arxitektura va yuqori xavfsizlik standartlariga ega oilaviy hashamatli SUV.",
+    "orderIndex": 4,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-x",
+    "name": "Zeekr X",
+    "tagline": "Городской SUV нового поколения",
+    "basePriceUSD": 29500,
+    "acceleration0100": 3.7,
+    "rangeKm": 560,
+    "batteryKwh": 66,
+    "powerHp": 428,
+    "topSpeedKmH": 185,
+    "chargingTimeMin": 20,
+    "mainImage": "/images/cars/zeekr-x/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-x/main.jpg",
+      "/images/cars/zeekr-x/interior.jpg"
+    ],
+    "description": "Zeekr X — ramkasiz eshiklar, harakatlanuvchi markaziy ekran va mini-muzlatgichga ega urban premium krossover.",
+    "orderIndex": 5,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-001",
+    "name": "Zeekr 001 2025",
+    "tagline": "Роскошный шутинг-брейк",
+    "basePriceUSD": 45000,
+    "acceleration0100": 3.8,
+    "rangeKm": 750,
+    "batteryKwh": 100,
+    "powerHp": 544,
+    "topSpeedKmH": 200,
+    "chargingTimeMin": 15,
+    "mainImage": "/images/cars/zeekr-001/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-001/main.jpg",
+      "/images/cars/zeekr-001/interior.jpg"
+    ],
+    "description": "Zeekr 001 2025 — aerodinamik Shooting Brake kuzovi, 800V yuqori tezlikdagi zaryadlash va pnevmatik osma bilan jihozlangan premium sportbek.",
     "orderIndex": 6,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-001-all-new",
+    "name": "Zeekr 001 All New 2026",
+    "tagline": "Обновлённый флагман",
+    "basePriceUSD": 49000,
+    "acceleration0100": 3.3,
+    "rangeKm": 780,
+    "batteryKwh": 100,
+    "powerHp": 789,
+    "topSpeedKmH": 240,
+    "chargingTimeMin": 11,
+    "mainImage": "/images/cars/zeekr-001-all-new/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-001-all-new/main.jpg",
+      "/images/cars/zeekr-001-all-new/interior.jpg"
+    ],
+    "description": "Zeekr 001 All New 2026 — yangilangan flagman, 95 kVt/s 5C Shenxing batareyasi va 789 ot kuchiga ega yangi avlod elektr avtomobili.",
+    "orderIndex": 7,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-007",
+    "name": "Zeekr 007",
+    "tagline": "Роскошный спортивный седан",
+    "basePriceUSD": 36500,
+    "acceleration0100": 2.84,
+    "rangeKm": 870,
+    "batteryKwh": 100,
+    "powerHp": 646,
+    "topSpeedKmH": 210,
+    "chargingTimeMin": 15,
+    "mainImage": "/images/cars/zeekr-007/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-007/main.jpg",
+      "/images/cars/zeekr-007/interior.jpg"
+    ],
+    "description": "Zeekr 007 — 90 dyuymli Zeekr Stargate interaktiv chiroqlar paneli, 800V Golden Battery texnologiyasi va 15 daqiqada 500 km quvvat oluvchi super sedan.",
+    "orderIndex": 8,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-007-gt",
+    "name": "Zeekr 007 GT",
+    "tagline": "Технологичный спортивный шутинг-брейк",
+    "basePriceUSD": 42500,
+    "acceleration0100": 2.7,
+    "rangeKm": 820,
+    "batteryKwh": 100,
+    "powerHp": 720,
+    "topSpeedKmH": 220,
+    "chargingTimeMin": 15,
+    "mainImage": "/images/cars/zeekr-007-gt/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-007-gt/main.jpg",
+      "/images/cars/zeekr-007-gt/interior.jpg"
+    ],
+    "description": "Zeekr 007 GT — sportiv dinamika va universallik uyg'unligi, tezyurar GT kuzov va eng so'nggi Stargate intellekti.",
+    "orderIndex": 9,
+    "isActive": true
+  },
+  {
+    "slug": "zeekr-009",
+    "name": "Zeekr 009",
+    "tagline": "Роскошный флагманский минивэн",
+    "basePriceUSD": 72000,
+    "acceleration0100": 4.5,
+    "rangeKm": 822,
+    "batteryKwh": 140,
+    "powerHp": 544,
+    "topSpeedKmH": 190,
+    "chargingTimeMin": 28,
+    "mainImage": "/images/cars/zeekr-009/main.jpg",
+    "galleryImages": [
+      "/images/cars/zeekr-009/main.jpg",
+      "/images/cars/zeekr-009/interior.jpg"
+    ],
+    "description": "Zeekr 009 — xususiy samolyot qulayligidagi ikkinchi qator Sofaro kreslolari, CATL Qilin batareyasi va dunyodagi eng xavfsiz MPV korpusi.",
+    "orderIndex": 10,
     "isActive": true
   }
 ]

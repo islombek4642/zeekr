@@ -46,9 +46,9 @@ describe('Tier 1 — Part B: Functional Expansion Happy Paths (F9–F11)', () =>
       expect(typeof actions?.createCarModelAction).toBe('function');
 
       const res = await actions!.createCarModelAction({
-        name: 'Zeekr 8X',
-        slug: '  ZEEKR-8X  ',
-        tagline: 'Premium SUV',
+        name: 'Zeekr Mix',
+        slug: '  ZEEKR-MIX  ',
+        tagline: 'Premium MPV',
         basePriceUSD: 44000,
         rangeKm: 705,
         acceleration0100: 3.8,
@@ -57,7 +57,7 @@ describe('Tier 1 — Part B: Functional Expansion Happy Paths (F9–F11)', () =>
         topSpeedKmH: 210,
         chargingTimeMin: 15,
         mainImage: '/images/cars/zeekr-001/main.jpg',
-        description: 'Yangi premium elektr krossover.',
+        description: 'Yangi premium elektr MPV.',
         galleryImages: ['/images/cars/zeekr-001/interior.jpg'],
         isActive: true,
       });
@@ -65,7 +65,7 @@ describe('Tier 1 — Part B: Functional Expansion Happy Paths (F9–F11)', () =>
       expect(res.success).toBe(true);
       expect(res.modelId).toBeTruthy();
       const created = await prismaMemoryClient.carModel.findUnique({ where: { id: res.modelId } });
-      expect(created?.slug).toBe('zeekr-8x');
+      expect(created?.slug).toBe('zeekr-mix');
     });
 
     it('T1-F9-02: Edit existing model via /admin/cars/[id] & updateCarModelAction updates /models/[slug]', async () => {

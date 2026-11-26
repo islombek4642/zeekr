@@ -1,5 +1,278 @@
 [
   {
+    "modelSlug": "zeekr-9x",
+    "name": "Polar Night Black",
+    "hexCode": "#111827",
+    "imageUrl": "/images/cars/zeekr-9x/colors/polar-black.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Midnight White",
+    "hexCode": "#F9FAFB",
+    "imageUrl": "/images/cars/zeekr-9x/colors/midnight-white.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Glacier Silver",
+    "hexCode": "#CBD5E1",
+    "imageUrl": "/images/cars/zeekr-9x/colors/glacier-silver.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Starry Sky Gray",
+    "hexCode": "#475569",
+    "imageUrl": "/images/cars/zeekr-9x/colors/starry-gray.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Dark Night Purple",
+    "hexCode": "#3B0764",
+    "imageUrl": "/images/cars/zeekr-9x/colors/dark-purple.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Polar White Nappa",
+    "hexCode": "#E2E8F0",
+    "imageUrl": "/images/cars/zeekr-9x/colors/int-polar-white.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Moon Shadow Blue",
+    "hexCode": "#1E293B",
+    "imageUrl": "/images/cars/zeekr-9x/colors/int-moon-blue.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Amber Brown Nappa",
+    "hexCode": "#78350F",
+    "imageUrl": "/images/cars/zeekr-9x/colors/int-amber-brown.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Amber Red",
+    "hexCode": "#991B1B",
+    "imageUrl": "/images/cars/zeekr-8x/colors/amber-red.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Polar Night Black",
+    "hexCode": "#0F172A",
+    "imageUrl": "/images/cars/zeekr-8x/colors/polar-black.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Polar Day White",
+    "hexCode": "#F8FAFC",
+    "imageUrl": "/images/cars/zeekr-8x/colors/polar-white.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Moon Sea Gray",
+    "hexCode": "#64748B",
+    "imageUrl": "/images/cars/zeekr-8x/colors/moon-gray.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Xuanwu Gray",
+    "hexCode": "#334155",
+    "imageUrl": "/images/cars/zeekr-8x/colors/xuanwu-gray.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Red & Black Sport",
+    "hexCode": "#7F1D1D",
+    "imageUrl": "/images/cars/zeekr-8x/colors/int-red-black.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "All Black Nappa",
+    "hexCode": "#0A0A0A",
+    "imageUrl": "/images/cars/zeekr-8x/colors/int-all-black.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "White & Black Duo",
+    "hexCode": "#E2E8F0",
+    "imageUrl": "/images/cars/zeekr-8x/colors/int-white-black.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Brown & Black Lux",
+    "hexCode": "#78350F",
+    "imageUrl": "/images/cars/zeekr-8x/colors/int-brown-black.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-8x-yaoying",
+    "name": "Matte Starry Gray",
+    "hexCode": "#475569",
+    "imageUrl": "/images/cars/zeekr-8x-yaoying/colors/matte-starry-gray.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x-yaoying",
+    "name": "Hunter Sky Blue",
+    "hexCode": "#0284C7",
+    "imageUrl": "/images/cars/zeekr-8x-yaoying/colors/hunter-sky-blue.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x-yaoying",
+    "name": "Polar Night Black Gloss",
+    "hexCode": "#000000",
+    "imageUrl": "/images/cars/zeekr-8x-yaoying/colors/polar-black-gloss.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-8x-yaoying",
+    "name": "Yaoying Exclusive Lux",
+    "hexCode": "#1E293B",
+    "imageUrl": "/images/cars/zeekr-8x-yaoying/colors/int-yaoying-lux.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Blue Stone",
+    "hexCode": "#3B82F6",
+    "imageUrl": "/images/cars/zeekr-7x/colors/blue-stone.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Dawn Brown",
+    "hexCode": "#854D0E",
+    "imageUrl": "/images/cars/zeekr-7x/colors/dawn-brown.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Bright White",
+    "hexCode": "#F8FAFC",
+    "imageUrl": "/images/cars/zeekr-7x/colors/bright-white.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Cloud Orange",
+    "hexCode": "#EA580C",
+    "imageUrl": "/images/cars/zeekr-7x/colors/cloud-orange.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Star Grey",
+    "hexCode": "#64748B",
+    "imageUrl": "/images/cars/zeekr-7x/colors/star-grey.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Polar Black",
+    "hexCode": "#0F172A",
+    "imageUrl": "/images/cars/zeekr-7x/colors/polar-black.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Morino Green",
+    "hexCode": "#15803D",
+    "imageUrl": "/images/cars/zeekr-7x/colors/morino-green.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Purple & White Nappa",
+    "hexCode": "#E0E7FF",
+    "imageUrl": "/images/cars/zeekr-7x/colors/int-purple-white.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Black & Grey Tech",
+    "hexCode": "#334155",
+    "imageUrl": "/images/cars/zeekr-7x/interior.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Pure Black Lux",
+    "hexCode": "#09090B",
+    "imageUrl": "/images/cars/zeekr-7x/interior.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Polar Black",
+    "hexCode": "#0F172A",
+    "imageUrl": "/images/cars/zeekr-x/colors/polar-black.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Mist Grey",
+    "hexCode": "#94A3B8",
+    "imageUrl": "/images/cars/zeekr-x/colors/mist-grey.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Crystal White",
+    "hexCode": "#F8FAFC",
+    "imageUrl": "/images/cars/zeekr-x/colors/crystal-white.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Palace Beige",
+    "hexCode": "#FEF3C7",
+    "imageUrl": "/images/cars/zeekr-x/colors/palace-beige.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Pine Green",
+    "hexCode": "#166534",
+    "imageUrl": "/images/cars/zeekr-x/colors/pine-green.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Starry Dark Grey",
+    "hexCode": "#334155",
+    "imageUrl": "/images/cars/zeekr-x/colors/starry-dgrey.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Charcoal & Stone",
+    "hexCode": "#475569",
+    "imageUrl": "/images/cars/zeekr-x/colors/int-charcoal-stone.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "Midnight & Polar Blue",
+    "hexCode": "#1E293B",
+    "imageUrl": "/images/cars/zeekr-x/colors/int-midnight-polar.jpg",
+    "isInterior": true
+  },
+  {
     "modelSlug": "zeekr-001",
     "name": "Polar White",
     "hexCode": "#F8FAFC",
@@ -43,219 +316,268 @@
   },
   {
     "modelSlug": "zeekr-001",
-    "name": "Krem & Kulrang Nappa",
+    "name": "Morning Beige",
+    "hexCode": "#F5EBE0",
+    "imageUrl": "/images/cars/zeekr-001-2025/colors/beige.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001",
+    "name": "Gray Nappa Lux",
     "hexCode": "#E2E8F0",
-    "imageUrl": "/images/cars/zeekr-001/interior.jpg",
+    "imageUrl": "/images/cars/zeekr-001-2025/colors/int-gray.jpg",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Shooting Green",
+    "hexCode": "#1B4332",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/shooting-green.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Polar Day White",
+    "hexCode": "#F8FAFC",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/polar-day-white.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Starry Grey",
+    "hexCode": "#4A5568",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/starry-grey.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Morning Beige",
+    "hexCode": "#EAD7C5",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/morning-beige.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Interstellar Purple",
+    "hexCode": "#581C87",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/interstellar-purple.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Dark Purple",
+    "hexCode": "#3B0764",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/dark-purple.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "Nappa Gray Lux",
+    "hexCode": "#CBD5E1",
+    "imageUrl": "/images/cars/zeekr-001-all-new/colors/int-nappa-gray.jpg",
     "isInterior": true
   },
   {
     "modelSlug": "zeekr-007",
     "name": "Dawn Silver",
     "hexCode": "#CBD5E1",
-    "imageUrl": "/images/cars/zeekr-007/colors/white.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-007",
-    "name": "Obsidian Black",
-    "hexCode": "#020617",
-    "imageUrl": "/images/cars/zeekr-007/colors/black.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-007",
-    "name": "Electric Blue",
-    "hexCode": "#1E3A8A",
-    "imageUrl": "/images/cars/zeekr-007/colors/blue.jpg",
+    "imageUrl": "/images/cars/zeekr-007/colors/cloud-silver.jpg",
     "isInterior": false
   },
   {
     "modelSlug": "zeekr-007",
     "name": "Emerald Green",
     "hexCode": "#064E3B",
-    "imageUrl": "/images/cars/zeekr-007/colors/green.jpg",
+    "imageUrl": "/images/cars/zeekr-007/colors/mineral-green.jpg",
     "isInterior": false
   },
   {
     "modelSlug": "zeekr-007",
-    "name": "Titanium Grey",
+    "name": "Electric Blue",
+    "hexCode": "#1E3A8A",
+    "imageUrl": "/images/cars/zeekr-007/colors/clear-blue.jpg",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007",
+    "name": "Smoky Grey",
     "hexCode": "#475569",
-    "imageUrl": "/images/cars/zeekr-007/colors/grey.jpg",
+    "imageUrl": "/images/cars/zeekr-007/colors/smoky-grey.jpg",
     "isInterior": false
   },
   {
     "modelSlug": "zeekr-007",
-    "name": "Oq & Qora Alcantara",
-    "hexCode": "#F1F5F9",
-    "imageUrl": "/images/cars/zeekr-007/interior.jpg",
-    "isInterior": true
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "Polar White",
-    "hexCode": "#F8FAFC",
-    "imageUrl": "/images/cars/zeekr-7x/colors/white.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
     "name": "Obsidian Black",
-    "hexCode": "#090A0F",
-    "imageUrl": "/images/cars/zeekr-7x/colors/black.webp",
+    "hexCode": "#020617",
+    "imageUrl": "/images/cars/zeekr-007/colors/polar-black.jpg",
     "isInterior": false
   },
   {
-    "modelSlug": "zeekr-7x",
-    "name": "Forest Green",
-    "hexCode": "#1C3A27",
-    "imageUrl": "/images/cars/zeekr-7x/colors/green.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "River Blue",
-    "hexCode": "#2E4A62",
-    "imageUrl": "/images/cars/zeekr-7x/colors/blue.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "Amber Orange",
-    "hexCode": "#C05621",
-    "imageUrl": "/images/cars/zeekr-7x/colors/orange.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "Canyon Brown",
-    "hexCode": "#5B3A29",
-    "imageUrl": "/images/cars/zeekr-7x/colors/brown.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "Stone Grey",
-    "hexCode": "#6B7280",
-    "imageUrl": "/images/cars/zeekr-7x/colors/grey.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-7x",
-    "name": "Charcoal Black Nappa",
-    "hexCode": "#1A1D20",
-    "imageUrl": "/images/cars/zeekr-7x/colors/int-black.webp",
+    "modelSlug": "zeekr-007",
+    "name": "Blue & White Nappa",
+    "hexCode": "#DBEAFE",
+    "imageUrl": "/images/cars/zeekr-007/colors/int-blue-white.jpg",
     "isInterior": true
   },
   {
-    "modelSlug": "zeekr-7x",
-    "name": "Platinum Grey Leather",
-    "hexCode": "#9CA3AF",
-    "imageUrl": "/images/cars/zeekr-7x/colors/int-grey.webp",
-    "isInterior": true
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "Berlin Gray",
-    "hexCode": "#94A3B8",
-    "imageUrl": "/images/cars/zeekr-x/colors/grey.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "Athens Cloud White",
-    "hexCode": "#F1F5F9",
-    "imageUrl": "/images/cars/zeekr-x/colors/white.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "Paris Beige",
-    "hexCode": "#E2D9C8",
-    "imageUrl": "/images/cars/zeekr-x/colors/beige.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "Hangzhou Green",
-    "hexCode": "#2D5A43",
-    "imageUrl": "/images/cars/zeekr-x/colors/green.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "Urban Blue & White",
+    "modelSlug": "zeekr-007",
+    "name": "Grey & Black Alcantara",
     "hexCode": "#334155",
-    "imageUrl": "/images/cars/zeekr-x/interior.jpg",
+    "imageUrl": "/images/cars/zeekr-007/colors/int-grey-black.jpg",
     "isInterior": true
   },
   {
-    "modelSlug": "zeekr-x",
-    "name": "Midnight Dark",
-    "hexCode": "#1E293B",
-    "imageUrl": "/images/cars/zeekr-x/colors/int-dark.jpg",
-    "isInterior": true
+    "modelSlug": "zeekr-007-gt",
+    "name": "Silver Streak",
+    "hexCode": "#CBD5E1",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/silver.webp",
+    "isInterior": false
   },
   {
-    "modelSlug": "zeekr-009",
-    "name": "Crystal White",
+    "modelSlug": "zeekr-007-gt",
+    "name": "Track Green",
+    "hexCode": "#15803D",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/green.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Night Purple",
+    "hexCode": "#4C1D95",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/night-purple.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Interstellar Purple",
+    "hexCode": "#6B21A8",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/interstellar-purple.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Mist Rice",
+    "hexCode": "#F5EBE0",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/mist-rice.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Velocity Blue",
+    "hexCode": "#2563EB",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/blue.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Night Black",
+    "hexCode": "#09090B",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/night-black.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "Midnight White",
     "hexCode": "#FFFFFF",
-    "imageUrl": "/images/cars/zeekr-009/main.jpg",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/midnight-white.webp",
     "isInterior": false
   },
   {
-    "modelSlug": "zeekr-009",
-    "name": "Midnight Blue",
-    "hexCode": "#1E293B",
-    "imageUrl": "/images/cars/zeekr-009/main.jpg",
+    "modelSlug": "zeekr-007-gt",
+    "name": "Laser Gray",
+    "hexCode": "#64748B",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/laser-gray.webp",
     "isInterior": false
   },
   {
-    "modelSlug": "zeekr-009",
-    "name": "Sofaro Nappa Lux",
-    "hexCode": "#E2E8F0",
-    "imageUrl": "/images/cars/zeekr-009/interior.jpg",
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Sport Orange",
+    "hexCode": "#EA580C",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/int-gt-orange.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Electric Blue",
+    "hexCode": "#1D4ED8",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/int-gt-blue.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Carbon Black",
+    "hexCode": "#18181B",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/int-gt-black.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Pure White",
+    "hexCode": "#F4F4F5",
+    "imageUrl": "/images/cars/zeekr-007-gt/colors/int-gt-white.webp",
     "isInterior": true
   },
   {
     "modelSlug": "zeekr-009",
-    "name": "Obsidian Executive",
-    "hexCode": "#111827",
+    "name": "Blue Stone",
+    "hexCode": "#0F172A",
+    "imageUrl": "/images/cars/zeekr-009/colors/blue-stone.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Dawn Brown",
+    "hexCode": "#F8FAFC",
+    "imageUrl": "/images/cars/zeekr-009/colors/dawn-brown.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Bright Blue",
+    "hexCode": "#1E3A8A",
+    "imageUrl": "/images/cars/zeekr-009/colors/bright-blue.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Cloud Orange",
+    "hexCode": "#854D0E",
+    "imageUrl": "/images/cars/zeekr-009/colors/cloud-orange.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Star Green",
+    "hexCode": "#14532D",
+    "imageUrl": "/images/cars/zeekr-009/colors/star-green.webp",
+    "isInterior": false
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Sofaro First-Class White",
+    "hexCode": "#FFFFFF",
+    "imageUrl": "/images/cars/zeekr-009/colors/int-white.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Aviation Blue & White",
+    "hexCode": "#BFDBFE",
+    "imageUrl": "/images/cars/zeekr-009/colors/int-white-blue.webp",
+    "isInterior": true
+  },
+  {
+    "modelSlug": "zeekr-009",
+    "name": "Obsidian Black VIP",
+    "hexCode": "#09090B",
     "imageUrl": "/images/cars/zeekr-009/colors/int-black.webp",
     "isInterior": true
   },
   {
     "modelSlug": "zeekr-009",
-    "name": "Royal Azure Interior",
-    "hexCode": "#1E3A8A",
-    "imageUrl": "/images/cars/zeekr-009/colors/int-blue.webp",
-    "isInterior": true
-  },
-  {
-    "modelSlug": "zeekr-9x",
-    "name": "Royal Obsidian",
-    "hexCode": "#0B0D12",
-    "imageUrl": "/images/cars/zeekr-9x/main.jpg",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-9x",
-    "name": "Glacier Silver",
-    "hexCode": "#D1D5DB",
-    "imageUrl": "/images/cars/zeekr-9x/main.webp",
-    "isInterior": false
-  },
-  {
-    "modelSlug": "zeekr-9x",
-    "name": "Bespoke Cognac Leather",
-    "hexCode": "#78350F",
-    "imageUrl": "/images/cars/zeekr-9x/colors/int-brown.webp",
-    "isInterior": true
-  },
-  {
-    "modelSlug": "zeekr-9x",
-    "name": "Flagship Obsidian Nappa",
-    "hexCode": "#18181B",
-    "imageUrl": "/images/cars/zeekr-9x/colors/int-black.webp",
+    "name": "Emerald & Ivory Duo",
+    "hexCode": "#DCFCE7",
+    "imageUrl": "/images/cars/zeekr-009/colors/int-green-white.webp",
     "isInterior": true
   }
 ]

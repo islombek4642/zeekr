@@ -347,16 +347,20 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
   // F4: Public Catalog/Detail/Test-Drive JSON Fallback & ?reserve= Modal (6 tests)
   // =========================================================================
   describe('F4: JSON Fallback & /inventory?reserve= Modal', () => {
-    it('T1-F4-01: With DB down, getCarModels() returns 6 active models sorted by orderIndex', async () => {
+    it('T1-F4-01: With DB down, getCarModels() returns 10 active models sorted by orderIndex', async () => {
       simulateDbDown(true);
       const models = await getCarModels();
       expect(models.map((m: any) => m.slug)).toEqual([
-        'zeekr-001',
-        'zeekr-007',
+        'zeekr-9x',
+        'zeekr-8x',
+        'zeekr-8x-yaoying',
         'zeekr-7x',
         'zeekr-x',
+        'zeekr-001',
+        'zeekr-001-all-new',
+        'zeekr-007',
+        'zeekr-007-gt',
         'zeekr-009',
-        'zeekr-9x',
       ]);
     });
 
@@ -421,9 +425,9 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
   // =========================================================================
   describe('F5: Admin Form Relative Asset Paths', () => {
     const validModelPayload = {
-      name: 'Zeekr 8X',
-      slug: 'zeekr-8x',
-      tagline: 'Premium SUV',
+      name: 'Zeekr Mix',
+      slug: 'zeekr-mix',
+      tagline: 'Premium MPV',
       basePriceUSD: 44000,
       rangeKm: 705,
       acceleration0100: 3.8,
@@ -732,9 +736,9 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
     it('T1-F8-05: Footer dynamically renders newly added active model from database', async () => {
       await prismaMemoryClient.carModel.create({
         data: {
-          slug: 'zeekr-8x',
-          name: 'Zeekr 8X',
-          tagline: 'Premium SUV',
+          slug: 'zeekr-mix',
+          name: 'Zeekr Mix',
+          tagline: 'Premium MPV',
           basePriceUSD: 44000,
           acceleration0100: 3.8,
           rangeKm: 705,
@@ -743,15 +747,15 @@ describe('Tier 1 — Part A: Plan Completion & Audit Fixes (F1–F8)', () => {
           topSpeedKmH: 210,
           chargingTimeMin: 15,
           mainImage: '/images/cars/zeekr-001/main.jpg',
-          description: 'Yangi SUV modeli',
+          description: 'Yangi MPV modeli',
           isActive: true,
-          orderIndex: 7,
+          orderIndex: 11,
         },
       });
       const element = await Footer();
       const html = renderComponentHtml(element);
-      expect(html).toContain('/models/zeekr-8x');
-      expect(html).toContain('Zeekr 8X');
+      expect(html).toContain('/models/zeekr-mix');
+      expect(html).toContain('Zeekr Mix');
     });
 
     it('T1-F8-06: Footer renders dynamic contact settings from database', async () => {

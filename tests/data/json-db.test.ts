@@ -23,17 +23,21 @@ describe('Categorized JSON Database Validation', () => {
     }
   });
 
-  it('should have valid models dataset with 6 Zeekr models', () => {
+  it('should have valid models dataset with 10 Zeekr models', () => {
     const models = JSON.parse(fs.readFileSync(path.join(dataDir, 'models.json'), 'utf-8'));
     expect(Array.isArray(models)).toBe(true);
-    expect(models.length).toBe(6);
+    expect(models.length).toBe(10);
     const slugs = models.map((m: any) => m.slug);
-    expect(slugs).toContain('zeekr-001');
-    expect(slugs).toContain('zeekr-007');
-    expect(slugs).toContain('zeekr-009');
-    expect(slugs).toContain('zeekr-x');
-    expect(slugs).toContain('zeekr-7x');
     expect(slugs).toContain('zeekr-9x');
+    expect(slugs).toContain('zeekr-8x');
+    expect(slugs).toContain('zeekr-8x-yaoying');
+    expect(slugs).toContain('zeekr-7x');
+    expect(slugs).toContain('zeekr-x');
+    expect(slugs).toContain('zeekr-001');
+    expect(slugs).toContain('zeekr-001-all-new');
+    expect(slugs).toContain('zeekr-007');
+    expect(slugs).toContain('zeekr-007-gt');
+    expect(slugs).toContain('zeekr-009');
   });
 
   it('should have valid dynamic settings with all required keys', () => {

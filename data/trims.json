@@ -42,6 +42,160 @@
     ]
   },
   {
+    "modelSlug": "zeekr-9x",
+    "name": "Ultra Flagship AWD 140kWh",
+    "priceUSD": 89000,
+    "driveType": "AWD",
+    "rangeKm": 800,
+    "acceleration": 3.1,
+    "features": [
+      "140 kVt/s Qilin super-batareyasi",
+      "780 ot kuchi va 3.1s tezlanish",
+      "Ikki kamerali aqlli pnevmatik osma",
+      "Prezident darajasidagi hashamatli 4-o'rinli salon"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-9x",
+    "name": "Executive VIP AWD 140kWh",
+    "priceUSD": 98000,
+    "driveType": "AWD",
+    "rangeKm": 760,
+    "acceleration": 3.1,
+    "features": [
+      "Orqa VIP kapitan o'rindiqlari bilan maxsus salon",
+      "Brembo 6-porshenli tormoz tizimi",
+      "23 dinamikli Mark Levinson darajasidagi audio tizim",
+      "Avtonom LiDAR va to'liq aqlli avtopilot"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Pro PHEV 55kWh (AWD)",
+    "priceUSD": 58000,
+    "driveType": "AWD",
+    "rangeKm": 1000,
+    "acceleration": 3.8,
+    "features": [
+      "Gibrid 1000+ km umumiy masofa",
+      "650 ot kuchi, to'liq privod",
+      "6 o'rinli keng oilaviy konfiguratsiya",
+      "Uch zonali iqlim nazorati va panoramik tom"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-8x",
+    "name": "Max PHEV 55kWh (AWD Air Suspension)",
+    "priceUSD": 63500,
+    "driveType": "AWD",
+    "rangeKm": 1000,
+    "acceleration": 3.8,
+    "features": [
+      "Pnevmatik podveska bilan sozlanuvchi klirens",
+      "Nappa terisi va old/orqa o'rindiqlar massaji",
+      "Head-up Display (HUD) va aqlli parchalangan chiroqlar",
+      "21 dyuymli aerodinamik engil qotishmali disklar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-8x-yaoying",
+    "name": "Yaoying Edition Exclusive AWD",
+    "priceUSD": 68000,
+    "driveType": "AWD",
+    "rangeKm": 1000,
+    "acceleration": 3.5,
+    "features": [
+      "Eksklyuziv Yaoying qoraytirilgan Black Edition kuzov paketi",
+      "720 ot kuchi sport sozlangan transmissiya",
+      "Maxsus mat bo'yoq va Yaoying interyer detallari",
+      "Sport pnevmatik osma va uglerod tolali elementlar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Smart RWD 75kWh",
+    "priceUSD": 39500,
+    "driveType": "RWD",
+    "rangeKm": 605,
+    "acceleration": 5.7,
+    "features": [
+      "75 kVt/s Golden Battery",
+      "800V o'ta tezkor zaryadlash (10.5 daqiqada 10-80%)",
+      "Qualcomm 8295 aqlli kokpit chipi",
+      "Oila uchun keng va ergonomik 5-o'rinli salon"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-7x",
+    "name": "Performance AWD 100kWh",
+    "priceUSD": 47900,
+    "driveType": "AWD",
+    "rangeKm": 780,
+    "acceleration": 3.8,
+    "features": [
+      "100 kVt/s batareya va 780 km masofa",
+      "Ikki motorli 646 ot kuchi",
+      "CCD elektromagnit boshqariluvchi podveska",
+      "Nappa teri, ventilyatsiya va massajli kreslolar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "ME Version 5-Seater RWD",
+    "priceUSD": 29500,
+    "driveType": "RWD",
+    "rangeKm": 560,
+    "acceleration": 5.8,
+    "features": [
+      "66 kVt/s akkumulyator batareyasi",
+      "560 km CLTC yurish masofasi",
+      "Ramkasiz eshiklar va minimalist interyer",
+      "Yamaha 13 karnayli audio tizimi"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-x",
+    "name": "YOU Version 4-Seater AWD",
+    "priceUSD": 34500,
+    "driveType": "AWD",
+    "rangeKm": 512,
+    "acceleration": 3.7,
+    "features": [
+      "Nol tortishish (Zero Gravity) relaks o'rindiqlari",
+      "Markaziy suriluvchi 14.6 dyuymli OLED displey",
+      "Sovutkich va isitgichli mini-bar kamerasi (-15°C dan +50°C)",
+      "Ikki motorli 428 ot kuchi"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "WE 95kWh 4WD Shenxing",
+    "priceUSD": 49000,
+    "driveType": "AWD",
+    "rangeKm": 675,
+    "acceleration": 3.5,
+    "features": [
+      "CATL Shenxing 5C o'ta tezkor zaryadlanuvchi batareya",
+      "789 ot kuchi ikki motorli to'liq privod",
+      "800V yuqori voltli arxitektura",
+      "Yangilangan aqlli kokpit va lazerli radar"
+    ]
+  },
+  {
+    "modelSlug": "zeekr-001-all-new",
+    "name": "YOU 100kWh 4WD Air Suspension",
+    "priceUSD": 58500,
+    "driveType": "AWD",
+    "rangeKm": 705,
+    "acceleration": 3.3,
+    "features": [
+      "100 kVt/s Qilin 4C batareyasi",
+      "3.3 soniyada 0-100 km/s tezlanish",
+      "Ikki kamerali havoli pnevmatik osma va CCD",
+      "Monoblok Brembo tormoz va 22 dyuymli disklar"
+    ]
+  },
+  {
     "modelSlug": "zeekr-007",
     "name": "Long Range RWD 100kWh",
     "priceUSD": 36500,
@@ -50,7 +204,7 @@
     "acceleration": 5.4,
     "features": [
       "870 km CLTC masofa",
-      "Stargate LED ekran",
+      "Stargate LED ekran (90 dyuym)",
       "Qualcomm 8295 chip",
       "AR-HUD 35.5 dyuym"
     ]
@@ -70,31 +224,31 @@
     ]
   },
   {
-    "modelSlug": "zeekr-7x",
-    "name": "Smart RWD 75kWh",
-    "priceUSD": 39500,
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Sport RWD 100kWh",
+    "priceUSD": 42500,
     "driveType": "RWD",
-    "rangeKm": 605,
-    "acceleration": 5.7,
+    "rangeKm": 820,
+    "acceleration": 5.1,
     "features": [
-      "75 kVt/s Golden Battery",
-      "800V o'ta tezkor zaryadlash",
-      "Qualcomm 8295 aqlli kokpit",
-      "Oila uchun keng 5-o'rinli salon"
+      "Shooting Brake GT sport kuzov arxitekturasi",
+      "820 km CLTC yurish masofasi",
+      "Stargate interaktiv yorug'lik paneli",
+      "Sport orqa diffuzor va aerodinamik qanot"
     ]
   },
   {
-    "modelSlug": "zeekr-7x",
-    "name": "Performance AWD 100kWh",
-    "priceUSD": 47900,
+    "modelSlug": "zeekr-007-gt",
+    "name": "GT Track Edition AWD 100kWh",
+    "priceUSD": 48900,
     "driveType": "AWD",
-    "rangeKm": 780,
-    "acceleration": 3.8,
+    "rangeKm": 730,
+    "acceleration": 2.7,
     "features": [
-      "100 kVt/s batareya",
-      "Ikki motorli 646 ot kuchi",
-      "CCD elektromagnit osma",
-      "Nappa teri va massaj o'rindiqlari"
+      "720 ot kuchi va 2.7 soniyada superkar tezlanishi",
+      "Trek rejimi (Track Mode) va drift sozlamalari",
+      "Akebono 4-porshenli sport tormoz tizimi",
+      "Alcantara sport o'rindiqlari va rul"
     ]
   },
   {
@@ -122,48 +276,6 @@
       "822 km masofa",
       "Pnevmatik podveska",
       "VIP 4-o'rinli yoki 6-o'rinli salon"
-    ]
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "ME Version 5-Seater RWD",
-    "priceUSD": 29500,
-    "driveType": "RWD",
-    "rangeKm": 560,
-    "acceleration": 5.8,
-    "features": [
-      "66 kVt/s batareya",
-      "560 km CLTC",
-      "Ramkasiz oynalar",
-      "5G multimedia"
-    ]
-  },
-  {
-    "modelSlug": "zeekr-x",
-    "name": "YOU Version 4-Seater AWD",
-    "priceUSD": 34500,
-    "driveType": "AWD",
-    "rangeKm": 512,
-    "acceleration": 3.7,
-    "features": [
-      "Zero Gravity o'rindiqlari",
-      "Muzlatgich / isitgich kamerasi",
-      "Suriluvchi 14.6 dyuym ekran",
-      "428 ot kuchi"
-    ]
-  },
-  {
-    "modelSlug": "zeekr-9x",
-    "name": "Ultra Flagship AWD 140kWh",
-    "priceUSD": 89000,
-    "driveType": "AWD",
-    "rangeKm": 800,
-    "acceleration": 3.1,
-    "features": [
-      "140 kVt/s Qilin batareyasi",
-      "780 ot kuchi va 3.1s tezlanish",
-      "Ikki kamerali pnevmatik podveska",
-      "Prezident darajasidagi hashamatli salon"
     ]
   }
 ]

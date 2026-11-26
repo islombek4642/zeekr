@@ -4,95 +4,159 @@
     "modelSlug": "zeekr-001",
     "trimName": "YOU Version 100kWh (AWD Air Suspension)",
     "exteriorColor": "Phantom Black",
-    "interiorColor": "Krem & Kulrang Nappa",
+    "interiorColor": "Gray Nappa Lux",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 54900,
     "priceUZS": 705465000,
     "images": [
-      "/images/cars/zeekr-001/main.jpg",
-      "/images/cars/zeekr-001/interior.jpg"
+      "/images/cars/zeekr-001/main.webp",
+      "/images/cars/zeekr-001/interior.webp"
     ],
-    "notes": "Toshkent salonida tayyor turibdi, bojxona to'langan."
+    "notes": "Toshkent salonida tayyor turibdi, pnevmatik osma bilan jihozlangan."
   },
   {
     "vinOrCode": "ZEEKR007-UZ-2026-002",
     "modelSlug": "zeekr-007",
     "trimName": "AWD Performance 100kWh",
     "exteriorColor": "Dawn Silver",
-    "interiorColor": "Oq & Qora Alcantara",
+    "interiorColor": "Blue & White Nappa",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 42900,
     "priceUZS": 551265000,
     "images": [
-      "/images/cars/zeekr-007/main.jpg",
-      "/images/cars/zeekr-007/interior.jpg"
+      "/images/cars/zeekr-007/main.webp",
+      "/images/cars/zeekr-007/interior.webp"
     ],
-    "notes": "Yangi kelgan, ko'rgazma zalida taqdimotga tayyor."
-  },
-  {
-    "vinOrCode": "ZEEKR7X-UZ-2026-005",
-    "modelSlug": "zeekr-7x",
-    "trimName": "Performance AWD 100kWh",
-    "exteriorColor": "Forest Green",
-    "interiorColor": "Amber Brown Nappa",
-    "year": 2026,
-    "status": "IN_STOCK",
-    "priceUSD": 47900,
-    "priceUZS": 615515000,
-    "images": [
-      "/images/cars/zeekr-7x/main.jpg",
-      "/images/cars/zeekr-7x/interior.jpg"
-    ],
-    "notes": "Yangi model, 780 km masofa, Toshkent omborida mavjud."
-  },
-  {
-    "vinOrCode": "ZEEKRX-UZ-2026-004",
-    "modelSlug": "zeekr-x",
-    "trimName": "YOU Version 4-Seater AWD",
-    "exteriorColor": "Berlin Gray",
-    "interiorColor": "Urban Blue & White",
-    "year": 2026,
-    "status": "IN_STOCK",
-    "priceUSD": 34500,
-    "priceUZS": 443325000,
-    "images": [
-      "/images/cars/zeekr-x/main.jpg",
-      "/images/cars/zeekr-x/interior.jpg"
-    ],
-    "notes": "Muzlatgich va suriluvchi ekranli 4-o'rinli versiya."
+    "notes": "2.84 soniyada 100 km/s gacha tezlanish, Stargate chiroqlar paneli."
   },
   {
     "vinOrCode": "ZEEKR009-UZ-2026-003",
     "modelSlug": "zeekr-009",
     "trimName": "ME Version 140kWh (CATL Qilin)",
-    "exteriorColor": "Crystal White",
-    "interiorColor": "Sofaro Nappa Lux",
+    "exteriorColor": "Dawn Brown",
+    "interiorColor": "Sofaro First-Class White",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 84000,
     "priceUZS": 1079400000,
     "images": [
-      "/images/cars/zeekr-009/main.jpg",
-      "/images/cars/zeekr-009/interior.jpg"
+      "/images/cars/zeekr-009/main.webp",
+      "/images/cars/zeekr-009/interior.webp"
     ],
-    "notes": "VIP komplektatsiya, 140 kVt/s akkumulyator."
+    "notes": "Birinchi klass VIP miniven, 140 kVt/s batareya, 822 km masofa."
+  },
+  {
+    "vinOrCode": "ZEEKRX-UZ-2026-004",
+    "modelSlug": "zeekr-x",
+    "trimName": "YOU Version 4-Seater AWD",
+    "exteriorColor": "Crystal White",
+    "interiorColor": "Charcoal & Stone",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 34500,
+    "priceUZS": 443325000,
+    "images": [
+      "/images/cars/zeekr-x/main.webp",
+      "/images/cars/zeekr-x/interior.webp"
+    ],
+    "notes": "Muzlatgich va suriluvchi ekranli 4-o'rinli urban krossover."
+  },
+  {
+    "vinOrCode": "ZEEKR7X-UZ-2026-005",
+    "modelSlug": "zeekr-7x",
+    "trimName": "Performance AWD 100kWh",
+    "exteriorColor": "Morino Green",
+    "interiorColor": "Purple & White Nappa",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 47900,
+    "priceUZS": 615515000,
+    "images": [
+      "/images/cars/zeekr-7x/main.webp",
+      "/images/cars/zeekr-7x/interior.webp"
+    ],
+    "notes": "Yangi 7X modeli, 780 km masofa, Toshkent omborida mavjud."
   },
   {
     "vinOrCode": "ZEEKR9X-UZ-2026-006",
     "modelSlug": "zeekr-9x",
     "trimName": "Ultra Flagship AWD 140kWh",
-    "exteriorColor": "Royal Obsidian",
-    "interiorColor": "Bespoke Cognac Leather",
+    "exteriorColor": "Polar Night Black",
+    "interiorColor": "Amber Brown Nappa",
     "year": 2026,
     "status": "IN_STOCK",
     "priceUSD": 89000,
     "priceUZS": 1143650000,
     "images": [
-      "/images/cars/zeekr-9x/main.jpg",
-      "/images/cars/zeekr-9x/interior.jpg"
+      "/images/cars/zeekr-9x/main.webp",
+      "/images/cars/zeekr-9x/interior.webp"
     ],
-    "notes": "Eksklyuziv flagman SUV, barcha opsiyalar to'liq kiritilgan."
+    "notes": "Toshkent bosh ofis salonida tayyor turibdi, barcha bojxona to'lovlari amalga oshirilgan."
+  },
+  {
+    "vinOrCode": "ZEEKR8X-UZ-2026-007",
+    "modelSlug": "zeekr-8x",
+    "trimName": "Max PHEV 55kWh (AWD Air Suspension)",
+    "exteriorColor": "Polar Day White",
+    "interiorColor": "Brown & Black Lux",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 63500,
+    "priceUZS": 815975000,
+    "images": [
+      "/images/cars/zeekr-8x/main.webp",
+      "/images/cars/zeekr-8x/interior.webp"
+    ],
+    "notes": "Yangi 6 o'rinli gibrid flagman krossover, sinov drayveriga tayyor."
+  },
+  {
+    "vinOrCode": "ZEEKR8XY-UZ-2026-008",
+    "modelSlug": "zeekr-8x-yaoying",
+    "trimName": "Yaoying Edition Exclusive AWD",
+    "exteriorColor": "Matte Starry Gray",
+    "interiorColor": "Yaoying Exclusive Lux",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 68000,
+    "priceUZS": 873800000,
+    "images": [
+      "/images/cars/zeekr-8x-yaoying/main.webp",
+      "/images/cars/zeekr-8x-yaoying/interior.webp"
+    ],
+    "notes": "Eksklyuziv Yaoying maxsus seriyasi, qora mat rang va to'liq sport to'plami."
+  },
+  {
+    "vinOrCode": "ZEEKR001N-UZ-2026-009",
+    "modelSlug": "zeekr-001-all-new",
+    "trimName": "YOU 100kWh 4WD Air Suspension",
+    "exteriorColor": "Shooting Green",
+    "interiorColor": "Nappa Gray Lux",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 58500,
+    "priceUZS": 751725000,
+    "images": [
+      "/images/cars/zeekr-001-all-new/main.webp",
+      "/images/cars/zeekr-001-all-new/interior.webp"
+    ],
+    "notes": "All New 2026 yangi avlod flagman, 789 ot kuchi."
+  },
+  {
+    "vinOrCode": "ZEEKR007GT-UZ-2026-010",
+    "modelSlug": "zeekr-007-gt",
+    "trimName": "GT Track Edition AWD 100kWh",
+    "exteriorColor": "Velocity Blue",
+    "interiorColor": "GT Sport Orange",
+    "year": 2026,
+    "status": "IN_STOCK",
+    "priceUSD": 48900,
+    "priceUZS": 628365000,
+    "images": [
+      "/images/cars/zeekr-007-gt/main.webp",
+      "/images/cars/zeekr-007-gt/interior.webp"
+    ],
+    "notes": "007 GT sport shooting-breyk, trek rejimi va yuqori aerodinamika."
   }
 ]
