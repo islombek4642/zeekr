@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "models": "Modellar",
+    "inventory": "Mavjud avtomobillar",
+    "testDrive": "Test-drayv",
+    "service": "Servis va Kafolat",
+    "contacts": "Kontaktlar",
+    "callUs": "Qo'ng'iroq qilish"
+  },
+  "common": {
+    "testDrive": "Test-drayv",
+    "details": "Batafsil",
+    "reserve": "Band qilish",
+    "inStock": "Mavjud",
+    "inTransit": "Yo'lda",
+    "priceFrom": "Boshlang'ich narx",
+    "allRightsReserved": "Barcha huquqlar himoyalangan",
+    "officialDealer": "Rasmiy Dilerlik Markazi"
+  },
+  "home": {
+    "showroomBadge": "Rasmiy Dilerlik Markazi",
+    "showroomTitle": "Zeekr Rasmiy Showroom va Servis Markazi",
+    "showroomSubtitle": "Toshkent shahrida joylashgan premium dilerlik markazimizga tashrif buyuring va eksklyuziv elektromobillarni sinab ko'ring.",
+    "addressLabel": "Showroom manzili",
+    "hoursLabel": "Ish vaqti",
+    "phoneLabel": "Aloqa markazi",
+    "emailLabel": "Rasmiy elektron pochta",
+    "viewContacts": "Showroom ma'lumotlari",
+    "bookTestDrive": "Test-drayvga yozilish"
+  },
+  "models": {
+    "pageTitle": "Zeekr Rasmiy Dilerlik Vitrinasi",
+    "backToModels": "Barcha modellarga qaytish",
+    "galleryTitle": "Fotogalereya",
+    "gallerySubtitle": "Eksteryer va Interyer Tafsilotlari",
+    "configuratorTitle": "Komplektatsiyani Tanlang:",
+    "calculatorTitle": "Kredit & Lizing Kalkulyatori"
+  },
+  "inventory": {
+    "badge": "Ombordagi Avtomobillar",
+    "title": "Mavjud Avtomobillar",
+    "subtitle": "Toshkentdagi salonda mavjud yoki eng yaqin kunlarda yetkazib beriladigan elektromobillar ro'yxati.",
+    "allModels": "Barcha modellar",
+    "allStatuses": "Barcha statuslar"
+  },
+  "testDrive": {
+    "badge": "Test-Drayv",
+    "title": "Elektr Quvvatini His Qiling",
+    "subtitle": "O'zingizga yoqqan Zeekr modelini tanlang va professional haydovchi hamrohligida sinovdan o'tkazing."
+  },
+  "service": {
+    "badge": "Rasmiy Servis Markazi",
+    "title": "Kafolat va Premium Texnik Xizmat",
+    "subtitle": "Zeekr avtomobillariga faqat ishlab chiqaruvchi tomonidan o'qitilgan sertifikatlangan muhandislar xizmat ko'rsatadi.",
+    "bookingTitle": "Servis Xizmatiga Yozilish"
+  },
+  "contacts": {
+    "badge": "Aloqa",
+    "title": "Biz Bilan Bog'lanish",
+    "subtitle": "Savollaringiz bormi? Mutaxassislarimiz sizga professional maslahat berishga tayyor."
+  },
+  "footer": {
+    "brandDesc": "Zeekr elektromobillarining O'zbekistondagi rasmiy dilerlik platformasi. Hashamat, xavfsizlik va yuqori elektr innovatsiyalari.",
+    "modelsTitle": "Modellar",
+    "clientsTitle": "Mijozlarga",
+    "contactsTitle": "Kontaktlar",
+    "inStockCars": "Salonda mavjud avtomobillar",
+    "bookDrive": "Test-drayvga yozilish",
+    "serviceWarranty": "Servis va kafolat"
+  }
+}

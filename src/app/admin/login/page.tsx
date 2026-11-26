@@ -3,7 +3,7 @@
 import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { loginAdminAction } from '@/app/actions/authActions';
-import { Lock, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Lock, User, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -48,16 +48,16 @@ function AdminLoginForm() {
 
       <div>
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
-          Email *
+          Login / Email *
         </label>
         <div className="relative">
-          <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
-            type="email"
+            type="text"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@zeekr-auto.uz"
+            placeholder="admin yoki admin@zeekr-auto.uz"
             className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white transition-all"
           />
         </div>
@@ -98,33 +98,26 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center p-4">
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl">
-        
-        {/* LOGO & TITLE */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-semibold uppercase tracking-wider mb-3 border border-emerald-500/20">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Xavfsiz Boshqaruv Tizimi</span>
+          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center justify-center mx-auto mb-4 shadow-inner">
+            <ShieldCheck className="w-6 h-6 text-sky-400" />
           </div>
-          <h1 className="text-2xl font-black text-white tracking-widest uppercase">
+          <h1 className="text-xl font-bold tracking-tight text-white uppercase tracking-widest">
             ZEEKR ADMIN
           </h1>
           <p className="text-xs text-slate-400 mt-1">
-            Dilerlik markazi boshqaruv paneli
+            Boshqaruv paneliga xavfsiz kirish
           </p>
         </div>
 
-        <Suspense fallback={<div className="text-center py-8 text-xs text-slate-500">Yuklanmoqda...</div>}>
+        <Suspense fallback={<div className="text-xs text-slate-500 text-center">Yuklanmoqda...</div>}>
           <AdminLoginForm />
         </Suspense>
+      </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-800 text-center">
-          <p className="text-[11px] text-slate-500">
-            Faqat vakolatli xodimlar uchun. Ruxsatsiz kirish taqiqlanadi.
-          </p>
-        </div>
-
+      <div className="mt-8 text-center text-xs text-slate-600">
+        &copy; {new Date().getFullYear()} Zeekr Uzbekistan. Maxfiy dilerlik portali.
       </div>
     </div>
   );
 }
-

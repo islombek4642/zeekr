@@ -29,10 +29,10 @@ export async function seedDatabase(client: PrismaClient = prisma): Promise<SeedR
   const settingsData = JSON.parse(fs.readFileSync(path.join(dataDir, 'settings.json'), 'utf-8'));
 
   // 1. Admin User
-  const passwordHash = await bcrypt.hash('ZeekrAdmin2026!', 10);
+  const passwordHash = await bcrypt.hash('1111', 10);
   await client.user.upsert({
     where: { email: 'admin@zeekr-auto.uz' },
-    update: {},
+    update: { passwordHash },
     create: {
       email: 'admin@zeekr-auto.uz',
       name: 'Bosh Menejer',

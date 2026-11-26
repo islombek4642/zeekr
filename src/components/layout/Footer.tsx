@@ -1,21 +1,24 @@
 import Link from 'next/link';
-import { Send } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { getSiteSettings } from '@/lib/settings';
 import { getCarModels } from '@/lib/data-provider';
 import { formatPhoneNumber } from '@/lib/utils';
 import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 
 export async function Footer() {
-  const [settings, models, locale] = await Promise.all([
+  const [settings, allModels, locale] = await Promise.all([
     getSiteSettings(),
     getCarModels(),
     getCurrentLocale(),
   ]);
   const t = getTranslations(locale);
 
+  // Filter only active models
+  const models = (allModels || []).filter((m) => m.isActive !== false);
+
   return (
     <footer className="w-full bg-slate-950 text-slate-400 text-sm border-t border-slate-900 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* COL 1: BRAND */}
@@ -32,7 +35,7 @@ export async function Footer() {
                   href={settings.telegram_channel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-sky-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
                   aria-label="Telegram"
                 >
                   <Send className="w-4 h-4" />
@@ -43,7 +46,7 @@ export async function Footer() {
                   href={settings.instagram_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
                   aria-label="Instagram"
                 >
                   <svg className="w-4 h-4 fill-none stroke-currentColor stroke-2 stroke-linecap-round stroke-linejoin-round" viewBox="0 0 24 24">
@@ -58,7 +61,7 @@ export async function Footer() {
                   href={settings.youtube_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-red-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-sm"
                   aria-label="YouTube"
                 >
                   <svg className="w-4 h-4 fill-none stroke-currentColor stroke-2 stroke-linecap-round stroke-linejoin-round" viewBox="0 0 24 24">
@@ -92,7 +95,7 @@ export async function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               {t.footer.clientsTitle}
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs">
               <li>
                 <Link href="/inventory" className="hover:text-white transition-colors">
                   {t.footer.inStockCars}
@@ -108,6 +111,11 @@ export async function Footer() {
                   {t.footer.serviceWarranty}
                 </Link>
               </li>
+              <li>
+                <Link href="/contacts" className="hover:text-white transition-colors">
+                  {t.nav.contacts}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -116,27 +124,37 @@ export async function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               {t.footer.contactsTitle}
             </h4>
-            <div className="space-y-2.5 text-xs text-slate-400">
-              <p className="leading-relaxed">
-                {settings.showroom_address || "Toshkent shahri"}
-              </p>
+            <div className="space-y-3 text-xs text-slate-400">
+              {settings.showroom_address && (
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
+                  <p className="leading-relaxed">
+                    {settings.showroom_address}
+                  </p>
+                </div>
+              )}
               {settings.primary_phone && (
-                <p>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
                   <a href={`tel:${settings.primary_phone}`} className="hover:text-white transition-colors font-medium">
                     {formatPhoneNumber(settings.primary_phone)}
                   </a>
-                </p>
+                </div>
               )}
               {settings.contact_email && (
-                <p>
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
                   <a href={`mailto:${settings.contact_email}`} className="hover:text-white transition-colors">
                     {settings.contact_email}
                   </a>
-                </p>
+                </div>
               )}
-              <p className="text-[11px] text-slate-500 pt-1">
-                {settings.working_hours}
-              </p>
+              {settings.working_hours && (
+                <div className="flex items-center gap-2.5 pt-1 text-[11px] text-slate-500">
+                  <Clock className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                  <span>{settings.working_hours}</span>
+                </div>
+              )}
             </div>
           </div>
 
