@@ -53,9 +53,10 @@ export async function getCarModels() {
 }
 
 export async function getCarModelBySlug(slug: string) {
+  const targetSlug = slug === 'zeekr-001-2025' ? 'zeekr-001' : slug;
   try {
     const dbModel = await prisma.carModel.findUnique({
-      where: { slug },
+      where: { slug: targetSlug },
       include: {
         trims: true,
         colors: true,
@@ -74,27 +75,28 @@ export async function getCarModelBySlug(slug: string) {
 
   // Fallback to JSON database
   const jsonModels = loadJsonFile<any[]>('models.json');
-  const model = jsonModels.find((m) => m.slug === slug && m.isActive !== false);
+  const model = jsonModels.find((m) => (m.slug === targetSlug || m.slug === slug) && m.isActive !== false);
   if (!model) {
     return null;
   }
 
+  const resolvedSlug = model.slug;
   const jsonTrims = loadJsonFile<any[]>('trims.json');
   const jsonColors = loadJsonFile<any[]>('colors.json');
 
   const trims = jsonTrims
-    .filter((t) => t.modelSlug === slug)
+    .filter((t) => t.modelSlug === resolvedSlug)
     .map((t, idx) => ({
-      id: `${slug}-trim-${idx + 1}`,
-      modelId: slug,
+      id: `${resolvedSlug}-trim-${idx + 1}`,
+      modelId: resolvedSlug,
       ...t,
     }));
 
   const colors = jsonColors
-    .filter((c) => c.modelSlug === slug)
+    .filter((c) => c.modelSlug === resolvedSlug)
     .map((c, idx) => ({
-      id: `${slug}-color-${idx + 1}`,
-      modelId: slug,
+      id: `${resolvedSlug}-color-${idx + 1}`,
+      modelId: resolvedSlug,
       ...c,
     }));
 

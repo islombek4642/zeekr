@@ -110,7 +110,7 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
 
           return (
             <button
-              key={color.id}
+              key={color.id || color.name}
               onClick={() => {
                 if (activeTab === 'exterior') setSelectedExterior(color);
                 else setSelectedInterior(color);
@@ -122,10 +122,18 @@ export function ColorVisualizer({ modelName, mainImage, colors }: ColorVisualize
               }`}
             >
               <span
-                className="w-4 h-4 rounded-full border border-slate-300 shadow-sm flex items-center justify-center"
+                className="w-4 h-4 rounded-full border border-slate-300 shadow-sm flex items-center justify-center shrink-0"
                 style={{ backgroundColor: color.hexCode }}
               >
-                {isSelected && <Check className="w-2.5 h-2.5 text-slate-900 drop-shadow" />}
+                {isSelected && (
+                  <Check
+                    className={`w-2.5 h-2.5 drop-shadow ${
+                      ['#000000', '#0F172A', '#111827', '#020617', '#09090B', '#0A0A0A', '#18181B', '#1E293B', '#3B0764', '#1B4332'].includes(color.hexCode)
+                        ? 'text-white'
+                        : 'text-slate-900'
+                    }`}
+                  />
+                )}
               </span>
               <span>{color.name}</span>
             </button>

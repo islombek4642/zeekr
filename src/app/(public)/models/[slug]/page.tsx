@@ -38,8 +38,13 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
 
   const modelVideos: Record<string, string> = {
     'zeekr-001': '/videos/cars/zeekr-001-hero.mp4',
+    'zeekr-001-2025': '/videos/cars/zeekr-001-hero.mp4',
+    'zeekr-001-all-new': '/videos/cars/zeekr-001-hero.mp4',
     'zeekr-007': '/videos/cars/zeekr-007-hero.mp4',
+    'zeekr-007-gt': '/videos/cars/zeekr-007-hero.mp4',
     'zeekr-7x': '/videos/cars/zeekr-7x-hero.mp4',
+    'zeekr-8x': '/videos/cars/zeekr-7x-hero.mp4',
+    'zeekr-8x-yaoying': '/videos/cars/zeekr-9x-hero.mp4',
     'zeekr-9x': '/videos/cars/zeekr-9x-hero.mp4',
   };
   const modelVideo = modelVideos[slug];

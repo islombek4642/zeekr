@@ -47,4 +47,29 @@ describe('ColorVisualizer Dual Mode', () => {
     expect(html).toContain('aspect-[16/9]');
     expect(html).toContain('object-contain');
   });
+
+  it('renders authentic exterior and interior colors for all 10 official models without graphic distortion', () => {
+    const fs = require('fs');
+    const path = require('path');
+    const models = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'models.json'), 'utf-8'));
+    const colors = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'colors.json'), 'utf-8'));
+
+    expect(models.length).toBe(10);
+    for (const m of models) {
+      const modelColors = colors.filter((c: any) => c.modelSlug === m.slug);
+      expect(modelColors.length, `${m.slug} must have colors`).toBeGreaterThanOrEqual(1);
+
+      const html = renderComponentHtml(
+        React.createElement(ColorVisualizer, {
+          colors: modelColors,
+          modelName: m.name,
+          mainImage: m.mainImage,
+        })
+      );
+      expect(html).toContain('Interaktiv Visualizator');
+      expect(html).toContain('aspect-[16/9]');
+      expect(html).toContain('object-contain');
+      expect(html).toContain(m.name);
+    }
+  });
 });
