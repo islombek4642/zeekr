@@ -1,12 +1,37 @@
+'use client';
+
+import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Zap, ShieldCheck, Gauge } from 'lucide-react';
+import { ArrowRight, Zap, ShieldCheck, Gauge, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 export function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 text-white py-20 lg:py-32">
       {/* Background cinematic video loop and ambient lighting */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
@@ -21,6 +46,29 @@ export function HeroSection() {
       </div>
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2,132,199,0.15),transparent_50%)] pointer-events-none" />
+
+      {/* FLOATING VIDEO CONTROLS PILL */}
+      <div className="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2 bg-slate-950/60 backdrop-blur-md border border-slate-800/80 rounded-full px-3 py-1.5 text-xs text-slate-300 shadow-xl">
+        <button
+          type="button"
+          onClick={togglePlay}
+          className="flex items-center gap-1.5 hover:text-white transition-colors p-1"
+          title={isPlaying ? "Videoni to'xtatish" : "Videoni qo'yish"}
+        >
+          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+          <span className="text-[11px] font-semibold">{isPlaying ? 'Pauza' : 'Ijro'}</span>
+        </button>
+        <span className="w-px h-3 bg-slate-700" />
+        <button
+          type="button"
+          onClick={toggleMute}
+          className="flex items-center gap-1.5 hover:text-white transition-colors p-1"
+          title={isMuted ? "Ovozni yoqish" : "Ovozni o'chirish"}
+        >
+          {isMuted ? <VolumeX className="w-3.5 h-3.5 text-slate-400" /> : <Volume2 className="w-3.5 h-3.5 text-sky-400" />}
+          <span className="text-[11px] font-semibold">{isMuted ? 'Tovushsiz' : 'Ovozli'}</span>
+        </button>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -98,10 +146,6 @@ export function HeroSection() {
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-slate-300">
-                <span className="font-semibold text-white tracking-wider">ZEEKR 001 FR</span>
-                <span className="px-2 py-0.5 rounded bg-slate-900/80 backdrop-blur border border-slate-700">Flagman</span>
-              </div>
             </div>
           </div>
 

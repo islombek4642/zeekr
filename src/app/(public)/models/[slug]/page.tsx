@@ -6,6 +6,7 @@ import { getCurrentLocale, getTranslations } from '@/lib/i18n';
 import { ColorVisualizer } from '@/components/models/ColorVisualizer';
 import { SpecsComparison } from '@/components/models/SpecsComparison';
 import { ModelConfigurator } from '@/components/models/ModelConfigurator';
+import { ModelHeroVideo } from '@/components/models/ModelHeroVideo';
 import { QuickBookingSection } from '@/components/home/QuickBookingSection';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import { formatCurrencyUSD, formatCurrencyUZS } from '@/lib/utils';
@@ -112,33 +113,11 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           </div>
 
           <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
-            {modelVideo ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster={model.mainImage}
-                className="w-full h-full object-cover object-center"
-              >
-                <source src={modelVideo} type="video/mp4" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={model.mainImage}
-                  alt={model.name}
-                  className="w-full h-full object-cover object-center"
-                />
-              </video>
-            ) : (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={model.mainImage}
-                alt={model.name}
-                className="w-full h-full object-cover object-center"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+            <ModelHeroVideo
+              videoSrc={modelVideo}
+              poster={model.mainImage}
+              alt={model.name}
+            />
           </div>
         </div>
 
